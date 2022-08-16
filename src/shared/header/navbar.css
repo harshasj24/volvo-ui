@@ -1,0 +1,25 @@
+.header-nav {
+  background-color: #182871 !important;
+  color: white;
+  /* padding: 4px; */
+  /* padding: 0px 10px; */
+  padding-right: 20px;
+}
+header {
+}
+.logo {
+  letter-spacing: 10px !important;
+  font-weight: bolder !important;
+  font-family: "Times New Roman", Times, serif !important;
+}
+.paper {
+  border-radius: 0 !important;
+}
+.account {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+.header-lookup {
+  padding: 0px 10px;
+}
