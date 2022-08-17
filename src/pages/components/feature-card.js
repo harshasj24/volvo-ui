@@ -2,7 +2,7 @@ import React from "react";
 import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
 import { Typography } from "@mui/material";
 import "./features.css";
-const FeatureCard = ({ title, details }) => {
+const FeatureCard = ({ title, details, children }) => {
   return (
     <div>
       <div className="feature-card">
@@ -18,7 +18,7 @@ const FeatureCard = ({ title, details }) => {
         </div>
         <div className="feature-card__body">
           <Typography variant="" fontWeight={"600"} fontSize={"0.6rem"}>
-            {details}
+            {details || children}
           </Typography>
         </div>
       </div>

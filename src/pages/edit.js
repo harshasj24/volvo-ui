@@ -1,25 +1,53 @@
-import { Grid, Toolbar, Typography } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import {
+  AppBar,
+  Card,
+  Grid,
+  IconButton,
+  Modal,
+  Paper,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/api-provider";
+import EditFeature from "./components/edit-feature";
 import FeatureCard from "./components/feature-card";
 import "./edit.css";
-
+import EditIcon from "@mui/icons-material/Edit";
 const Edit = () => {
   const { feature, getVechicleFeature } = useApi();
   const ref = useRef(true);
   const keys = Object.keys(feature);
-  console.log(keys);
+  const [pricingKeys, setPricingKeys] = useState([]);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     if (ref.current) {
-      getVechicleFeature();
       ref.current = false;
+      getVechicleFeature();
     }
-  }, []);
-
+    try {
+      setPricingKeys(Object.keys(feature["pricing"]));
+    } catch (error) {
+      setPricingKeys([]);
+    }
+    console.log(feature);
+  }, [feature]);
+  const handelClose = () => {
+    setOpen(false);
+  };
+  const handelOpen = () => {
+    setOpen(true);
+  };
   return (
-    <div className="p-3">
+    <div className="">
       <Toolbar />
-      <Grid container spacing={1}>
+      <header className="d-flex mb-3 shadow-sm p-2 d-flex align-items-center">
+        <IconButton onClick={handelOpen} className="ms-auto">
+          <EditIcon />
+        </IconButton>
+      </header>
+      <Grid container spacing={1} padding={2}>
         <Grid item xs={12} lg={8}>
           <div className="features">
             <div className="features__head">
@@ -37,7 +65,7 @@ const Edit = () => {
                   })}
                 </Grid>
                 <Grid item xs={4}>
-                  {keys.splice(4, 5).map((key) => {
+                  {keys.slice(4, 9).map((key) => {
                     return (
                       <div className="fetures mb-3">
                         <FeatureCard title={key} details={feature[key]} />
@@ -46,7 +74,18 @@ const Edit = () => {
                   })}
                 </Grid>
                 <Grid item xs={4}>
-                  <FeatureCard title={"ash"} />
+                  <FeatureCard title={"Pricing"}>
+                    <table>
+                      {pricingKeys.map((key) => {
+                        return (
+                          <tr>
+                            <td>{key.replace("_", " ")}</td>
+                            <td>{feature["pricing"][key]}</td>
+                          </tr>
+                        );
+                      })}
+                    </table>
+                  </FeatureCard>
                 </Grid>
               </Grid>
             </div>
@@ -54,6 +93,11 @@ const Edit = () => {
         </Grid>
         <Grid className="border" item xs={12} lg={4}></Grid>
       </Grid>
+      <Modal open={open}>
+        <div className="modal-body">
+          <EditFeature handelClose={handelClose} />
+        </div>
+      </Modal>
     </div>
   );
 };

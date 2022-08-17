@@ -14,9 +14,9 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 export default function Navbar() {
   return (
     <AppBar
-      position="fixed"
+      // position="fixed"
       elevation={1}
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      // sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       {/* <Paper className="paper"> */}
       <header>
