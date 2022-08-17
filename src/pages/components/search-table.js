@@ -6,8 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 const SearchTable = ({ rows }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/edit");
+  };
   return (
     <TableContainer>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -15,7 +20,7 @@ const SearchTable = ({ rows }) => {
           <TableRow>
             <TableCell className="border-none">Year</TableCell>
             <TableCell className="border-none" align="left">
-              Vehical
+              vehicle
             </TableCell>
             <TableCell className="border-none" align="left">
               VIN
@@ -32,20 +37,6 @@ const SearchTable = ({ rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))} */}
           <TableRow sx={{ border: "none", outline: "none" }}>
             <TableCell className="tabel-body__cell"></TableCell>
             <TableCell className="tabel-body__cell"></TableCell>
@@ -57,8 +48,13 @@ const SearchTable = ({ rows }) => {
           {rows.map((row) => {
             return (
               <TableRow
+                onClick={handleClick}
+                hover
                 key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                  cursor: "pointer",
+                }}
               >
                 <TableCell sx={{ width: "100px" }} component="th" scope="row">
                   {row.year}

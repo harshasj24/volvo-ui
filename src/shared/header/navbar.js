@@ -30,7 +30,7 @@ export default function Navbar() {
 
           <div className="account">
             <AccountCircleIcon />
-            <h6>Michael Monoroney</h6>
+            <h6>Michael Monroney</h6>
           </div>
         </div>
 

@@ -42,7 +42,7 @@ export default function MonroneyEdit() {
         ...drawerOptions,
         variant: "temporary",
       });
-    } else if (breakPoint === "laptop") {
+    } else if (breakPoint === "laptop" || breakPoint === "desktop") {
       setDrawerOptions({
         ...drawerOptions,
         variant: "permanent",
@@ -52,6 +52,7 @@ export default function MonroneyEdit() {
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
+        PaperProps={{ elevation: 3 }}
         open={drawerOptions.open}
         variant={drawerOptions.variant}
         sx={{

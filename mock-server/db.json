@@ -120,5 +120,31 @@
       "location": "factory 1234",
       "monroney": "N/A"
     }
+  ],
+  "features": [
+    {
+      "performance": "2.0L Turbo-Charged, Direct Injected Engine\n247 HP @ 5400 RPM and 258 b-ft Torque 1800 RPM\n48V Mild Hybrid System w/ Regen Braking/13 HP ISG\n8-Speed Geartronic Automatic Trans w/ Start-Stop\nDynamic Chassis Double Wishbone Front& Integral Link Rear Susp \nAnti-Lock Braking Sys (ABS) w/ Hill Start Assist \nAdvanced Electronic Stability Control (ESC) \nElectric Power Assisted Steering \n18 Alloy Wheels with All-Season Tires",
+      "audioAndTechnology": "12.3 Progressive Digital Driver Display.\nwith 2 display modes: Calm and Navi Mode\n9 Integrated Touchscreen\n4-Year Subscription to Google Automotive Services:\nFeat. Google Assistant Natural Voice Recognition\nGoogle Maps and Google Play\nInductive Smartphone Charging\nBluetooth Connectivity wl Audio Streaming\nFM Radio\nHigh Performance Audio System\nUSB-C Ports, 2 Front +2 Rear",
+      "safetyAndSecurity": "\nLED Headlights with DRL, AHB and ABL\nBlind Spot Information System with Steer Assist\nand Cross Traffic Alert with Autobrake\nCollision Avoidance featuring:\nLow&High Speed Collision Mitigation\nDetects Vehicle/Pedestrian/Cyclist/Large Animal\nDriver Alert Control\nRun-off Road Protection& Run-off Road Mitigation\nLane Departure Warning/Lane Keeping Aid\nOncoming Mitigation by Braking\nFront, Side & Curtain Airbags\nwith Driver Side Knee Airbag\nWhiplash Protection System (WHIPS) in Front Seats\nConnected Safety: Slippery Road/Hazard Light Alert\nRear Park Assist Camera + Rear Park Assist\nChild Lock, Rear Doors\nAutomatic Braking after Collision\nAutomatic Unlocking after Collision",
+      "luxuryAndConvenience": "\nLaminated Panoramic Moonroof w/ Power Sunshade\nCity Weave Textile Seating Surfaces\nTilt& Telescopic Steering Wheel\nKeyless Entry& Drive w/ lluminated Door Handles\nIntegrated Roof Rails\nFront Grille, High Gloss Black\nBright Window Surround\nPower Front Seats w/ Driver Seat Memory\nInclud. Power Lumbar Support\n2-Zone Automatic Climate Control+CleanZone\nAuto Dimming Interior & Exterior Mirrors\nRetractable Side View Mirrors\nTinted Windows, Rear Side Doors and Cargo\nWiper Blades with Integrated Washers\nTempa Spare Wheel incl. Jack Kit\nBody Colored Rear Insert\nluminated Vanity Mirror in Sunvisors",
+      "authorized_retailer": "VOLVO CARS ATHENS 7149 \n2890 ATLANTA HIGHWAY \nATHENS, GA 30606",
+
+      "warranty": "\n48 Month/50,000 Mile Limited Waranty Coverage\n144 Month Corrosion Protection Unlimited Mileage\nRefer to Warranty Info Book for Specific Limitations.\nVOLVO On-Call Roadside Assistance\nVolvo Increased Protection: AskY\nAbout an Extended Service Contract\nour Volvo Retailer",
+      "maintenance": "Complimentary Factory Scheduled Maintenance for the First 3 Years or 36,000 Miles",
+      "accessories": "Enhance the driving pleasure with Volvo accessories.\nEnrich the styling, integrate technology, boost\nperformance, or simply carry more cargo from\nfunction to fun, there's something for everyone.\nOHO\nTo view full accessory product line-\nScan this Smartphone QR code\nor visit https://accessories.volvocars.com/en-us",
+      "join_the_conversation": "See what our fans are saying about Volvo and join in!\nHave a question?\nFeel free to ask us on Twitter!@VolvoCarUSA\nScan this Smartphone QR code\nInstagram: @VolvoCarUSA\nFacebook: Volvo Car USA\nYouTube: Volvo Car USA",
+
+      "pricing": {
+        "IMPORTERs_SUGGESTED_LIST_PRICE P.O.E.": "$ 42,650.00",
+        "luggage_cover": "295.00",
+        "Leather_Upholstery": "1,400.00",
+        "Metallic_Paint": "695.00",
+        "Power_Operated_Tailgate": "200.00",
+        "Protection_Package_Premier": "670.00",
+        "19_5-Y-Spoke_Black Diamond_Cut-Alloy_Wheel": "800.00",
+        "Destination_Charge": "1,095.00",
+        "Total_Suggested-Retail_Price": "$47,805.00"
+      }
+    }
   ]
 }

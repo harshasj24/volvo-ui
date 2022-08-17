@@ -12,6 +12,7 @@ export const ApiProvider = ({ children }) => {
   const [store, setStore] = useState({
     isLoaded: false,
     allVechicles: [],
+    feature: {},
   });
 
   const getAllVechicles = async () => {
@@ -20,13 +21,18 @@ export const ApiProvider = ({ children }) => {
       setStore({ ...store, allVechicles: responce.data, isLoaded: true });
     }
   };
-
+  const getVechicleFeature = async () => {
+    const reaponce = await get("/features");
+    setStore({ ...store, feature: reaponce.data[0] });
+  };
   const values = useMemo(() => {
     return {
       allVechicles: store.allVechicles,
       getAllVechicles,
+      feature: store.feature,
+      getVechicleFeature,
     };
-  }, [store.allVechicles]);
+  }, [store.allVechicles, store.feature]);
 
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

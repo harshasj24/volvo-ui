@@ -2,8 +2,8 @@ import React, { createContext, useContext, useMemo, useState } from "react";
 const breakPointContext = createContext();
 const breakPoints = {
   mobile: "(max-width:600px)",
-  tablet: "(min-width:600px) and (max-width:768px)",
-  laptop: "(min-width:769px) and (max-width:1023px)",
+  tablet: "(min-width:600px) and (max-width:960px)",
+  laptop: "(min-width:960px) and (max-width:1023px)",
   desktop: "(min-width:1024px)",
 };
 export const BreakePoints = ({ children }) => {
