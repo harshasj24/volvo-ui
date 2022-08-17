@@ -12,14 +12,20 @@ import {
 import React from "react";
 import BasicSelect from "../../shared/select/basic-select";
 import CloseIcon from "@mui/icons-material/Close";
+import { useGlobal } from "../../context/global-states.provider";
 const EditFeature = ({ handelClose }) => {
+  const { selectedFeature, featureDetails, resetSelcted } = useGlobal();
+  const handleclick = () => {
+    handelClose();
+    resetSelcted();
+  };
   return (
     <Card sx={{ width: "40%" }}>
       <CardHeader
         title={"Content update"}
         subheader={"lorem epsum dolor sit emit"}
         action={
-          <IconButton onClick={handelClose}>
+          <IconButton onClick={handleclick}>
             <CloseIcon />
           </IconButton>
         }
@@ -33,6 +39,7 @@ const EditFeature = ({ handelClose }) => {
         <TextField
           variant="outlined"
           className="mt-3 w-100"
+          value={featureDetails}
           multiline
           minRows={6}
           maxRows={10}

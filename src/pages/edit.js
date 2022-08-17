@@ -31,7 +31,6 @@ const Edit = () => {
     } catch (error) {
       setPricingKeys([]);
     }
-    console.log(feature);
   }, [feature]);
   const handelClose = () => {
     setOpen(false);
@@ -51,15 +50,19 @@ const Edit = () => {
         <Grid item xs={12} lg={8}>
           <div className="features">
             <div className="features__head">
+              <span>Volvo 2022</span>
               <Typography variant="h4"> S90 T6 AWD INSCRIPTION</Typography>
             </div>
-            <div className="features__body mt-5">
+            <div className="features__body mt-2">
               <Grid container spacing={3}>
                 <Grid item xs={4}>
                   {keys.slice(0, 4).map((key) => {
                     return (
                       <div className="fetures mb-3">
-                        <FeatureCard title={key} details={feature[key]} />
+                        <FeatureCard
+                          title={key.replaceAll("_", " ")}
+                          details={feature[key]}
+                        />
                       </div>
                     );
                   })}
@@ -68,7 +71,10 @@ const Edit = () => {
                   {keys.slice(4, 9).map((key) => {
                     return (
                       <div className="fetures mb-3">
-                        <FeatureCard title={key} details={feature[key]} />
+                        <FeatureCard
+                          title={key.replaceAll("_", " ")}
+                          details={feature[key]}
+                        />
                       </div>
                     );
                   })}
@@ -79,7 +85,7 @@ const Edit = () => {
                       {pricingKeys.map((key) => {
                         return (
                           <tr>
-                            <td>{key.replace("_", " ")}</td>
+                            <td>{key.replaceAll("_", " ")}</td>
                             <td>{feature["pricing"][key]}</td>
                           </tr>
                         );

@@ -8,15 +8,18 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { BreakePoints } from "./context/breake-points";
+import { GlobalStaesProvider } from "./context/global-states.provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BreakePoints>
       <ApiProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <GlobalStaesProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </GlobalStaesProvider>
       </ApiProvider>
     </BreakePoints>
   </React.StrictMode>

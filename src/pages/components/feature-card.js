@@ -11,6 +11,7 @@ const FeatureCard = ({ title, details, children }) => {
             textTransform={"uppercase"}
             fontWeight={"bold"}
             variant="p"
+            fontSize={".8rem"}
           >
             {title}
           </Typography>
