@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useGlobal } from "../../context/global-states.provider";
 
-export default function BasicSelect() {
+export default function BasicSelect({ select }) {
   const [feature, setFeature] = React.useState("");
   const { selectFeature } = useGlobal();
   const handleChange = (event) => {
@@ -14,6 +14,10 @@ export default function BasicSelect() {
     selectFeature(selected);
     setFeature(event.target.value);
   };
+  React.useEffect(() => {
+    console.log(select);
+    select && setFeature("");
+  }, [select]);
   const features = [
     "Performance",
     "Audio and Technology",

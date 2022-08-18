@@ -11,16 +11,21 @@ import {
   FormControlLabel,
 } from "@mui/material";
 
-import React from "react";
+import React, { useState } from "react";
 import BasicSelect from "../../shared/select/basic-select";
 import CloseIcon from "@mui/icons-material/Close";
 import { useGlobal } from "../../context/global-states.provider";
 import "./editfeature.css";
 const EditFeature = ({ handelClose }) => {
   const { selectedFeature, featureDetails, resetSelcted } = useGlobal();
-  const handleclick = () => {
-    handelClose();
+  const [select, setSelect] = useState(false);
+  const handleclick = (close) => () => {
+    close && handelClose();
     resetSelcted();
+    setSelect(true);
+    setTimeout(() => {
+      setSelect(false);
+    });
   };
   return (
     <Card sx={{ width: "40%" }}>
@@ -28,7 +33,7 @@ const EditFeature = ({ handelClose }) => {
         title={"Content update"}
         subheader={"lorem epsum dolor sit emit"}
         action={
-          <IconButton onClick={handleclick}>
+          <IconButton onClick={handleclick(true)}>
             <CloseIcon />
           </IconButton>
         }
@@ -36,7 +41,7 @@ const EditFeature = ({ handelClose }) => {
       <hr style={{ margin: 0 }} />
       <CardContent>
         <div className="select">
-          <BasicSelect className="" />
+          <BasicSelect select={select} className="" />
         </div>
 
         {selectedFeature === "Pricing" ? (
@@ -76,6 +81,7 @@ const EditFeature = ({ handelClose }) => {
           variant="outlined"
           size="small"
           className="ms-auto"
+          onClick={handleclick(false)}
           color="error"
         >
           refresh
