@@ -17,6 +17,8 @@ export const GlobalStaesProvider = ({ children }) => {
     console.log(selected);
   };
 
+  const setSelect = () => {};
+
   const resetSelcted = () => {
     setStore({ ...store, featureDetails: "", selectedFeature: "" });
   };

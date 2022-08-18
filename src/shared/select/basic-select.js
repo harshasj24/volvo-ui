@@ -8,27 +8,29 @@ import { useGlobal } from "../../context/global-states.provider";
 
 export default function BasicSelect({ select }) {
   const [feature, setFeature] = React.useState("");
-  const { selectFeature } = useGlobal();
+  const { selectFeature, selectedFeature } = useGlobal();
   const handleChange = (event) => {
     const selected = event.target.value;
     selectFeature(selected);
     setFeature(event.target.value);
+    // setFeature("selectedFeature");
   };
   React.useEffect(() => {
     console.log(select);
     select && setFeature("");
-  }, [select]);
+    selectedFeature && setFeature(selectedFeature);
+  }, [select, selectedFeature]);
   const features = [
-    "Performance",
-    "Audio and Technology",
-    "Safety and Security",
-    "Luxury and Convenience",
-    "Authorized Retailer",
-    "Warranty",
-    "Mainataince",
-    "Accessories",
-    "Join the converstion",
-    "Pricing",
+    "performance",
+    "audio and technology",
+    "safety and security",
+    "luxury and convenience",
+    "authorized retailer",
+    "warranty",
+    "mainataince",
+    "accessories",
+    "join the converstion",
+    "pricing",
   ];
 
   return (
@@ -38,12 +40,17 @@ export default function BasicSelect({ select }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
+          sx={{ textTransform: "capitalize" }}
           value={feature}
           label="Call-out"
           onChange={handleChange}
         >
           {features.map((feature) => {
-            return <MenuItem value={feature}>{feature}</MenuItem>;
+            return (
+              <MenuItem sx={{ textTransform: "capitalize" }} value={feature}>
+                {feature}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>

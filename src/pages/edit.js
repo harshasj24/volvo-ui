@@ -62,6 +62,8 @@ const Edit = () => {
                     return (
                       <div className="fetures mb-3">
                         <FeatureCard
+                          handelOpen={handelOpen}
+                          key={key}
                           title={key.replaceAll("_", " ")}
                           details={feature[key]}
                         />
@@ -74,6 +76,8 @@ const Edit = () => {
                     return (
                       <div className="fetures mb-3">
                         <FeatureCard
+                          key={key}
+                          handelOpen={handelOpen}
                           title={key.replaceAll("_", " ")}
                           details={feature[key]}
                         />
@@ -82,16 +86,18 @@ const Edit = () => {
                   })}
                 </Grid>
                 <Grid item xs={4}>
-                  <FeatureCard title={"Pricing"}>
+                  <FeatureCard handelOpen={handelOpen} title={"pricing"}>
                     <table>
-                      {pricingKeys.map((key) => {
-                        return (
-                          <tr>
-                            <td>{key.replaceAll("_", " ")}</td>
-                            <td>{feature["pricing"][key]}</td>
-                          </tr>
-                        );
-                      })}
+                      <tbody>
+                        {pricingKeys.map((key) => {
+                          return (
+                            <tr key={key}>
+                              <td>{key.replaceAll("_", " ")}</td>
+                              <td>{feature["pricing"][key]}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
                     </table>
                   </FeatureCard>
                 </Grid>

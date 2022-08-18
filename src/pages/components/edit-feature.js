@@ -44,11 +44,12 @@ const EditFeature = ({ handelClose }) => {
           <BasicSelect select={select} className="" />
         </div>
 
-        {selectedFeature === "Pricing" ? (
+        {selectedFeature === "pricing" ? (
           <div className="pricing-field">
             {Object.keys(featureDetails).map((key) => {
               return (
                 <TextField
+                  key={key}
                   className="m-2"
                   defaultValue={featureDetails[key]}
                   label={key.replaceAll("_", " ")}

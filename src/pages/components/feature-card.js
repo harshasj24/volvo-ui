@@ -1,10 +1,10 @@
 import React from "react";
 import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
-import { Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import "./features.css";
 import { useGlobal } from "../../context/global-states.provider";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
-const FeatureCard = ({ title, details, children }) => {
+const FeatureCard = ({ title, details, children, handelOpen }) => {
   const { selectedFeature } = useGlobal();
   const activeClass = "shadow active-boder";
   const active = (defaultValue, value) => {
@@ -12,6 +12,11 @@ const FeatureCard = ({ title, details, children }) => {
       return value;
     }
     return defaultValue;
+  };
+  const { selectFeature } = useGlobal();
+  const handelClick = () => {
+    handelOpen();
+    selectFeature(title);
   };
   return (
     <div>
@@ -27,7 +32,9 @@ const FeatureCard = ({ title, details, children }) => {
           </Typography>
           <div className="header-icon ms-auto">
             {active(
-              <AssistantPhotoIcon />,
+              // <IconButton>
+              <AssistantPhotoIcon onClick={handelClick} />,
+              // </IconButton>,
               <BorderColorOutlinedIcon color="primary" />
             )}
           </div>
