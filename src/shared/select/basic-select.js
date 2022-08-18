@@ -10,7 +10,7 @@ export default function BasicSelect() {
   const [feature, setFeature] = React.useState("");
   const { selectFeature } = useGlobal();
   const handleChange = (event) => {
-    const selected = event.target.value.replaceAll(" ", "_");
+    const selected = event.target.value;
     selectFeature(selected);
     setFeature(event.target.value);
   };

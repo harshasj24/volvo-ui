@@ -8,11 +8,13 @@ export const GlobalStaesProvider = ({ children }) => {
   });
   const { feature } = useApi();
   const selectFeature = (selected) => {
+    const key = selected.replaceAll(" ", "_").toLowerCase();
     setStore({
       ...store,
       selectedFeature: selected,
-      featureDetails: feature[selected.toLowerCase()],
+      featureDetails: feature[key],
     });
+    console.log(selected);
   };
 
   const resetSelcted = () => {
@@ -26,7 +28,7 @@ export const GlobalStaesProvider = ({ children }) => {
       featureDetails: store.featureDetails,
       resetSelcted,
     };
-  }, [store, selectFeature]);
+  }, [store, store.featureDetails, selectFeature]);
   return (
     <div>
       <globalCotext.Provider value={values}>{children}</globalCotext.Provider>

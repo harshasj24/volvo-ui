@@ -10,3 +10,23 @@
   align-items: center;
   justify-content: center;
 }
+.gov-info {
+  width: 100%;
+  /* margin-left: 5%; */
+  min-height: 80%;
+  border: 2px dashed lightgray;
+  display: flex;
+  justify-content: center;
+}
+.gov-info > h2 {
+  margin-top: 50%;
+  letter-spacing: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+}
+
+@media print {
+  .edit-header {
+    display: none;
+  }
+}

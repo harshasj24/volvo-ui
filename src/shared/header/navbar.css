@@ -22,3 +22,8 @@
 .header-lookup {
   padding: 0px 10px;
 }
+@media print {
+  .navbar {
+    display: none !important;
+  }
+}

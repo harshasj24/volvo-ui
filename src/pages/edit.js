@@ -40,12 +40,14 @@ const Edit = () => {
   };
   return (
     <div className="">
-      <Toolbar />
-      <header className="d-flex mb-3 shadow-sm p-2 d-flex align-items-center">
-        <IconButton onClick={handelOpen} className="ms-auto">
-          <EditIcon />
-        </IconButton>
-      </header>
+      <div className="edit-header">
+        <Toolbar />
+        <header className="d-flex mb-3 shadow-sm p-1 d-flex align-items-center">
+          <IconButton onClick={handelOpen} className="ms-auto">
+            <EditIcon />
+          </IconButton>
+        </header>
+      </div>
       <Grid container spacing={1} padding={2}>
         <Grid item xs={12} lg={8}>
           <div className="features">
@@ -97,7 +99,11 @@ const Edit = () => {
             </div>
           </div>
         </Grid>
-        <Grid className="border" item xs={12} lg={4}></Grid>
+        <Grid className="" item xs={12} lg={4}>
+          <div className="gov-info">
+            <h2>GOVT INFO</h2>
+          </div>
+        </Grid>
       </Grid>
       <Modal open={open}>
         <div className="modal-body">

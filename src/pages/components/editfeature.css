@@ -1,0 +1,16 @@
+.pricing-field {
+  margin-top: 10px;
+  overflow-y: scroll;
+  height: 300px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.pricing-field::-webkit-scrollbar {
+  width: 8px;
+}
+.pricing-field::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+

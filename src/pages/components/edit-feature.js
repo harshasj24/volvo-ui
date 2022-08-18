@@ -7,12 +7,15 @@ import {
   Divider,
   IconButton,
   TextField,
+  InputLabel,
+  FormControlLabel,
 } from "@mui/material";
 
 import React from "react";
 import BasicSelect from "../../shared/select/basic-select";
 import CloseIcon from "@mui/icons-material/Close";
 import { useGlobal } from "../../context/global-states.provider";
+import "./editfeature.css";
 const EditFeature = ({ handelClose }) => {
   const { selectedFeature, featureDetails, resetSelcted } = useGlobal();
   const handleclick = () => {
@@ -36,15 +39,36 @@ const EditFeature = ({ handelClose }) => {
           <BasicSelect className="" />
         </div>
 
-        <TextField
-          variant="outlined"
-          className="mt-3 w-100"
-          value={featureDetails}
-          multiline
-          minRows={6}
-          maxRows={10}
-          label="Details"
-        />
+        {selectedFeature === "Pricing" ? (
+          <div className="pricing-field">
+            {Object.keys(featureDetails).map((key) => {
+              return (
+                <TextField
+                  className="m-2"
+                  defaultValue={featureDetails[key]}
+                  label={key.replaceAll("_", " ")}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <TextField
+              variant="outlined"
+              className="mt-3 w-100 feature-details"
+              defaultValue={featureDetails}
+              multiline
+              minRows={6}
+              maxRows={10}
+              label="Details"
+              InputLabelProps={{ shrink: true }}
+              sx={{
+                border: "none",
+                outline: "none",
+              }}
+            />
+          </div>
+        )}
       </CardContent>
       <hr />
       <CardActions className="pb-4">
