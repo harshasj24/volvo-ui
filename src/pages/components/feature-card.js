@@ -4,6 +4,7 @@ import { IconButton, Typography } from "@mui/material";
 import "./features.css";
 import { useGlobal } from "../../context/global-states.provider";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
+import LongMenu from "./long-menu";
 const FeatureCard = ({ title, details, children, handelOpen }) => {
   const { selectedFeature } = useGlobal();
   const activeClass = "shadow active-boder";
@@ -31,12 +32,14 @@ const FeatureCard = ({ title, details, children, handelOpen }) => {
             {title}
           </Typography>
           <div className="header-icon ms-auto">
-            {active(
+            {
+              <LongMenu openModel={handelClick} /> /* {active(
               // <IconButton>
               <AssistantPhotoIcon onClick={handelClick} />,
               // </IconButton>,
               <BorderColorOutlinedIcon color="primary" />
-            )}
+            )} */
+            }
           </div>
         </div>
         <div className="feature-card__body">

@@ -1,14 +1,17 @@
 .pricing-field {
   margin-top: 10px;
+
+  /* display: grid;
+  grid-template-columns: auto auto; */
+}
+.pricing-field__tabel {
   overflow-y: scroll;
   height: 250px;
-  display: grid;
-  grid-template-columns: auto auto;
 }
-.pricing-field::-webkit-scrollbar {
+.pricing-field__tabel::-webkit-scrollbar {
   width: 8px;
 }
-.pricing-field::-webkit-scrollbar-thumb {
+.pricing-field__tabel::-webkit-scrollbar-thumb {
   background-color: lightgray;
   border-radius: 5px;
 }

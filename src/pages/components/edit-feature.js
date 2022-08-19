@@ -14,6 +14,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
+  TableBody,
 } from "@mui/material";
 
 import React, { useState } from "react";
@@ -60,7 +61,61 @@ const EditFeature = ({ handelClose }) => {
                 />
               );
             })} */}
-            <PricingTabel pricingDetails={featureDetails} />
+            <div className="pricing-field__tabel">
+              <Table
+                sx={{
+                  minWidth: "60vw",
+
+                  border: "none",
+                  outline: "none",
+                }}
+              >
+                <TableHead>
+                  <TableRow sx={{ backgroundColor: "#c3d2d6" }}>
+                    <TableCell className="tabel__cell">
+                      Item description
+                    </TableCell>
+                    <TableCell className="tabel__cell">Price</TableCell>
+                    <TableCell className="tabel__cell">Actions</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {Object.keys(featureDetails).map((key) => {
+                    return (
+                      <PricingTabel
+                        itemDescription={key}
+                        price={featureDetails[key]}
+                      />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </div>
+
+            <div className="add  w-100  mt-3">
+              <Typography variant="p" fontWeight={"bold"}>
+                Add Item
+              </Typography>
+
+              <div className="actions mt-3">
+                <TextField
+                  variant="outlined"
+                  sx={{ width: "62%" }}
+                  size="small"
+                  label={"Item Discription"}
+                />
+                <TextField
+                  className="w-25 mx-2"
+                  variant="outlined"
+                  size="small"
+                  label={"Price"}
+                />
+                <Button sx={{ padding: 0.6 }} variant="outlined" size="medium">
+                  <AddOutlinedIcon fontSize="1" className="m-0" />{" "}
+                  <span className="ms-2">Add</span>
+                </Button>
+              </div>
+            </div>
           </div>
         ) : (
           <div>
@@ -80,30 +135,6 @@ const EditFeature = ({ handelClose }) => {
             />
           </div>
         )}
-        <div className="add  w-100  mt-3">
-          <Typography variant="p" fontWeight={"bold"}>
-            Add Item
-          </Typography>
-
-          <div className="actions mt-3">
-            <TextField
-              variant="outlined"
-              sx={{ width: "62%" }}
-              size="small"
-              label={"Item Discription"}
-            />
-            <TextField
-              className="w-25 mx-2"
-              variant="outlined"
-              size="small"
-              label={"Price"}
-            />
-            <Button sx={{ padding: 0.6 }} variant="outlined" size="medium">
-              <AddOutlinedIcon fontSize="1" className="m-0" />{" "}
-              <span className="ms-1">Add</span>
-            </Button>
-          </div>
-        </div>
       </CardContent>
       <hr />
       <CardActions className="pb-4">
