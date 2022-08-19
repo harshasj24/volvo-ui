@@ -155,12 +155,8 @@ export default function MonroneyEdit() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
 
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <Features />
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <EGInfo />
-        </TabPanel>
+        <TabPanel value={value} index={0} dir={theme.direction}></TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}></TabPanel>
       </Box>
     </Box>
   );

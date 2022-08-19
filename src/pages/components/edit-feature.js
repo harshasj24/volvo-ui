@@ -9,6 +9,11 @@ import {
   TextField,
   InputLabel,
   FormControlLabel,
+  Typography,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
 } from "@mui/material";
 
 import React, { useState } from "react";
@@ -16,8 +21,11 @@ import BasicSelect from "../../shared/select/basic-select";
 import CloseIcon from "@mui/icons-material/Close";
 import { useGlobal } from "../../context/global-states.provider";
 import "./editfeature.css";
+import PricingTabel from "./pricing-tabel";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 const EditFeature = ({ handelClose }) => {
-  const { selectedFeature, featureDetails, resetSelcted } = useGlobal();
+  const { selectedFeature, featureDetails, resetSelcted, titleCase } =
+    useGlobal();
   const [select, setSelect] = useState(false);
   const handleclick = (close) => () => {
     close && handelClose();
@@ -28,25 +36,21 @@ const EditFeature = ({ handelClose }) => {
     });
   };
   return (
-    <Card sx={{ width: "40%" }}>
+    <Card sx={{ minWidth: "40%" }}>
       <CardHeader
         title={"Content update"}
         subheader={"lorem epsum dolor sit emit"}
-        action={
-          <IconButton onClick={handleclick(true)}>
-            <CloseIcon />
-          </IconButton>
-        }
       />
       <hr style={{ margin: 0 }} />
       <CardContent>
         <div className="select">
-          <BasicSelect select={select} className="" />
+          {/* <BasicSelect select={select} className="" /> */}
+          <Typography variant="h6">{titleCase(selectedFeature)}</Typography>
         </div>
 
         {selectedFeature === "pricing" ? (
-          <div className="pricing-field">
-            {Object.keys(featureDetails).map((key) => {
+          <div className="pricing-field w-100 ">
+            {/* {Object.keys(featureDetails).map((key) => {
               return (
                 <TextField
                   key={key}
@@ -55,7 +59,8 @@ const EditFeature = ({ handelClose }) => {
                   label={key.replaceAll("_", " ")}
                 />
               );
-            })}
+            })} */}
+            <PricingTabel pricingDetails={featureDetails} />
           </div>
         ) : (
           <div>
@@ -75,19 +80,51 @@ const EditFeature = ({ handelClose }) => {
             />
           </div>
         )}
+        <div className="add  w-100  mt-3">
+          <Typography variant="p" fontWeight={"bold"}>
+            Add Item
+          </Typography>
+
+          <div className="actions mt-3">
+            <TextField
+              variant="outlined"
+              sx={{ width: "62%" }}
+              size="small"
+              label={"Item Discription"}
+            />
+            <TextField
+              className="w-25 mx-2"
+              variant="outlined"
+              size="small"
+              label={"Price"}
+            />
+            <Button sx={{ padding: 0.6 }} variant="outlined" size="medium">
+              <AddOutlinedIcon fontSize="1" className="m-0" />{" "}
+              <span className="ms-1">Add</span>
+            </Button>
+          </div>
+        </div>
       </CardContent>
       <hr />
       <CardActions className="pb-4">
         <Button
           variant="outlined"
           size="small"
-          className="ms-auto"
           onClick={handleclick(false)}
-          color="error"
+          color="primary"
         >
           refresh
         </Button>
-        <Button variant="contained" className="" size="small" color="error">
+        <Button
+          variant="outlined"
+          size="small"
+          className="ms-auto"
+          onClick={handleclick(true)}
+          color="primary"
+        >
+          Cancle
+        </Button>
+        <Button variant="contained" className="" size="small" color="primary">
           Update
         </Button>
       </CardActions>

@@ -14,6 +14,7 @@ import EditFeature from "./components/edit-feature";
 import FeatureCard from "./components/feature-card";
 import "./edit.css";
 import EditIcon from "@mui/icons-material/Edit";
+import PricingTabel from "./components/pricing-tabel";
 const Edit = () => {
   const { feature, getVechicleFeature } = useApi();
   const ref = useRef(true);
@@ -58,7 +59,7 @@ const Edit = () => {
             <div className="features__body mt-2">
               <Grid container spacing={3}>
                 <Grid item xs={4}>
-                  {keys.slice(0, 4).map((key) => {
+                  {keys.slice(1, 4).map((key) => {
                     return (
                       <div className="fetures mb-3">
                         <FeatureCard

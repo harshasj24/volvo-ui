@@ -1,7 +1,7 @@
 .pricing-field {
   margin-top: 10px;
   overflow-y: scroll;
-  height: 300px;
+  height: 250px;
   display: grid;
   grid-template-columns: auto auto;
 }
@@ -12,5 +12,6 @@
   background-color: lightgray;
   border-radius: 5px;
 }
-
-
+.add {
+  height: 75px;
+}

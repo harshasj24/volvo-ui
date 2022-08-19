@@ -23,12 +23,22 @@ export const GlobalStaesProvider = ({ children }) => {
     setStore({ ...store, featureDetails: "", selectedFeature: "" });
   };
 
+  const titleCase = (string) => {
+    return string.replace(/\w\S*/g, (char) => {
+      return char[0].toUpperCase() + char.slice(1).toLowerCase();
+    });
+  };
+  const replaceChar = (string, toReplace, newChar) => {
+    return string.replaceAll(toReplace, newChar);
+  };
   const values = useMemo(() => {
     return {
       selectedFeature: store.selectedFeature,
       selectFeature,
       featureDetails: store.featureDetails,
       resetSelcted,
+      titleCase,
+      replaceChar,
     };
   }, [store, store.featureDetails, selectFeature]);
   return (
