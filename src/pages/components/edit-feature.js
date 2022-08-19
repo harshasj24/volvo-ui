@@ -44,7 +44,7 @@ const EditFeature = ({ handelClose }) => {
       />
       <hr style={{ margin: 0 }} />
       <CardContent>
-        <div className="select">
+        <div className="title">
           {/* <BasicSelect select={select} className="" /> */}
           <Typography variant="h6">{titleCase(selectedFeature)}</Typography>
         </div>

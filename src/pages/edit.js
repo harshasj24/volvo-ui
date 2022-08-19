@@ -107,7 +107,7 @@ const Edit = () => {
             </div>
             <div className="features__body mt-2">
               <Grid container spacing={3}>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                   {keys.slice(1, 4).map((key) => {
                     return (
                       <div className="fetures mb-3">
@@ -121,7 +121,7 @@ const Edit = () => {
                     );
                   })}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                   {keys.slice(4, 9).map((key) => {
                     return (
                       <div className="fetures mb-3">
@@ -135,7 +135,7 @@ const Edit = () => {
                     );
                   })}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                   <FeatureCard handelOpen={handelOpen} title={"pricing"}>
                     <table>
                       <tbody>
