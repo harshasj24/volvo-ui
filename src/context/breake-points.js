@@ -20,10 +20,23 @@ export const BreakePoints = ({ children }) => {
       matchMediaQuerry(breakPoints, setBreakPoint);
     });
   };
+
+  const checkBreakPoint = (...viewPort) => {
+    const [mobile, tablet, laptop, desktop] = viewPort;
+    if (
+      breakPoint === mobile ||
+      breakPoint === tablet ||
+      breakPoint === laptop ||
+      breakPoint === desktop
+    ) {
+      return true;
+    }
+  };
   const value = useMemo(() => {
     return {
       breakPoint,
       breakepointObserver,
+      checkBreakPoint,
     };
   }, [breakPoint]);
   return (

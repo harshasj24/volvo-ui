@@ -6,11 +6,18 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useGlobal } from "../../context/global-states.provider";
 
-export default function BasicSelect({ select }) {
+export default function BasicSelect({
+  defaultValue,
+  disabled,
+  select,
+  title,
+  options,
+}) {
   const [feature, setFeature] = React.useState("");
   const { selectFeature, selectedFeature } = useGlobal();
   const handleChange = (event) => {
     const selected = event.target.value;
+    console.log(event.target.value);
     selectFeature(selected);
     setFeature(event.target.value);
     // setFeature("selectedFeature");
@@ -19,7 +26,7 @@ export default function BasicSelect({ select }) {
     console.log(select);
     select && setFeature("");
     selectedFeature && setFeature(selectedFeature);
-  }, [select, selectedFeature]);
+  }, []);
   const features = [
     "performance",
     "audio and technology",
@@ -33,22 +40,36 @@ export default function BasicSelect({ select }) {
     "pricing",
   ];
 
+  const status = ["Appled", "Label Not Applied"];
+
+  const allocation = ["7149-Volvo Cars Athens"];
+  const getOptions = () => {
+    if (options === "features") {
+      return feature;
+    } else if (options === "status") {
+      return status;
+    } else if (options === "allocation") {
+      return allocation;
+    }
+  };
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth size="small">
-        <InputLabel id="demo-simple-select-label">Call-out</InputLabel>
+        <InputLabel id="demo-simple-select-label">{title}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           sx={{ textTransform: "capitalize" }}
           value={feature}
-          label="Call-out"
+          label={title}
           onChange={handleChange}
+          defaultValue={defaultValue}
+          disabled={disabled}
         >
-          {features.map((feature) => {
+          {getOptions().map((option) => {
             return (
-              <MenuItem sx={{ textTransform: "capitalize" }} value={feature}>
-                {feature}
+              <MenuItem sx={{ textTransform: "capitalize" }} value={option}>
+                {option}
               </MenuItem>
             );
           })}

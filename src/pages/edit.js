@@ -1,13 +1,18 @@
 import {
   AppBar,
   Card,
+  Checkbox,
+  FormControlLabel,
   Grid,
   IconButton,
   Modal,
   Paper,
   Toolbar,
   Typography,
+  Button,
 } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import React, { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/api-provider";
 import EditFeature from "./components/edit-feature";
@@ -15,12 +20,17 @@ import FeatureCard from "./components/feature-card";
 import "./edit.css";
 import EditIcon from "@mui/icons-material/Edit";
 import PricingTabel from "./components/pricing-tabel";
+import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
+import CachedIcon from "@mui/icons-material/Cached";
+import BasicSelect from "../shared/select/basic-select";
+import { useBreakePoint } from "../context/breake-points";
 const Edit = () => {
   const { feature, getVechicleFeature } = useApi();
   const ref = useRef(true);
   const keys = Object.keys(feature);
   const [pricingKeys, setPricingKeys] = useState([]);
   const [open, setOpen] = useState(false);
+  const { breakepointObserver, checkBreakPoint } = useBreakePoint();
 
   useEffect(() => {
     if (ref.current) {
@@ -32,6 +42,7 @@ const Edit = () => {
     } catch (error) {
       setPricingKeys([]);
     }
+    breakepointObserver();
   }, [feature]);
   const handelClose = () => {
     setOpen(false);
@@ -43,10 +54,48 @@ const Edit = () => {
     <div className="">
       <div className="edit-header">
         <Toolbar />
-        <header className="d-flex mb-3 shadow-sm p-1 d-flex align-items-center">
-          <IconButton onClick={handelOpen} className="ms-auto">
-            <EditIcon />
-          </IconButton>
+        <header className="d-flex mb-3 shadow-sm p-3 d-flex align-items-center">
+          <div className="title">
+            <Typography
+              margin={0}
+              fontWeight={"bold"}
+              fontSize={"1rem"}
+              variant="h6"
+            >
+              S90 T6 AWD INSCRIPTION
+            </Typography>
+            <Typography variant="p" fontSize={".8rem"}>
+              V12LK45679WE1296
+            </Typography>
+          </div>
+
+          <div className="select d-flex">
+            <BasicSelect title={"Allocation"} options={"allocation"} />
+            <BasicSelect title={"Status"} options={"status"} />
+          </div>
+          <div className="actions ms-auto">
+            <Button
+              sx={{ textTransform: "capitalize" }}
+              className="mx-3"
+              size="small"
+              variant="outlined"
+            >
+              <CachedIcon fontSize="small" />
+              {checkBreakPoint("laptop", "desktop") && (
+                <span className="ms-2">Refresh Data</span>
+              )}
+            </Button>
+            <Button
+              sx={{ textTransform: "capitalize" }}
+              size="small"
+              variant="outlined"
+            >
+              <LocalPrintshopIcon fontSize="small" />
+              {checkBreakPoint("laptop", "desktop") && (
+                <span className="ms-2">Print</span>
+              )}
+            </Button>
+          </div>
         </header>
       </div>
       <Grid container spacing={1} padding={2}>

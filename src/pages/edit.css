@@ -30,3 +30,17 @@
     display: none;
   }
 }
+.select {
+  margin-left: 7%;
+  gap: 10px;
+}
+.check > svg {
+  /* background-color: red !important; */
+}
+
+@media screen and (max-width: 840px) {
+  .select {
+    margin-left: 2%;
+    gap: 10px;
+  }
+}
