@@ -20,6 +20,9 @@ export default function LongMenu({ openModel }) {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handelItemButton = () => {
+    setAnchorEl(null);
     openModel();
   };
 
@@ -55,16 +58,16 @@ export default function LongMenu({ openModel }) {
           key={"Edit"}
           // selected={option === "Pyxis"}
           className="menu-item"
-          onClick={handleClose}
+          onClick={handelItemButton}
         >
           <BorderColorOutlinedIcon fontSize="1" />
           <span className="ms-3">Edit Item</span>
         </MenuItem>
         <MenuItem
           className="menu-item"
-          key={"Edit"}
+          key={"Add"}
           // selected={option === "Pyxis"}
-          onClick={handleClose}
+          onClick={handelItemButton}
         >
           <AddOutlinedIcon fontSize="1" />
           <span className="ms-3">Add Item</span>

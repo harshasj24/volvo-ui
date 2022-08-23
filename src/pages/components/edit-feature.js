@@ -37,7 +37,7 @@ const EditFeature = ({ handelClose }) => {
     });
   };
   return (
-    <Card sx={{ minWidth: "40%" }}>
+    <Card className="edit-card" sx={{ minWidth: "40%" }}>
       <CardHeader
         title={"Content update"}
         subheader={"lorem epsum dolor sit emit"}

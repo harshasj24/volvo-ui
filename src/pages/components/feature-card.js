@@ -20,33 +20,31 @@ const FeatureCard = ({ title, details, children, handelOpen }) => {
     selectFeature(title);
   };
   return (
-    <div>
-      <div className={`feature-card p-1 ${active("", activeClass)}`}>
-        <div className="feature-card__header  d-flex">
-          <Typography
-            textTransform={"uppercase"}
-            fontWeight={"bold"}
-            variant="p"
-            fontSize={".8rem"}
-          >
-            {title}
-          </Typography>
-          <div className="header-icon ms-auto">
-            {
-              <LongMenu openModel={handelClick} /> /* {active(
+    <div className={`feature-card p-1 ${active("", activeClass)}`}>
+      <div className="feature-card__header  d-flex">
+        <Typography
+          textTransform={"uppercase"}
+          fontWeight={"bold"}
+          variant="p"
+          fontSize={".8rem"}
+        >
+          {title}
+        </Typography>
+        <div className="header-icon ms-auto">
+          {
+            <LongMenu openModel={handelClick} /> /* {active(
               // <IconButton>
               <AssistantPhotoIcon onClick={handelClick} />,
               // </IconButton>,
               <BorderColorOutlinedIcon color="primary" />
             )} */
-            }
-          </div>
+          }
         </div>
-        <div className="feature-card__body">
-          <Typography variant="" fontWeight={"600"} fontSize={"0.6rem"}>
-            {details || children}
-          </Typography>
-        </div>
+      </div>
+      <div className="feature-card__body">
+        <Typography variant="" fontWeight={"600"} fontSize={"0.6rem"}>
+          {details || children}
+        </Typography>
       </div>
     </div>
   );

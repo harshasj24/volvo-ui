@@ -4,7 +4,7 @@
   border-bottom: dotted;
 }
 .feature-card {
-  max-width: 19vw;
+  max-width: 19vw !important;
 }
 .feature-card__body {
   line-height: 13px;
@@ -25,4 +25,10 @@
 
 .active-boder {
   border: 1.4px solid #1976d2;
+}
+
+@media only screen and (max-width: 600px) {
+  .feature-card {
+    max-width: 98% !important;
+  }
 }

@@ -24,6 +24,7 @@ import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import CachedIcon from "@mui/icons-material/Cached";
 import BasicSelect from "../shared/select/basic-select";
 import { useBreakePoint } from "../context/breake-points";
+import { GovtInfo } from "./components/govt-info";
 const Edit = () => {
   const { feature, getVechicleFeature } = useApi();
   const ref = useRef(true);
@@ -51,8 +52,8 @@ const Edit = () => {
     setOpen(true);
   };
   return (
-    <div className="">
-      <div className="edit-header">
+    <div className="edit">
+      <div className="edit__header w-100">
         <Toolbar />
         <header className="d-flex mb-3 shadow-sm p-3 d-flex align-items-center">
           <div className="title">
@@ -98,69 +99,71 @@ const Edit = () => {
           </div>
         </header>
       </div>
-      <Grid container spacing={1} padding={2}>
-        <Grid item xs={12} lg={8}>
-          <div className="features">
-            <div className="features__head">
-              <span>Volvo 2022</span>
-              <Typography variant="h4"> S90 T6 AWD INSCRIPTION</Typography>
+      <div className="edit__body ">
+        <Grid container spacing={1} padding={2}>
+          <Grid item xs={12} lg={8}>
+            <div className="features">
+              <div className="features__head">
+                <span>Volvo 2022</span>
+                <Typography variant="h4"> S90 T6 AWD INSCRIPTION</Typography>
+              </div>
+              <div className="features__body mt-2 ">
+                <Grid container spacing={3}>
+                  <Grid item xs={12} sm={4}>
+                    {keys.slice(1, 4).map((key) => {
+                      return (
+                        <div className="fetures mb-3">
+                          <FeatureCard
+                            handelOpen={handelOpen}
+                            key={key}
+                            title={key.replaceAll("_", " ")}
+                            details={feature[key]}
+                          />
+                        </div>
+                      );
+                    })}
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    {keys.slice(4, 9).map((key) => {
+                      return (
+                        <div className="fetures mb-3">
+                          <FeatureCard
+                            key={key}
+                            handelOpen={handelOpen}
+                            title={key.replaceAll("_", " ")}
+                            details={feature[key]}
+                          />
+                        </div>
+                      );
+                    })}
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    <FeatureCard handelOpen={handelOpen} title={"pricing"}>
+                      <table>
+                        <tbody>
+                          {pricingKeys.map((key, index) => {
+                            return (
+                              <tr key={index}>
+                                <td>{key.replaceAll("_", " ")}</td>
+                                <td>{feature["pricing"][key]}</td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </FeatureCard>
+                  </Grid>
+                </Grid>
+              </div>
             </div>
-            <div className="features__body mt-2">
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={4}>
-                  {keys.slice(1, 4).map((key) => {
-                    return (
-                      <div className="fetures mb-3">
-                        <FeatureCard
-                          handelOpen={handelOpen}
-                          key={key}
-                          title={key.replaceAll("_", " ")}
-                          details={feature[key]}
-                        />
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  {keys.slice(4, 9).map((key) => {
-                    return (
-                      <div className="fetures mb-3">
-                        <FeatureCard
-                          key={key}
-                          handelOpen={handelOpen}
-                          title={key.replaceAll("_", " ")}
-                          details={feature[key]}
-                        />
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <FeatureCard handelOpen={handelOpen} title={"pricing"}>
-                    <table>
-                      <tbody>
-                        {pricingKeys.map((key) => {
-                          return (
-                            <tr key={key}>
-                              <td>{key.replaceAll("_", " ")}</td>
-                              <td>{feature["pricing"][key]}</td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </FeatureCard>
-                </Grid>
-              </Grid>
+          </Grid>
+          <Grid className="" item xs={12} lg={4}>
+            <div className="gov-infoi border h-100">
+              <GovtInfo />
             </div>
-          </div>
+          </Grid>
         </Grid>
-        <Grid className="" item xs={12} lg={4}>
-          <div className="gov-info">
-            <h2>GOVT INFO</h2>
-          </div>
-        </Grid>
-      </Grid>
+      </div>
       <Modal open={open}>
         <div className="modal-body">
           <EditFeature handelClose={handelClose} />

@@ -143,7 +143,7 @@
       "accessories": "Enhance the driving pleasure with Volvo accessories.\nEnrich the styling, integrate technology, boost\nperformance, or simply carry more cargo from\nfunction to fun, there's something for everyone.\nOHO\nTo view full accessory product line-\nScan this Smartphone QR code\nor visit https://accessories.volvocars.com/en-us",
       "join_the_conversation": "See what our fans are saying about Volvo and join in!\nHave a question?\nFeel free to ask us on Twitter!@VolvoCarUSA\nScan this Smartphone QR code\nInstagram: @VolvoCarUSA\nFacebook: Volvo Car USA\nYouTube: Volvo Car USA",
       "pricing": {
-        "IMPORTERs_SUGGESTED_LIST_PRICE P.O.E.": "$ 42,650.00",
+        "IMPORTERs_SUGGESTED_LIST_PRICE POE.": "$42,220.00",
         "luggage_cover": "495.00",
         "Leather_Upholstery": "1,400.00",
         "Metallic_Paint": "695.00",
@@ -153,6 +153,161 @@
         "Destination_Charge": "1,095.00",
         "Total_Suggested-Retail_Price": "$47,805.00"
       }
+    }
+  ],
+  "vec": [
+    {
+      "car_id": 1,
+      "car_year": 2022,
+      "vehicle_name": "Batmobile",
+      "vin": "20201919vinnumber",
+      "car_status": "In Progress",
+      "location": "Houston, Tx",
+      "monroney_id": 9
+    },
+    {
+      "audio_and_technology_id": 18,
+      "driver_display": "Car 1 driver display",
+      "sound_system": " Car 1 Sound sytems",
+      "connections": "Car 1 connections",
+      "speakers": "Car 1 speakers",
+      "radio": "Car 1 radio",
+      "car_id": 1
+    },
+    {
+      "safety_and_security_id": 19,
+      "num_of_airbags": "car 1 Num of Airbags",
+      "locking_system": "Car 1 locking system",
+      "lights": "Car 1 Lights",
+      "cameras": "Car 1 cameras",
+      "safety_and_security_text_description": "Car 1 safety and security text description",
+      "car_id": 1
+    },
+    {
+      "accessories_id": 24,
+      "accessories_text_description": "car 1 accessories text description",
+      "car_id": 1
+    },
+    {
+      "annual_cost_and_environment_id": 12,
+      "annual_cost_fuel": "$2,000",
+      "fuel_economy_greenhouse_gas_rating": "4.1",
+      "smog_rating": "4.3",
+      "grams_CO2_per_mile": "545",
+      "monroney_id": 9
+    },
+    {
+      "authorized_retailer_id": 21,
+      "address": "Car 1 Address for authorized retailer",
+      "car_id": 1
+    },
+    {
+      "fuel_economy_id": 11,
+      "energy_type": "gasoline",
+      "mpg_city": "23",
+      "mpg_highway": "20",
+      "mpg_combined": "25",
+      "gallons_per_100_miles": "345",
+      "spend_in_gas": "$2,000",
+      "fuel_economy_text_description": "Car 1 Fuel Economy text description",
+      "monroney_id": 9
+    },
+    {
+      "gov_ratings_id": 14,
+      "gov_vehicle_score": "6.101",
+      "gov_frontal_score": "7.191913",
+      "gov_rollover_risk": "8.1133",
+      "vehicle_type_and_chasis": "Car 1 type and chasis",
+      "monroney_id": 9
+    },
+    {
+      "importation_id": 16,
+      "port_of_importation": "Port Arthur",
+      "delivered_by": "Ship",
+      "delivery_address": "7700445 Long Drive",
+      "monroney_id": 9
+    },
+    {
+      "luxury_and_convenience_id": 20,
+      "climate_control": "Car 1 climate_control",
+      "filtering": "Car 1 filtering",
+      "noise_cancelling": "Car 1 noise_cancelling",
+      "car_id": 1
+    },
+    {
+      "maintenance_id": 23,
+      "maintenance_text_description": "Car 1 maintenance text description",
+      "car_id": 1
+    },
+    {
+      "parts_content_information_id": 13,
+      "us_canadian_content": "%10",
+      "major_source_foreign_parts1_name": "Croatia",
+      "major_source_foreign_parts1_amount": "%13",
+      "major_source_foreign_parts2_name": "Iran",
+      "major_source_foreign_parts2_amount": "%99",
+      "final_assembly_point": "Mexico",
+      "country_of_origin": "Sweden",
+      "transmission_parts_origin": "Japan",
+      "monroney_id": 9
+    },
+    {
+      "performance_id": 17,
+      "car_engine": "5.5L 12 Cylinder",
+      "suspension": "Car 1 Suspension",
+      "transmission": "Car 1 Transmission",
+      "horsepower": "Car 1 Horse power",
+      "performance_text_description": "Car 1 performance text description",
+      "car_id": 1
+    },
+    {
+      "pricing_id": 26,
+      "list_price": 412.0,
+      "additional_price": 5.0,
+      "advanced_features": 1.0,
+      "special_item0_title": "Car 1 Speacial item0",
+      "special_item0": 10.0,
+      "special_item1_title": "Car 1 Speacial item1",
+      "special_item1": 10.1,
+      "special_item2_title": "Car 1 Speacial item2",
+      "special_item2": 10.2,
+      "special_item3_title": "Car 1 Speacial item3",
+      "special_item3": 10.3,
+      "special_item4_title": "Car 1 Speacial item4",
+      "special_item4": 10.4,
+      "special_item5_title": "Car 1 Speacial item5",
+      "special_item5": 10.5,
+      "special_item6_title": "Car 1 Speacial item6",
+      "special_item6": 10.6,
+      "special_item7_title": "Car 1 Speacial item7",
+      "special_item7": 10.7,
+      "special_item8_title": "Car 1 Speacial item8",
+      "special_item8": 10.8,
+      "special_item9_title": "Car 1 Speacial item9",
+      "special_item9": 10.9,
+      "special_item10_title": "Car 1 Speacial item10",
+      "special_item10": 11.0,
+      "car_id": 1
+    },
+    {
+      "vehicle_identification_id": 15,
+      "model_year": 2022,
+      "color": "Green",
+      "vin": "20201919vinnumber",
+      "monroney_id": 9
+    },
+    {
+      "warranty_id": 22,
+      "basic_warranty": "Car 1 basic_warranty",
+      "powertrain_warranty": "Car 1 powertrain_warranty",
+      "corrosion_warranty": "Car 1 corrosion_warranty",
+      "battery_warranty": "Car 1 battery_warranty",
+      "restraint_system_warranty": "Car 1 restraint_system_warranty",
+      "long_term_emmision_warranty": "Car 1 long_term_emmision_warranty",
+      "short_term_emmision_warranty": "Car 1 short_term_emmision_warranty",
+      "adjustments_warranty": "Car 1 adjustments_warranty",
+      "roadside_assistance": "Car 1: roadside_assistance",
+      "car_id": 1
     }
   ]
 }

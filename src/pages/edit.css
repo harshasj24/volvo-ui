@@ -44,3 +44,10 @@
     gap: 10px;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .edit {
+    width: 143vw !important;
+    margin: auto;
+  }
+}
