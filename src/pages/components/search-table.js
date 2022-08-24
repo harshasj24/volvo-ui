@@ -12,8 +12,8 @@ import { useBreakePoint } from "../../context/breake-points";
 const SearchTable = ({ rows }) => {
   const navigate = useNavigate();
   const { breakPoint, breakepointObserver } = useBreakePoint();
-  const handleClick = () => {
-    navigate("/edit");
+  const handleClick = (vin) => () => {
+    navigate(`/edit/${vin}`);
   };
   React.useEffect(() => {
     breakepointObserver(); //observing breakpoints
@@ -59,7 +59,7 @@ const SearchTable = ({ rows }) => {
           {rows.map((row, index) => {
             return (
               <TableRow
-                onClick={handleClick}
+                onClick={handleClick(row.VIN)}
                 hover
                 key={index}
                 sx={{

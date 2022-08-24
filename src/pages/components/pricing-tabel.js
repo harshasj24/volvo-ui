@@ -46,20 +46,25 @@ const PricingTabel = ({ itemDescription, price }) => {
         <TableCell sx={{ width: "65%", padding: 0.5 }}>
           {edit ? (
             <input
-              defaultValue={replaceChar(itemDescription, "_", " ")}
+              defaultValue={price["title"]}
               className="form-control"
               type="text"
             />
           ) : (
-            replaceChar(itemDescription, "_", " ")
+            // replaceChar(itemDescription, "_", " ")
+            price["title"]
           )}
         </TableCell>
         <TableCell sx={{ width: "15%", padding: 0.5 }}>
           {" "}
           {edit ? (
-            <input defaultValue={price} className="form-control" type="text" />
+            <input
+              defaultValue={price["price"]}
+              className="form-control"
+              type="text"
+            />
           ) : (
-            price
+            price["price"]
           )}
         </TableCell>
         <TableCell sx={{ width: "20%", padding: 0.5 }}>

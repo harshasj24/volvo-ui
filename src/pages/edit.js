@@ -25,19 +25,32 @@ import CachedIcon from "@mui/icons-material/Cached";
 import BasicSelect from "../shared/select/basic-select";
 import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "./components/govt-info";
+import { useSearchParams, useParams } from "react-router-dom";
 const Edit = () => {
-  const { feature, getVechicleFeature } = useApi();
+  const {
+    feature,
+    getVechicleFeature,
+    demoResponce,
+    monronyLabel,
+    getpricings,
+  } = useApi();
+
   const ref = useRef(true);
   const keys = Object.keys(feature);
   const [pricingKeys, setPricingKeys] = useState([]);
   const [open, setOpen] = useState(false);
+  const [features, setFeatures] = useState([]);
   const { breakepointObserver, checkBreakPoint } = useBreakePoint();
+
+  const { vin } = useParams();
 
   useEffect(() => {
     if (ref.current) {
       ref.current = false;
       getVechicleFeature();
+      getAllfeatures();
     }
+
     try {
       setPricingKeys(Object.keys(feature["pricing"]));
     } catch (error) {
@@ -45,12 +58,23 @@ const Edit = () => {
     }
     breakepointObserver();
   }, [feature]);
+  const getAllfeatures = async () => {
+    const data = await demoResponce();
+    setFeatures(data);
+  };
+
   const handelClose = () => {
     setOpen(false);
   };
   const handelOpen = () => {
     setOpen(true);
   };
+  const filterFeatures = (title) => {
+    return features.filter((value) => {
+      return value.name == title;
+    })[0];
+  };
+  let feArr = ["performance", "pricing"];
   return (
     <div className="edit">
       <div className="edit__header w-100">
@@ -66,7 +90,7 @@ const Edit = () => {
               S90 T6 AWD INSCRIPTION
             </Typography>
             <Typography variant="p" fontSize={".8rem"}>
-              V12LK45679WE1296
+              {vin}
             </Typography>
           </div>
 
@@ -110,18 +134,22 @@ const Edit = () => {
               <div className="features__body mt-2 ">
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={4}>
-                    {keys.slice(1, 4).map((key) => {
-                      return (
-                        <div className="fetures mb-3">
-                          <FeatureCard
-                            handelOpen={handelOpen}
-                            key={key}
-                            title={key.replaceAll("_", " ")}
-                            details={feature[key]}
-                          />
-                        </div>
-                      );
-                    })}
+                    {
+                      // ["performance","audio and technology"," safety and security"]
+                      keys.slice(1, 4).map((key) => {
+                        return (
+                          <div className="fetures mb-3">
+                            <FeatureCard
+                              handelOpen={handelOpen}
+                              key={key}
+                              title={key.replaceAll("_", " ")}
+                              details={feature[key]}
+                              arr={filterFeatures("pricing")}
+                            />
+                          </div>
+                        );
+                      })
+                    }
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     {keys.slice(4, 9).map((key) => {

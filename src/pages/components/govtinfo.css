@@ -75,3 +75,149 @@ br {
 .br-3s {
   border-radius: 0px 5px 5px 5px;
 }
+.qr-code {
+  height: 60px;
+  width: 85px;
+  flex-shrink: 0;
+}
+.margin-0 {
+  margin: 0 !important;
+}
+.gov-logo {
+  height: 20px;
+  width: 20px;
+  border: solid;
+  border-radius: 100%;
+}
+.qr {
+  transform: rotate(-90deg);
+  font-size: 2rem;
+}
+.lower-content {
+  margin-top: 0.3rem;
+}
+
+.lower-content {
+  display: flex;
+}
+.left-container {
+  border: 1px solid black;
+  padding: 0;
+  width: 37%;
+  background-color: black;
+  color: white;
+}
+.left-container h5 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 100%;
+  padding: 0 0.4rem;
+  margin: 0.4rem 0;
+}
+.inner-left-container {
+  background-color: white;
+  color: black;
+  margin: 0;
+  border: 1px solid white;
+}
+.inner-left-container ul {
+  padding: 0;
+  margin-top: 0.4rem;
+}
+.inner-left-container ul li {
+  list-style: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.64rem;
+}
+.inner-left-container p {
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.right-container {
+  margin-left: 0.1rem;
+  padding: 0;
+  width: 63%;
+}
+.first-inner-container {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+.first-inner-container h5 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  margin: 0.3rem 0;
+  text-align: center;
+}
+.first-right-content {
+  background-color: white;
+  color: black;
+}
+.first-right-content p {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5.8rem 0.5rem;
+}
+.right-container .last-para {
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
+}
+.second-inner-container {
+  display: flex;
+  margin-top: 0.1rem;
+}
+.left-second-content {
+  border: 1px solid black;
+  padding: 0.5rem 0.5rem;
+  width: 100%;
+}
+.left-second-content p {
+  font-size: 0.6rem;
+  font-weight: bolder;
+  margin: 0;
+  line-height: 0.8rem;
+}
+.second-inner-container div:last-child {
+  margin-left: 0.2rem;
+}
+.third-inner-container {
+  border: 1px solid black;
+  margin-top: 0.2rem;
+  padding-top: 0.8rem;
+}
+.third-inner-container img {
+  width: 20rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.third-inner-container p {
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bolder;
+}
+.inner-left-container > ul > li {
+  font-size: 0.67rem !important;
+}
+.govt-info {
+  overflow: hidden !important;
+}
+@media only screen and (max-width: 900px) {
+  .govt-info {
+    width: 75%;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .govt-info {
+    width: 100%;
+    margin: auto;
+  }
+}

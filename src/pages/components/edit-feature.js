@@ -17,14 +17,16 @@ import {
   TableBody,
 } from "@mui/material";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BasicSelect from "../../shared/select/basic-select";
 import CloseIcon from "@mui/icons-material/Close";
 import { useGlobal } from "../../context/global-states.provider";
 import "./editfeature.css";
 import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import { useApi } from "../../context/api-provider";
 const EditFeature = ({ handelClose }) => {
+  const { pricing } = useApi();
   const { selectedFeature, featureDetails, resetSelcted, titleCase } =
     useGlobal();
   const [select, setSelect] = useState(false);
@@ -36,6 +38,9 @@ const EditFeature = ({ handelClose }) => {
       setSelect(false);
     });
   };
+  useEffect(() => {
+    console.log(pricing);
+  }, [pricing]);
   return (
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
       <CardHeader
@@ -80,14 +85,15 @@ const EditFeature = ({ handelClose }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {Object.keys(featureDetails).map((key) => {
-                    return (
-                      <PricingTabel
-                        itemDescription={key}
-                        price={featureDetails[key]}
-                      />
-                    );
-                  })}
+                  {pricing["special_items"] &&
+                    pricing["special_items"].map((key) => {
+                      return (
+                        <PricingTabel
+                          // itemDescription={key}
+                          price={key}
+                        />
+                      );
+                    })}
                 </TableBody>
               </Table>
             </div>

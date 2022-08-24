@@ -11,7 +11,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1376",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -19,7 +19,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1426",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -27,7 +27,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1566",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -35,7 +35,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1431",
       "status": "Build Sheet",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -43,7 +43,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1112",
       "status": "Build Sheet",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -51,7 +51,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1098",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -59,7 +59,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1876",
       "status": "In Transit",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -67,7 +67,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE1886",
       "status": "Build Sheet",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -75,7 +75,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE2266",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -83,7 +83,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE6796",
       "status": "Build Sheet",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -91,7 +91,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE8991",
       "status": "Build Sheet",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -99,7 +99,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE7842",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -107,7 +107,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE0987",
       "status": "In Transit",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -115,7 +115,7 @@
     {
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1296",
+      "VIN": "V12LK45679WE7765",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -124,7 +124,7 @@
       "id": "12",
       "year": "2022",
       "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1291",
+      "VIN": "V12LK45679WE9987",
       "status": "Allocated",
       "location": "factory 1234",
       "monroney": "N/A"
@@ -155,7 +155,7 @@
       }
     }
   ],
-  "vec": [
+  "demoResponce": [
     {
       "car_id": 1,
       "car_year": 2022,
@@ -172,7 +172,9 @@
       "connections": "Car 1 connections",
       "speakers": "Car 1 speakers",
       "radio": "Car 1 radio",
-      "car_id": 1
+      "car_id": 1,
+      "name": "audio and technology",
+      "type": "feature"
     },
     {
       "safety_and_security_id": 19,
@@ -181,12 +183,16 @@
       "lights": "Car 1 Lights",
       "cameras": "Car 1 cameras",
       "safety_and_security_text_description": "Car 1 safety and security text description",
-      "car_id": 1
+      "car_id": 1,
+      "name": "safety and security",
+      "type": "feature"
     },
     {
       "accessories_id": 24,
       "accessories_text_description": "car 1 accessories text description",
-      "car_id": 1
+      "car_id": 1,
+      "name": "accessories",
+      "type": "feature"
     },
     {
       "annual_cost_and_environment_id": 12,
@@ -194,12 +200,16 @@
       "fuel_economy_greenhouse_gas_rating": "4.1",
       "smog_rating": "4.3",
       "grams_CO2_per_mile": "545",
-      "monroney_id": 9
+      "monroney_id": 9,
+      "name": "annual cost and environment",
+      "type": "monrony label"
     },
     {
       "authorized_retailer_id": 21,
       "address": "Car 1 Address for authorized retailer",
-      "car_id": 1
+      "car_id": 1,
+      "name": "authorized retailer",
+      "type": "feature"
     },
     {
       "fuel_economy_id": 11,
@@ -210,7 +220,9 @@
       "gallons_per_100_miles": "345",
       "spend_in_gas": "$2,000",
       "fuel_economy_text_description": "Car 1 Fuel Economy text description",
-      "monroney_id": 9
+      "monroney_id": 9,
+      "name": "fuel economy",
+      "type": "monrony label"
     },
     {
       "gov_ratings_id": 14,
@@ -218,26 +230,34 @@
       "gov_frontal_score": "7.191913",
       "gov_rollover_risk": "8.1133",
       "vehicle_type_and_chasis": "Car 1 type and chasis",
-      "monroney_id": 9
+      "monroney_id": 9,
+      "name": "gov rating",
+      "type": "monrony label"
     },
     {
       "importation_id": 16,
       "port_of_importation": "Port Arthur",
       "delivered_by": "Ship",
       "delivery_address": "7700445 Long Drive",
-      "monroney_id": 9
+      "monroney_id": 9,
+      "name": "importation",
+      "type": "monrony label"
     },
     {
       "luxury_and_convenience_id": 20,
       "climate_control": "Car 1 climate_control",
       "filtering": "Car 1 filtering",
       "noise_cancelling": "Car 1 noise_cancelling",
-      "car_id": 1
+      "car_id": 1,
+      "name": "luxury and convenience",
+      "type": "feature"
     },
     {
       "maintenance_id": 23,
       "maintenance_text_description": "Car 1 maintenance text description",
-      "car_id": 1
+      "car_id": 1,
+      "name": "maintenance",
+      "type": "feature"
     },
     {
       "parts_content_information_id": 13,
@@ -249,7 +269,9 @@
       "final_assembly_point": "Mexico",
       "country_of_origin": "Sweden",
       "transmission_parts_origin": "Japan",
-      "monroney_id": 9
+      "monroney_id": 9,
+      "name": "parts conent information",
+      "type": "monrony label"
     },
     {
       "performance_id": 17,
@@ -258,7 +280,9 @@
       "transmission": "Car 1 Transmission",
       "horsepower": "Car 1 Horse power",
       "performance_text_description": "Car 1 performance text description",
-      "car_id": 1
+      "car_id": 1,
+      "name": "performance",
+      "type": "feature"
     },
     {
       "pricing_id": 26,
@@ -287,7 +311,9 @@
       "special_item9": 10.9,
       "special_item10_title": "Car 1 Speacial item10",
       "special_item10": 11.0,
-      "car_id": 1
+      "car_id": 1,
+      "name": "pricing",
+      "type": "feature"
     },
     {
       "vehicle_identification_id": 15,
@@ -309,5 +335,310 @@
       "roadside_assistance": "Car 1: roadside_assistance",
       "car_id": 1
     }
-  ]
+  ],
+
+  "monronyLabel": {
+    "annual_cost_and_environment": {
+      "annual_cost_and_environment_id": 12,
+      "annual_cost_fuel": "$2,000",
+      "fuel_economy_greenhouse_gas_rating": "4.1",
+      "smog_rating": "4.3",
+      "grams_CO2_per_mile": "545",
+      "monroney_id": 9
+    },
+    "fuel_economy": {
+      "fuel_economy_id": 11,
+      "energy_type": "gasoline",
+      "mpg_city": "23",
+      "mpg_highway": "20",
+      "mpg_combined": "25",
+      "gallons_per_100_miles": "345",
+      "spend_in_gas": "$2,000",
+      "fuel_economy_text_description": "Car 1 Fuel Economy text description",
+      "monroney_id": 9
+    },
+    "parts_content_information": {
+      "parts_content_information_id": 13,
+      "us_canadian_content": "%10",
+      "major_source_foreign_parts1_name": "Croatia",
+      "major_source_foreign_parts1_amount": "%13",
+      "major_source_foreign_parts2_name": "Iran",
+      "major_source_foreign_parts2_amount": "%99",
+      "final_assembly_point": "Mexico",
+      "country_of_origin": "Sweden",
+      "transmission_parts_origin": "Japan",
+      "monroney_id": 9
+    },
+    "vehicle_identification": {
+      "vehicle_identification_id": 15,
+      "model_year": 2022,
+      "color": "Green",
+      "vin": "20201919vinnumber",
+      "monroney_id": 9
+    },
+
+    "gov_ratings": {
+      "gov_ratings_id": 14,
+      "gov_vehicle_score": "6.101",
+      "gov_frontal_score": "7.191913",
+      "gov_rollover_risk": "8.1133",
+      "vehicle_type_and_chasis": "Car 1 type and chasis",
+      "monroney_id": 9,
+      "name": "gov rating",
+      "type": "monrony label"
+    },
+    "importation": {
+      "importation_id": 16,
+      "port_of_importation": "Port Arthur",
+      "delivered_by": "Ship",
+      "delivery_address": "7700445 Long Drive",
+      "monroney_id": 9,
+      "name": "importation",
+      "type": "monrony label"
+    }
+  },
+
+  "getPricing": {
+    "pricing_id": 26,
+    "list_price": 412.0,
+    "additional_price": 5.0,
+    "advanced_features": 1.0,
+    "special_items": [
+      {
+        "item_id": 1,
+        "title": "Car 1 Speacial item1",
+        "price": 10.1
+      },
+      {
+        "item_id": 2,
+        "title": "Car 1 Speacial item1",
+        "price": 10.1
+      },
+      {
+        "item_id": 3,
+        "title": "Car 1 Speacial item2",
+        "price": 10.2
+      },
+      {
+        "item_id": 4,
+        "title": "Car 1 Speacial item3",
+        "price": 10.3
+      },
+      {
+        "item_id": 5,
+        "title": "Car 1 Speacial item4",
+        "price": 10.4
+      },
+      {
+        "item_id": 6,
+        "title": "Car 1 Speacial item5",
+        "price": 10.5
+      },
+      {
+        "item_id": 7,
+        "title": "Car 1 Speacial item6",
+        "price": 10.6
+      },
+      {
+        "item_id": 8,
+        "title": "Car 1 Speacial item7",
+        "price": 10.7
+      },
+      {
+        "item_id": 9,
+        "title": "Car 1 Speacial item8",
+        "price": 10.8
+      },
+      {
+        "item_id": 10,
+        "title": "Car 1 Speacial item9",
+        "price": 10.9
+      },
+      {
+        "item_id": 11,
+        "title": "Car 1 Speacial item0",
+        "price": 11.0
+      }
+    ]
+  },
+  "details_by_vin": {
+    "performance": {
+      "car_id": 1,
+      "type": "feature",
+      "performance_id": 22,
+      "details": "2.0L Turbo-Charged, Direct Injected Engine\n247 HP @ 5400 RPM and 258 b-ft Torque 1800 RPM\n48V Mild Hybrid System w/ Regen Braking/13 HP ISG\n8-Speed Geartronic Automatic Trans w/ Start-Stop\nDynamic Chassis Double Wishbone Front& Integral Link Rear Susp \nAnti-Lock Braking Sys (ABS) w/ Hill Start Assist \nAdvanced Electronic Stability Control (ESC) \nElectric Power Assisted Steering \n18 Alloy Wheels with All-Season Tires"
+    },
+    "audio_and_technology": {
+      "car_id": 1,
+      "type": "feature",
+      "audio_and_technology_id": 25,
+      "details": "12.3 Progressive Digital Driver Display.\nwith 2 display modes: Calm and Navi Mode\n9 Integrated Touchscreen\n4-Year Subscription to Google Automotive Services:\nFeat. Google Assistant Natural Voice Recognition\nGoogle Maps and Google Play\nInductive Smartphone Charging\nBluetooth Connectivity wl Audio Streaming\nFM Radio\nHigh Performance Audio System\nUSB-C Ports, 2 Front +2 Rear"
+    },
+    "safety_and_security": {
+      "car_id": 1,
+      "type": "feature",
+      "safety_and_security_id": 88,
+      "details": "\nLED Headlights with DRL, AHB and ABL\nBlind Spot Information System with Steer Assist\nand Cross Traffic Alert with Autobrake\nCollision Avoidance featuring:\nLow&High Speed Collision Mitigation\nDetects Vehicle/Pedestrian/Cyclist/Large Animal\nDriver Alert Control\nRun-off Road Protection& Run-off Road Mitigation\nLane Departure Warning/Lane Keeping Aid\nOncoming Mitigation by Braking\nFront, Side & Curtain Airbags\nwith Driver Side Knee Airbag\nWhiplash Protection System (WHIPS) in Front Seats\nConnected Safety: Slippery Road/Hazard Light Alert\nRear Park Assist Camera + Rear Park Assist\nChild Lock, Rear Doors\nAutomatic Braking after Collision\nAutomatic Unlocking after Collision"
+    },
+    "luxury_and_convenience": {
+      "car_id": 1,
+      "type": "feature",
+      "luxury_and_convenience_id": 24,
+      "details": "\nLaminated Panoramic Moonroof w/ Power Sunshade\nCity Weave Textile Seating Surfaces\nTilt& Telescopic Steering Wheel\nKeyless Entry& Drive w/ lluminated Door Handles\nIntegrated Roof Rails\nFront Grille, High Gloss Black\nBright Window Surround\nPower Front Seats w/ Driver Seat Memory\nInclud. Power Lumbar Support\n2-Zone Automatic Climate Control+CleanZone\nAuto Dimming Interior & Exterior Mirrors\nRetractable Side View Mirrors\nTinted Windows, Rear Side Doors and Cargo\nWiper Blades with Integrated Washers\nTempa Spare Wheel incl. Jack Kit\nBody Colored Rear Insert\nluminated Vanity Mirror in Sunvisors"
+    },
+    "authorized_retailer": {
+      "car_id": 1,
+      "type": "feature",
+      "authorized_retailer_id": 90,
+      "details": "VOLVO CARS ATHENS 7149 \n2890 ATLANTA HIGHWAY \nATHENS, GA 30606"
+    },
+    "warranty": {
+      "car_id": 1,
+      "type": "feature",
+      "warranty_id": 11,
+      "details": "\n48 Month/50,000 Mile Limited Waranty Coverage\n144 Month Corrosion Protection Unlimited Mileage\nRefer to Warranty Info Book for Specific Limitations.\nVOLVO On-Call Roadside Assistance\nVolvo Increased Protection: AskY\nAbout an Extended Service Contract\nour Volvo Retailer"
+    },
+    "maintenance": {
+      "car_id": 1,
+      "type": "feature",
+      "maintenance_id": 78,
+      "details": "Complimentary Factory Scheduled Maintenance for the First 3 Years or 36,000 Miles"
+    },
+    "accessories": {
+      "car_id": 1,
+      "type": "feature",
+      "accessories_id": 34,
+      "details": "Enhance the driving pleasure with Volvo accessories.\nEnrich the styling, integrate technology, boost\nperformance, or simply carry more cargo from\nfunction to fun, there's something for everyone.\nOHO\nTo view full accessory product line-\nScan this Smartphone QR code\nor visit https://accessories.volvocars.com/en-us"
+    },
+    "join_the_conversation": {
+      "car_id": 1,
+      "type": "feature",
+      "join_the_conversation_id": 21,
+      "details": "See what our fans are saying about Volvo and join in!\nHave a question?\nFeel free to ask us on Twitter!@VolvoCarUSA\nScan this Smartphone QR code\nInstagram: @VolvoCarUSA\nFacebook: Volvo Car USA\nYouTube: Volvo Car USA"
+    },
+    "pricing": {
+      "pricing_id": 26,
+      "type": "feature",
+      "list_price": 412.0,
+      "additional_price": 5.0,
+      "advanced_features": 1.0,
+      "specila_items": [
+        {
+          "item_id": 1,
+          "title": "Car 1 Speacial item1",
+          "price": 10.1
+        },
+        {
+          "item_id": 2,
+          "title": "Car 1 Speacial item1",
+          "price": 10.1
+        },
+        {
+          "item_id": 3,
+          "title": "Car 1 Speacial item2",
+          "price": 10.2
+        },
+        {
+          "item_id": 4,
+          "title": "Car 1 Speacial item3",
+          "price": 10.3
+        },
+        {
+          "item_id": 5,
+          "title": "Car 1 Speacial item4",
+          "price": 10.4
+        },
+        {
+          "item_id": 6,
+          "title": "Car 1 Speacial item5",
+          "price": 10.5
+        },
+        {
+          "item_id": 7,
+          "title": "Car 1 Speacial item6",
+          "price": 10.6
+        },
+        {
+          "item_id": 8,
+          "title": "Car 1 Speacial item7",
+          "price": 10.7
+        },
+        {
+          "item_id": 9,
+          "title": "Car 1 Speacial item8",
+          "price": 10.8
+        },
+        {
+          "item_id": 10,
+          "title": "Car 1 Speacial item9",
+          "price": 10.9
+        },
+        {
+          "item_id": 11,
+          "title": "Car 1 Speacial item0",
+          "price": 11.0
+        }
+      ]
+    },
+    "annual_cost_and_environment": {
+      "type": "monrony label",
+      "annual_cost_and_environment_id": 12,
+      "annual_cost_fuel": "$2,000",
+      "fuel_economy_greenhouse_gas_rating": "4.1",
+      "smog_rating": "4.3",
+      "grams_CO2_per_mile": "545",
+      "monroney_id": 9
+    },
+    "fuel_economy": {
+      "type": "monrony label",
+      "fuel_economy_id": 11,
+      "energy_type": "gasoline",
+      "mpg_city": "23",
+      "mpg_highway": "20",
+      "mpg_combined": "25",
+      "gallons_per_100_miles": "345",
+      "spend_in_gas": "$2,000",
+      "fuel_economy_text_description": "Car 1 Fuel Economy text description",
+      "monroney_id": 9
+    },
+    "parts_content_information": {
+      "type": "monrony label",
+      "parts_content_information_id": 13,
+      "us_canadian_content": "%10",
+      "major_source_foreign_parts1_name": "Croatia",
+      "major_source_foreign_parts1_amount": "%13",
+      "major_source_foreign_parts2_name": "Iran",
+      "major_source_foreign_parts2_amount": "%99",
+      "final_assembly_point": "Mexico",
+      "country_of_origin": "Sweden",
+      "transmission_parts_origin": "Japan",
+      "monroney_id": 9
+    },
+    "vehicle_identification": {
+      "type": "monrony label",
+      "vehicle_identification_id": 15,
+      "model_year": 2022,
+      "color": "Green",
+      "vin": "20201919vinnumber",
+      "monroney_id": 9
+    },
+
+    "gov_ratings": {
+      "type": "monrony label",
+      "gov_ratings_id": 14,
+      "gov_vehicle_score": "6.101",
+      "gov_frontal_score": "7.191913",
+      "gov_rollover_risk": "8.1133",
+      "vehicle_type_and_chasis": "Car 1 type and chasis",
+      "monroney_id": 9
+    },
+    "importation": {
+      "type": "monrony label",
+      "importation_id": 16,
+      "port_of_importation": "Port Arthur",
+      "delivered_by": "Ship",
+      "delivery_address": "7700445 Long Drive",
+      "monroney_id": 9
+    }
+  }
 }
