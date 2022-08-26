@@ -23,6 +23,11 @@ export const GlobalStaesProvider = ({ children }) => {
     setStore({ ...store, featureDetails: "", selectedFeature: "" });
   };
 
+  const refresh = () => {
+    console.log(store);
+    setStore({ ...store, featureDetails: feature[store.selectedFeature] });
+  };
+
   const titleCase = (string) => {
     return string.replace(/\w\S*/g, (char) => {
       return char[0].toUpperCase() + char.slice(1).toLowerCase();
@@ -39,6 +44,7 @@ export const GlobalStaesProvider = ({ children }) => {
       resetSelcted,
       titleCase,
       replaceChar,
+      refresh,
     };
   }, [store, store.featureDetails, selectFeature]);
   return (

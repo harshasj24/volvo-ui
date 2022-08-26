@@ -25,9 +25,7 @@ const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
     title === "pricing" && getMonroneyFeature(title);
   };
 
-  useEffect(() => {
-    console.log(arr);
-  }, [arr]);
+  useEffect(() => {}, [arr]);
 
   return (
     <div className={`feature-card p-1 ${active("", activeClass)}`}>

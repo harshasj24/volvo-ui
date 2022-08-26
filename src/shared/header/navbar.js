@@ -11,6 +11,9 @@ import AppsIcon from "@mui/icons-material/Apps";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { CssBaseline, MenuItem, Paper } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import menu from "../../assets/menu.svg";
+import profile from "../../assets/profile.svg";
+import logo from "../../assets/volvo-logo.png";
 export default function Navbar() {
   return (
     <div className="navbar">
@@ -23,21 +26,19 @@ export default function Navbar() {
         <header>
           <div className="header-nav d-flex align-items-center">
             <IconButton color="inherit">
-              <AppsIcon />
+              <img src={menu} alt="" />
             </IconButton>
-            <Typography className="logo" variant="h6">
-              VOLVO
-            </Typography>
+            <img src={logo} alt="" />
 
             <div className="account">
-              <AccountCircleIcon />
-              <h6>Michael Monroney</h6>
+              <img src={profile} alt="" />
+              <h6 className="mt-1">Michael Monroney</h6>
             </div>
           </div>
 
           <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
-            <KeyboardDoubleArrowRightIcon />
-            <Typography>Vehicle lookup</Typography>
+            {/* <KeyboardDoubleArrowRightIcon /> */}
+            <Typography ml={3}>Vehicle lookup</Typography>
           </div>
         </header>
         {/* </Paper>/ */}

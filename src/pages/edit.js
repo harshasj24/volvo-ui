@@ -26,6 +26,7 @@ import BasicSelect from "../shared/select/basic-select";
 import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "./components/govt-info";
 import { useSearchParams, useParams } from "react-router-dom";
+import Dealer from "../shared/autocomplete/dealer";
 const Edit = () => {
   const {
     feature,
@@ -95,7 +96,8 @@ const Edit = () => {
           </div>
 
           <div className="select d-flex">
-            <BasicSelect title={"Allocation"} options={"allocation"} />
+            {/* <BasicSelect title={"Allocation"} options={"allocation"} /> */}
+            <Dealer />
             <BasicSelect title={"Status"} options={"status"} />
           </div>
           <div className="actions ms-auto">
