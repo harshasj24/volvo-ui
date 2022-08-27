@@ -1,0 +1,24 @@
+.login {
+  width: 100vw;
+  height: calc(100vh - 17px);
+  background-image: url("../assets/login-bg.png");
+  background-size: cover;
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+}
+.login-form {
+  width: 200px !important;
+}
+.form-control {
+  height: 30px !important;
+}
+@media only screen and (max-width: 1025px) {
+  .login-form {
+    margin-left: 140px;
+    margin-top: -160px;
+  }
+}
+.form-control:focus {
+  box-shadow: none !important;
+}

@@ -53,7 +53,7 @@ export default function BasicSelect({
     }
   };
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ width: 180 }}>
       <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-select-label">{title}</InputLabel>
         <Select

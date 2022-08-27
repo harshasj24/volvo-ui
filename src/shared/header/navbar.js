@@ -14,7 +14,10 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import menu from "../../assets/menu.svg";
 import profile from "../../assets/profile.svg";
 import logo from "../../assets/volvo-logo.png";
+import { useLocation } from "react-router-dom";
 export default function Navbar() {
+  const { pathname } = useLocation();
+
   return (
     <div className="navbar">
       <AppBar
@@ -36,10 +39,12 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
-            {/* <KeyboardDoubleArrowRightIcon /> */}
-            <Typography ml={3}>Vehicle lookup</Typography>
-          </div>
+          {pathname !== "/login" && (
+            <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
+              {/* <KeyboardDoubleArrowRightIcon /> */}
+              <Typography ml={3}>Vehicle lookup</Typography>
+            </div>
+          )}
         </header>
         {/* </Paper>/ */}
       </AppBar>

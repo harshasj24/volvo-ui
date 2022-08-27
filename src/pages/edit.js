@@ -80,17 +80,19 @@ const Edit = () => {
     <div className="edit">
       <div className="edit__header w-100">
         <Toolbar />
-        <header className="d-flex mb-3 shadow-sm p-3 d-flex align-items-center">
+        <header className="d-flex mb-3 shadow-sm px-3 pb-3 d-flex align-items-center font-vn-regular">
           <div className="title">
             <Typography
               margin={0}
               fontWeight={"bold"}
               fontSize={"1rem"}
               variant="h6"
+              className="head"
+              fontFamily="inherit"
             >
               S90 T6 AWD INSCRIPTION
             </Typography>
-            <Typography variant="p" fontSize={".8rem"}>
+            <Typography fontFamily="inherit" variant="p" fontSize={".8rem"}>
               {vin}
             </Typography>
           </div>
@@ -101,7 +103,7 @@ const Edit = () => {
             <BasicSelect title={"Status"} options={"status"} />
           </div>
           <div className="actions ms-auto">
-            <Button
+            {/* <Button
               sx={{ textTransform: "capitalize" }}
               className="mx-3"
               size="small"
@@ -111,7 +113,7 @@ const Edit = () => {
               {checkBreakPoint("laptop", "desktop") && (
                 <span className="ms-2">Refresh Data</span>
               )}
-            </Button>
+            </Button> */}
             <Button
               sx={{ textTransform: "capitalize" }}
               size="small"
@@ -127,11 +129,14 @@ const Edit = () => {
       </div>
       <div className="edit__body ">
         <Grid container spacing={1} padding={2}>
-          <Grid item xs={12} lg={8}>
+          <Grid item xs={12} md={8}>
             <div className="features">
-              <div className="features__head">
+              <div className="features__head font-vn-regular">
                 <span>Volvo 2022</span>
-                <Typography variant="h4"> S90 T6 AWD INSCRIPTION</Typography>
+                <Typography fontFamily="inherit" variant="h4">
+                  {" "}
+                  S90 T6 AWD INSCRIPTION
+                </Typography>
               </div>
               <div className="features__body mt-2 ">
                 <Grid container spacing={3}>
@@ -187,7 +192,7 @@ const Edit = () => {
               </div>
             </div>
           </Grid>
-          <Grid className="" item xs={12} lg={4}>
+          <Grid className="" item xs={12} md={4}>
             <div className="gov-infoi border h-100">
               <GovtInfo />
             </div>

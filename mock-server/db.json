@@ -1,127 +1,142 @@
 {
   "vehicles": [
     {
+      "id": "11",
       "year": "2022",
       "vehicle": "C40 recharge",
       "VIN": "V12LK45679WE1296",
       "status": "In Transit",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1376",
-      "status": "Allocated",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1426",
-      "status": "Allocated",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1566",
-      "status": "Allocated",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1431",
-      "status": "Build Sheet",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1112",
-      "status": "Build Sheet",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1098",
-      "status": "Allocated",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1876",
-      "status": "In Transit",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE1886",
-      "status": "Build Sheet",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE2266",
-      "status": "Allocated",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE6796",
-      "status": "Build Sheet",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE8991",
-      "status": "Build Sheet",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE7842",
-      "status": "Allocated",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE0987",
-      "status": "In Transit",
-      "location": "factory 1234",
-      "monroney": "N/A"
-    },
-    {
-      "year": "2022",
-      "vehicle": "C40 recharge",
-      "VIN": "V12LK45679WE7765",
-      "status": "Allocated",
-      "location": "factory 1234",
+      "location": "factory 3334",
       "monroney": "N/A"
     },
     {
       "id": "12",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1376",
+      "status": "Allocated",
+      "location": "factory 1134",
+      "monroney": "N/A"
+    },
+    {
+      "id": "13",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1426",
+      "status": "Allocated",
+      "location": "factory 1204",
+      "monroney": "N/A"
+    },
+    {
+      "id": "14",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1566",
+      "status": "Allocated",
+      "location": "factory 1254",
+      "monroney": "N/A"
+    },
+    {
+      "id": "15",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1431",
+      "status": "Build Sheet",
+      "location": "factory 1244",
+      "monroney": "N/A"
+    },
+    {
+      "id": "16",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1112",
+      "status": "Build Sheet",
+      "location": "factory 1634",
+      "monroney": "N/A"
+    },
+    {
+      "id": "17",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1098",
+      "status": "Allocated",
+      "location": "factory 2234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "18",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1876",
+      "status": "In Transit",
+      "location": "factory 3234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "19",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE1886",
+      "status": "Build Sheet",
+      "location": "factory 4234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "20",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE2266",
+      "status": "Allocated",
+      "location": "factory 5234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "21",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE6796",
+      "status": "Build Sheet",
+      "location": "factory 6234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "22",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE8991",
+      "status": "Build Sheet",
+      "location": "factory 7234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "23",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE7842",
+      "status": "Allocated",
+      "location": "factory 8234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "24",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE0987",
+      "status": "In Transit",
+      "location": "factory 9234",
+      "monroney": "N/A"
+    },
+    {
+      "id": "25",
+      "year": "2022",
+      "vehicle": "C40 recharge",
+      "VIN": "V12LK45679WE7765",
+      "status": "Allocated",
+      "location": "factory 1235",
+      "monroney": "N/A"
+    },
+    {
+      "id": "26",
       "year": "2022",
       "vehicle": "C40 recharge",
       "VIN": "V12LK45679WE9987",

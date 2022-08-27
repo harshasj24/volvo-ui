@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/api-provider";
 import { useBreakePoint } from "../context/breake-points";
 import SearchTable from "./components/search-table";
+import VehicleDataGrid from "./components/Vehicle-data-grid";
 import "./monrony.css";
 const Search = () => {
   const ref = useRef(false);
@@ -27,10 +28,11 @@ const Search = () => {
   };
   return (
     <div>
-      <div className="search-tabel p-4">
-        <Toolbar />
-        <SearchTable rows={[...allVechicles]} />
-      </div>
+      {/* <div className="search-tabel p-4"> */}
+      <Toolbar />
+      {/* <SearchTable rows={[...allVechicles]} /> */}
+      <VehicleDataGrid  rows={allVechicles} />
+      {/* </div> */}
     </div>
   );
 };

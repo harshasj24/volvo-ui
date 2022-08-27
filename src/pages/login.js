@@ -1,13 +1,15 @@
 import { Button, Card, TextField, Toolbar, Typography } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 import { Form, Formik, ErrorMessage } from "formik";
 import React from "react";
 import * as yup from "yup";
+import "./login.css";
 const Login = () => {
   const initialValues = {
     username: "user1",
     password: "pw123",
   };
+  const navigate = useNavigate();
   const validationSchema = yup.object({
     username: yup.string().required("* User Name is required"),
     password: yup.string().required("* Password is required"),
@@ -15,15 +17,15 @@ const Login = () => {
   const handelSubmit = (values) => {
     console.log("called");
     console.log(values);
+    navigate("/search");
   };
   const handelChange = (field, setFieldValue) => (e) => {
     setFieldValue(field, e.target.value);
   };
   return (
-    <div>
+    <div className="login">
       <Toolbar />
-
-      <Card sx={{ maxWidth: 434, mx: "auto", mt: 8, p: 2 }}>
+      <div className="login-form">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -33,12 +35,11 @@ const Login = () => {
             <Form>
               <Typography
                 variant="h5"
-                letterSpacing={"8px"}
-                className="mb-3 text-center  ms-auto"
+                className="mb-3 text-center  ms-auto text-light font-vn-medium"
               >
-                Login
+                Sign In
               </Typography>
-              <TextField
+              {/* <TextField
                 fullWidth
                 variant="outlined"
                 defaultValue={"user1"}
@@ -46,12 +47,19 @@ const Login = () => {
                 label="User Name"
                 name="username"
                 onChange={handelChange("username", setFieldValue)}
+              /> */}
+              <input
+                defaultValue={"user1"}
+                onChange={handelChange("username", setFieldValue)}
+                name="username"
+                type="text"
+                className="form-control"
               />
               <ErrorMessage name="username">
                 {(message) => <span className="text-danger">{message}</span>}
               </ErrorMessage>
 
-              <TextField
+              {/* <TextField
                 fullWidth
                 variant="outlined"
                 size="small"
@@ -60,26 +68,35 @@ const Login = () => {
                 label="Password"
                 name="password"
                 onChange={handelChange("password", setFieldValue)}
+              /> */}
+              <input
+                defaultValue={"pw123"}
+                type="password"
+                name="password"
+                className="form-control mt-3"
+                onChange={handelChange("password", setFieldValue)}
               />
               <ErrorMessage name="password">
                 {(message) => {
                   return <span className="text-danger">{message}</span>;
                 }}
               </ErrorMessage>
-              <div>
+              <div className="d-flex">
                 <Button
                   variant="contained"
-                  color="success"
+                  color="primary"
                   type="submit"
-                  className="mt-4"
+                  size="small"
+                  sx={{ textTransform: "capitalize" }}
+                  className="mt-4 mx-auto"
                 >
-                  Login
+                  Show me the monroney
                 </Button>
               </div>
             </Form>
           )}
         </Formik>
-      </Card>
+      </div>
     </div>
   );
 };

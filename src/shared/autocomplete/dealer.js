@@ -30,7 +30,7 @@ const Dealer = () => {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Choose a country"
+          label="Allocation"
           inputProps={{
             ...params.inputProps,
             autoComplete: "new-password", // disable autocomplete and autofill

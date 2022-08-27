@@ -15,6 +15,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  TableContainer,
 } from "@mui/material";
 
 import React, { useEffect, useState } from "react";
@@ -85,35 +86,37 @@ const EditFeature = ({ handelClose }) => {
               );
             })} */}
               <div className="pricing-field__tabel">
-                <Table
-                  sx={{
-                    minWidth: "60vw",
-
-                    border: "none",
-                    outline: "none",
-                  }}
-                >
-                  <TableHead>
-                    <TableRow sx={{ backgroundColor: "#c3d2d6" }}>
-                      <TableCell className="tabel__cell">
-                        Item description
-                      </TableCell>
-                      <TableCell className="tabel__cell">Price</TableCell>
-                      <TableCell className="tabel__cell">Actions</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {pricing["special_items"] &&
-                      pricing["special_items"].map((key) => {
-                        return (
-                          <PricingTabel
-                            // itemDescription={key}
-                            price={key}
-                          />
-                        );
-                      })}
-                  </TableBody>
-                </Table>
+                <TableContainer className="scroll" sx={{ height: "100%" }}>
+                  <Table
+                    stickyHeader
+                    sx={{
+                      minWidth: "60vw",
+                      border: "none",
+                      outline: "none",
+                    }}
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell className="tabel__cell">
+                          Item description
+                        </TableCell>
+                        <TableCell className="tabel__cell">Price</TableCell>
+                        <TableCell className="tabel__cell">Actions</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {pricing["special_items"] &&
+                        pricing["special_items"].map((key) => {
+                          return (
+                            <PricingTabel
+                              // itemDescription={key}
+                              price={key}
+                            />
+                          );
+                        })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
               </div>
 
               <div className="add  w-100  mt-3">
@@ -126,7 +129,7 @@ const EditFeature = ({ handelClose }) => {
                     variant="outlined"
                     sx={{ width: "62%" }}
                     size="small"
-                    label={"Item Discription"}
+                    label={"Item Description"}
                   />
                   <TextField
                     className="w-25 mx-2"
@@ -167,9 +170,9 @@ const EditFeature = ({ handelClose }) => {
           )}
         </CardContent>
         <hr />
-        <CardActions className="pb-4">
+        <CardActions className="pb-4 px-3">
           <Button type="reset" variant="outlined" size="small" color="primary">
-            refresh
+            Reset
           </Button>
           <Button
             variant="outlined"
@@ -178,7 +181,7 @@ const EditFeature = ({ handelClose }) => {
             onClick={handleclick(true)}
             color="primary"
           >
-            Cancle
+            Cancel
           </Button>
           <Button
             type="submit"

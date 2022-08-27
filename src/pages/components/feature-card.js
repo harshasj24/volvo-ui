@@ -29,12 +29,13 @@ const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
 
   return (
     <div className={`feature-card p-1 ${active("", activeClass)}`}>
-      <div className="feature-card__header  d-flex">
+      <div className="feature-card__header  d-flex align-items-center font-vn-regular">
         <Typography
           textTransform={"uppercase"}
           fontWeight={"bold"}
           variant="p"
           fontSize={".8rem"}
+          fontFamily="inherit"
         >
           {title}
         </Typography>
@@ -49,8 +50,13 @@ const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
           }
         </div>
       </div>
-      <div className="feature-card__body">
-        <Typography variant="" fontWeight={"600"} fontSize={"0.6rem"}>
+      <div className="feature-card__body font-vn-light">
+        <Typography
+          variant=""
+          fontFamily={"inherit"}
+          fontWeight={"600"}
+          fontSize={"0.6rem"}
+        >
           {details || children}
         </Typography>
       </div>

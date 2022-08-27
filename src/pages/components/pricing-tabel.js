@@ -42,15 +42,26 @@ const PricingTabel = ({ itemDescription, price }) => {
           <TableBody> */}
       {/* {rows.map((row) => {
           return ( */}
-      <TableRow sx={{ padding: 0 }}>
+      <TableRow sx={{ padding: 0, backgroundColor: edit && "#f3f2f1" }}>
         <TableCell sx={{ width: "65%", padding: 0.5 }}>
           {edit ? (
-            <input
+            <TextField
+              fullWidth
+              sx={{ backgroundColor: "white" }}
+              size="small"
+              multiline
+              variant="outlined"
               defaultValue={price["title"]}
-              className="form-control"
-              type="text"
+              label=" "
+              InputLabelProps={{ shrink: false }}
             />
           ) : (
+            // <input
+            //   multiple
+            //   defaultValue={price["title"]}
+            //   className="form-control"
+            //   type="text"
+            // />
             // replaceChar(itemDescription, "_", " ")
             price["title"]
           )}
@@ -58,10 +69,21 @@ const PricingTabel = ({ itemDescription, price }) => {
         <TableCell sx={{ width: "15%", padding: 0.5 }}>
           {" "}
           {edit ? (
-            <input
+            // <input
+            //   defaultValue={price["price"]}
+            //   className="form-control"
+            //   type="text"
+            // />
+            <TextField
+              label=" "
+              fullWidth
+              sx={{ backgroundColor: "white" }}
+              size="small"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: false,
+              }}
               defaultValue={price["price"]}
-              className="form-control"
-              type="text"
             />
           ) : (
             price["price"]
