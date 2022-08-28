@@ -2,7 +2,10 @@ import { Typography } from "@mui/material";
 import React from "react";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import "./govtinfo.css";
+import QRCode from "react-qr-code";
+
 export const GovtInfo = () => {
+  console.log(window.location.href);
   return (
     <div className="govt-info">
       <div className="govt-info__fuel-economy">
@@ -121,8 +124,24 @@ export const GovtInfo = () => {
               </div>
             </div>
           </div>
-          <div className="qr-code border d-flex align-items-center justify-content-center">
-            <span className="qr">QR</span>
+          <div className="qr-code d-flex align-items-center justify-content-center bg-light">
+            <p className="text-dark qr w-100 border  text-center">QR Code</p>
+            <div
+              style={{
+                height: "auto",
+                margin: "0px",
+                maxWidth: 54,
+                width: "100%",
+                flexShrink: 0,
+              }}
+            >
+              <QRCode
+                size={256}
+                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                value={window.location.href}
+                viewBox={`0 0 256 256`}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -90,9 +90,11 @@ br {
   border-radius: 0px 5px 5px 5px;
 }
 .qr-code {
-  height: 60px;
-  width: 85px;
+  height: min-content;
+  /* width: 85px; */
+  padding: 5px;
   flex-shrink: 0;
+  border-radius: 0px 5px 5px 5px;
 }
 .margin-0 {
   margin: 0 !important;
@@ -105,7 +107,11 @@ br {
 }
 .qr {
   transform: rotate(-90deg);
-  font-size: 2rem;
+  font-size: 0.5rem;
+  font-weight: bold;
+  margin: 0;
+  flex-grow: 1;
+  width: 100% !important;
 }
 .lower-content {
   margin-top: 0.3rem;
