@@ -17,48 +17,42 @@ export const GovtInfo = () => {
         </div>
         <div className="fuel-ecnomy-section  mt-2 bg-light text-dark d-flex">
           <div className="economy-info position-relative ">
-            <Typography marginLeft={"6%"} fontSize={".6rem"} variant="p">
-              Fuel Economy
-            </Typography>
             <div className="mpg d-flex">
-              <div className="mpg-val">
-                <LocalGasStationIcon className="fuel-icon" />
-                <Typography variant="p" margin={0} fontSize={"3.8rem"}>
+              <div className="fuel-logo">
+                <LocalGasStationIcon fontSize="inherit" />
+              </div>
+              <div className="mpg-val d-flex flex-column">
+                <p className="fs-sm m-0">Fuel Economy</p>
+                <h1 className="m-0 p-0" style={{ fontSize: "3.5rem" }}>
                   26
-                </Typography>
+                </h1>
+                <p className="fs-sm  combine p-0">combine city/hwy</p>
               </div>
 
-              <div className="units ms-2">
+              <div className="units ms-2 mt-2 ">
                 <p>MPG</p>
                 <div className="seperate d-flex">
-                  <div className="city">
+                  <div className="city d-flex flex-column align-items-center">
                     <p>23</p>
                     <p className="font-sm">City</p>
                   </div>
-                  <div className="high-way ms-2">
+                  <div className="high-way ms-1 d-flex flex-column align-items-center">
                     <p>30</p>
                     <p className="font-sm">Highway</p>
                   </div>
                 </div>
               </div>
-              <Typography
-                className="combined"
-                marginLeft={"6.5%"}
-                fontSize={".6rem"}
-                variant="p"
-              >
-                combined city/hwy
-              </Typography>
             </div>
+
             <div className="gallons ms-3">
               <strong>3.8</strong>
               <span className="fs-sm"> gallons per 100 miles</span>
             </div>
           </div>
-          <div className="mpg-text mt-4">
-            <p className="fs-sm">
-              small SUV 2WD range from <br />
-              16 to 125 MPG. The best <br /> vechicle rates 142 MPGe
+          <div className="mpg-text mt-3">
+            <p className="fs-sm p-1">
+              small SUV 2WD range from 16 to 125 MPG. The best vechicle rates
+              142 MPGe
             </p>
           </div>
           <div className="spend ms-auto">

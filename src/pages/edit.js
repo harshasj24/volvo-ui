@@ -27,6 +27,7 @@ import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "./components/govt-info";
 import { useSearchParams, useParams } from "react-router-dom";
 import Dealer from "../shared/autocomplete/dealer";
+import axios from "axios";
 const Edit = () => {
   const {
     feature,
@@ -128,7 +129,7 @@ const Edit = () => {
         </header>
       </div>
       <div className="edit__body ">
-        <Grid container spacing={1} padding={2}>
+        <Grid container spacing={-2} padding={2}>
           <Grid item xs={12} md={8}>
             <div className="features">
               <div className="features__head font-vn-regular">
@@ -139,7 +140,7 @@ const Edit = () => {
                 </Typography>
               </div>
               <div className="features__body mt-2 ">
-                <Grid container spacing={3}>
+                <Grid container spacing={-2}>
                   <Grid item xs={12} sm={4}>
                     {
                       // ["performance","audio and technology"," safety and security"]
