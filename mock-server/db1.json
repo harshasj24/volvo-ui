@@ -139,8 +139,12 @@
     },
     "audio_and_technology": {
       "car_id": 1,
-      "type": "feature",
+      "title": "Audio and Technology",
       "audio_and_technology_id": 25,
+      "feature": {
+        "1": "kjlfdjlkf;sdlfkd;j",
+        "2": "kjslkdfjksldfja;'dfjk"
+      },
       "details": "12.3 Progressive Digital Driver Display.\nwith 2 display modes: Calm and Navi Mode\n9 Integrated Touchscreen\n4-Year Subscription to Google Automotive Services:\nFeat. Google Assistant Natural Voice Recognition\nGoogle Maps and Google Play\nInductive Smartphone Charging\nBluetooth Connectivity wl Audio Streaming\nFM Radio\nHigh Performance Audio System\nUSB-C Ports, 2 Front +2 Rear"
     },
     "safety_and_security": {
@@ -154,7 +158,7 @@
       "type": "feature",
       "name": "luxury and convenience",
       "luxury_and_convenience_id": 24,
-      "details": "\nLaminated Panoramic Moonroof w/ Power Sunshade\nCity Weave Textile Seating Surfaces\nTilt& Telescopic Steering Wheel\nKeyless Entry& Drive w/ lluminated Door Handles\nIntegrated Roof Rails\nFront Grille, High Gloss Black\nBright Window Surround\nPower Front Seats w/ Driver Seat Memory\nInclud. Power Lumbar Support\n2-Zone Automatic Climate Control+CleanZone\nAuto Dimming Interior & Exterior Mirrors\nRetractable Side View Mirrors\nTinted Windows, Rear Side Doors and Cargo\nWiper Blades with Integrated Washers\nTempa Spare Wheel incl. Jack Kit\nBody Colored Rear Insert\nluminated Vanity Mirror in Sunvisors"
+      "details": "Laminated Panoramic Moonroof w/ Power Sunshade\nCity Weave Textile Seating Surfaces\nTilt& Telescopic Steering Wheel\nKeyless Entry& Drive w/ lluminated Door Handles\nIntegrated Roof Rails\nFront Grille, High Gloss Black\nBright Window Surround\nPower Front Seats w/ Driver Seat Memory\nInclud. Power Lumbar Support\n2-Zone Automatic Climate Control+CleanZone\nAuto Dimming Interior & Exterior Mirrors\nRetractable Side View Mirrors\nTinted Windows, Rear Side Doors and Cargo\nWiper Blades with Integrated Washers\nTempa Spare Wheel incl. Jack Kit\nBody Colored Rear Insert\nluminated Vanity Mirror in Sunvisors"
     },
     "authorized_retailer": {
       "car_id": 1,

@@ -13,15 +13,15 @@ import { GlobalStaesProvider } from "./context/global-states.provider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BreakePoints>
-      <ApiProvider>
-        <GlobalStaesProvider>
-          <BrowserRouter>
+    <BrowserRouter>
+      <BreakePoints>
+        <ApiProvider>
+          <GlobalStaesProvider>
             <App />
-          </BrowserRouter>
-        </GlobalStaesProvider>
-      </ApiProvider>
-    </BreakePoints>
+          </GlobalStaesProvider>
+        </ApiProvider>
+      </BreakePoints>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

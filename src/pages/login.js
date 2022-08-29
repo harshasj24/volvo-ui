@@ -1,23 +1,26 @@
 import { Button, Card, TextField, Toolbar, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Formik, ErrorMessage } from "formik";
 import React from "react";
 import * as yup from "yup";
 import "./login.css";
+import { useApi } from "../context/api-provider";
 const Login = () => {
   const initialValues = {
     username: "user1",
     password: "pw123",
   };
+  const { login } = useApi();
   const navigate = useNavigate();
   const validationSchema = yup.object({
     username: yup.string().required("* User Name is required"),
     password: yup.string().required("* Password is required"),
   });
   const handelSubmit = (values) => {
-    console.log("called");
-    console.log(values);
-    navigate("/search");
+    // console.log("called");
+    // console.log(values);
+    // navigate("/search");
+    login(values);
   };
   const handelChange = (field, setFieldValue) => (e) => {
     setFieldValue(field, e.target.value);
@@ -81,6 +84,12 @@ const Login = () => {
                   return <span className="text-danger">{message}</span>;
                 }}
               </ErrorMessage>
+              <div className="forgot-password d-flex">
+                <Link className="ms-auto link" to={"/login"}>
+                  Forgot password
+                </Link>
+              </div>
+
               <div className="d-flex">
                 <Button
                   variant="contained"

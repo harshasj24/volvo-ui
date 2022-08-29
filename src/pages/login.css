@@ -22,3 +22,9 @@
 .form-control:focus {
   box-shadow: none !important;
 }
+.link {
+  text-decoration: none !important;
+  font-size: 0.7rem;
+  color: rgb(237, 237, 237);
+  margin-top: 5px;
+}
