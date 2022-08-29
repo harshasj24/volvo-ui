@@ -1,0 +1,66 @@
+.edit__body {
+  margin: 2%;
+}
+.main-content {
+  display: flex !important;
+  width: 100%;
+}
+
+.left-content {
+  width: 58% !important;
+}
+.inner-left-content {
+  display: flex;
+  padding-left: 3%;
+  padding-top: 3%;
+}
+.inner-left-content1 {
+  width: 32%;
+}
+.right-content {
+  width: 42% !important;
+
+  font-size: 0.5rem !important;
+}
+.lower-content .left-container h5 {
+  font-size: 0.5rem !important;
+  font-weight: bold !important;
+  width: 100%;
+}
+.lower-content .left-container ul li {
+  font-weight: 700;
+  font-size: 0.4rem !important;
+  padding: 0.7rem !important;
+}
+.lower-content .left-container p {
+  font-weight: 700;
+  font-size: 0.4rem !important;
+}
+
+.right-container .first-inner-container h5 {
+  font-size: 0.6rem !important;
+  font-weight: bold !important;
+  width: 100%;
+}
+.right-container .first-right-content p {
+  font-size: 0.5rem !important;
+  font-weight: 700;
+  padding: 3.6rem 0.5rem !important;
+}
+.right-container .last-para {
+  font-size: 0.5rem !important;
+  text-align: center !important;
+  font-weight: 500;
+  margin: 0 !important;
+}
+.left-second-content p {
+  font-size: 0.4rem !important;
+  font-weight: bolder !important;
+  margin: 0;
+  line-height: 0.6rem !important;
+}
+.third-inner-container p {
+  font-size: 0.6rem !important;
+  text-align: center;
+  font-weight: bolder;
+}

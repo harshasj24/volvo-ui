@@ -28,6 +28,7 @@ import { GovtInfo } from "./components/govt-info";
 import { useSearchParams, useParams } from "react-router-dom";
 import Dealer from "../shared/autocomplete/dealer";
 import axios from "axios";
+import ReactToPrint from "react-to-print";
 const Edit = () => {
   const {
     feature,
@@ -77,6 +78,7 @@ const Edit = () => {
     })[0];
   };
   let feArr = ["performance", "pricing"];
+  let componentRef = useRef();
   return (
     <div className="edit">
       <div className="edit__header w-100">
@@ -115,7 +117,7 @@ const Edit = () => {
                 <span className="ms-2">Refresh Data</span>
               )}
             </Button> */}
-            <Button
+            {/* <Button
               sx={{ textTransform: "capitalize" }}
               size="small"
               variant="outlined"
@@ -124,13 +126,29 @@ const Edit = () => {
               {checkBreakPoint("laptop", "desktop") && (
                 <span className="ms-2">Print</span>
               )}
-            </Button>
+            </Button> */}
+            <ReactToPrint
+              trigger={() => (
+                <Button
+                  sx={{ textTransform: "capitalize" }}
+                  size="small"
+                  variant="outlined"
+                >
+                  <LocalPrintshopIcon fontSize="small" />
+                  {checkBreakPoint("laptop", "desktop") && (
+                    <span className="ms-2">Print</span>
+                  )}
+                </Button>
+              )}
+              content={() => componentRef}
+            />
           </div>
         </header>
       </div>
-      <div className="edit__body ">
-        <Grid container spacing={-2} padding={2}>
-          <Grid item xs={12} md={8}>
+      <div className="edit__body " ref={(el) => (componentRef = el)}>
+        <Grid container spacing={-2} padding={2} className="main-content">
+          {/* <div className="left-content"> */}
+          <Grid item xs={8} md={8}>
             <div className="features">
               <div className="features__head font-vn-regular">
                 <span>Volvo 2022</span>
@@ -141,7 +159,8 @@ const Edit = () => {
               </div>
               <div className="features__body mt-2 ">
                 <Grid container spacing={-2}>
-                  <Grid item xs={12} sm={4}>
+                  {/* <div className="inner-left-content1"> */}
+                  <Grid item xs={4} sm={4}>
                     {
                       // ["performance","audio and technology"," safety and security"]
                       keys.slice(1, 4).map((key) => {
@@ -159,7 +178,9 @@ const Edit = () => {
                       })
                     }
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  {/* </div> */}
+                  {/* <div className="inner-left-content1"> */}
+                  <Grid item xs={4} sm={4}>
                     {keys.slice(4, 9).map((key) => {
                       return (
                         <div className="fetures mb-3">
@@ -173,7 +194,9 @@ const Edit = () => {
                       );
                     })}
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  {/* </div> */}
+                  {/* <div className="inner-left-content1"> */}
+                  <Grid item xs={4} sm={4}>
                     <FeatureCard handelOpen={handelOpen} title={"pricing"}>
                       <table>
                         <tbody>
@@ -189,15 +212,19 @@ const Edit = () => {
                       </table>
                     </FeatureCard>
                   </Grid>
+                  {/* </div> */}
                 </Grid>
               </div>
             </div>
           </Grid>
-          <Grid className="" item xs={12} md={4}>
+          {/* </div> */}
+          {/* <div className="right-content"> */}
+          <Grid className="" item xs={4} md={4}>
             <div className="gov-infoi border h-100">
               <GovtInfo />
             </div>
           </Grid>
+          {/* </div> */}
         </Grid>
       </div>
       <Modal open={open}>
