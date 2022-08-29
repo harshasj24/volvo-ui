@@ -3,9 +3,11 @@ import React from "react";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import "./govtinfo.css";
 import QRCode from "react-qr-code";
-
+import Barcode from "react-barcode";
+import { useParams } from "react-router-dom";
 export const GovtInfo = () => {
   console.log(window.location.href);
+  const { vin } = useParams();
   return (
     <div className="govt-info">
       <div className="govt-info__fuel-economy">
@@ -187,7 +189,7 @@ export const GovtInfo = () => {
               <p>Type & Chassis: 246 952643</p>
               <p>Model Year: 2022</p>
               <p>Color: Silver Dawn</p>
-              <p>VIN: YV4L12DK0N1952643</p>
+              <p>VIN: {vin}</p>
             </div>
             <div className="left-second-content">
               <p>Port of Importation: Brunswick, GA</p>
@@ -200,10 +202,14 @@ export const GovtInfo = () => {
           </div>
           <div className="third-inner-container">
             <div>
-              <img src="barCode.png" />
-            </div>
-            <div>
-              <p>YV4L12DK0N1952643</p>
+              {/* <img src="barCode.png" /> */}
+              <Barcode
+                height="30px"
+                fontSize={15}
+                width={1.1}
+                format="CODE128"
+                value={vin}
+              />
             </div>
           </div>
         </div>

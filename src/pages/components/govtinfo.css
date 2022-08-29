@@ -140,6 +140,7 @@ br {
   background-color: white;
   color: black;
   margin: 0;
+  height: 100%;
   border: 1px solid white;
 }
 .inner-left-container ul {
@@ -162,6 +163,7 @@ br {
 .right-container {
   margin-left: 0.1rem;
   padding: 0;
+
   width: 63%;
 }
 .first-inner-container {
@@ -213,6 +215,7 @@ br {
   border: 1px solid black;
   margin-top: 0.2rem;
   padding-top: 0.8rem;
+  height: 100% !important;
 }
 .third-inner-container img {
   width: 20rem;

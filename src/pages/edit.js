@@ -220,7 +220,7 @@ const Edit = () => {
           {/* </div> */}
           {/* <div className="right-content"> */}
           <Grid className="" item xs={4} md={4}>
-            <div className="gov-infoi border h-100">
+            <div className="gov-infoi  h-100">
               <GovtInfo />
             </div>
           </Grid>
