@@ -1,33 +1,60 @@
-import { Button, Card, TextField, Toolbar, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Alert,
+  Button,
+  Card,
+  LinearProgress,
+  Snackbar,
+  TextField,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Formik, ErrorMessage } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import "./login.css";
 import { useApi } from "../context/api-provider";
-const Login = () => {
+const Login = (props) => {
   const initialValues = {
     username: "user1",
     password: "pw123",
   };
+  const [snackbarSate, setSnackbarState] = useState({
+    open: false,
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
   const { login } = useApi();
   const navigate = useNavigate();
+  console.log(props);
   const validationSchema = yup.object({
     username: yup.string().required("* User Name is required"),
     password: yup.string().required("* Password is required"),
   });
+  const handelChange = (field, setFieldValue) => (e) => {
+    setFieldValue(field, e.target.value);
+  };
+  const handleClose = () => {
+    setSnackbarState({ ...setSnackbarState, open: false, message: "" });
+  };
   const handelSubmit = (values) => {
     // console.log("called");
     // console.log(values);
     // navigate("/search");
-    login(values);
+    login(values, handelOpen, setLoading);
   };
-  const handelChange = (field, setFieldValue) => (e) => {
-    setFieldValue(field, e.target.value);
+  const location = useLocation();
+  console.log(location.state);
+
+  const handelOpen = (errMsg) => {
+    setSnackbarState({ ...setSnackbarState, open: true, message: errMsg });
   };
   return (
     <div className="login">
       <Toolbar />
+      <div className="loader w-100">
+        <LinearProgress hidden={!loading} />
+      </div>
       <div className="login-form">
         <Formik
           initialValues={initialValues}
@@ -106,6 +133,16 @@ const Login = () => {
           )}
         </Formik>
       </div>
+      <Snackbar
+        open={snackbarSate.open}
+        autoHideDuration={5000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Invalid UserId or Password
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

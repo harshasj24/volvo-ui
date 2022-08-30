@@ -9,15 +9,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./navbar.css";
 import AppsIcon from "@mui/icons-material/Apps";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { CssBaseline, MenuItem, Paper } from "@mui/material";
+import { CssBaseline, MenuItem, Paper, Tooltip } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import menu from "../../assets/menu.svg";
 import profile from "../../assets/profile.svg";
-import logo from "../../assets/volvo-logo.png";
+import logo from "../../assets/volvo-logo.svg";
 import { useLocation } from "react-router-dom";
+import { useApi } from "../../context/api-provider";
+import LogoutIcon from "@mui/icons-material/Logout";
 export default function Navbar() {
   const { pathname } = useLocation();
-
+  const { logout } = useApi();
   return (
     <div className="navbar">
       <AppBar
@@ -43,6 +45,11 @@ export default function Navbar() {
             <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
               {/* <KeyboardDoubleArrowRightIcon /> */}
               <Typography ml={3}>Vehicle lookup</Typography>
+              <Tooltip title="Logout">
+                <IconButton size="small" onClick={logout} className="ms-auto">
+                  <LogoutIcon fontSize="small" color="primary" />
+                </IconButton>
+              </Tooltip>
             </div>
           )}
         </header>

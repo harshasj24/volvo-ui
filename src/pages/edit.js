@@ -10,6 +10,7 @@ import {
   Toolbar,
   Typography,
   Button,
+  Tooltip,
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
@@ -27,7 +28,7 @@ import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "./components/govt-info";
 import { useSearchParams, useParams } from "react-router-dom";
 import Dealer from "../shared/autocomplete/dealer";
-import axios from "axios";
+
 import ReactToPrint from "react-to-print";
 const Edit = () => {
   const {
@@ -36,6 +37,7 @@ const Edit = () => {
     demoResponce,
     monronyLabel,
     getpricings,
+    logout,
   } = useApi();
 
   const ref = useRef(true);
@@ -146,9 +148,16 @@ const Edit = () => {
         </header>
       </div>
       <div className="edit__body " ref={(el) => (componentRef = el)}>
-        <Grid container spacing={-2} padding={2} className="main-content">
+        <Grid
+          margin={0}
+          container
+          spacing={-2}
+          padding={2}
+          paddingRight={0}
+          className="main-content"
+        >
           {/* <div className="left-content"> */}
-          <Grid item xs={8} md={8}>
+          <Grid item xs={7.5} md={7.5}>
             <div className="features">
               <div className="features__head font-vn-regular">
                 <span>Volvo 2022</span>
@@ -219,7 +228,7 @@ const Edit = () => {
           </Grid>
           {/* </div> */}
           {/* <div className="right-content"> */}
-          <Grid className="" item xs={4} md={4}>
+          <Grid className="border" item xs={4.5} md={4.5}>
             <div className="gov-infoi  h-100">
               <GovtInfo />
             </div>

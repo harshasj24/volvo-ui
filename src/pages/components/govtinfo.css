@@ -79,7 +79,9 @@ br {
   margin: 0;
   margin-top: -12px !important;
 }
-
+.annual-cost__display {
+  flex-shrink: 0 !important;
+}
 .annual-cost__display p {
   margin: 0 !important;
 }
@@ -90,7 +92,7 @@ br {
   border-radius: 0px 5px 5px 5px;
 }
 .qr-code {
-  height: min-content;
+  height: auto;
   /* width: 85px; */
   padding: 5px;
   flex-shrink: 0;
@@ -351,4 +353,66 @@ br {
 .outer-inner-second-content4 p:last-child {
   padding-left: 1rem;
   padding-top: 0.6rem;
+}
+.inner-third-content2 {
+  background-color: white;
+  color: black;
+  margin: 0.2rem;
+  border-top-right-radius: 0.9rem;
+  border-bottom-left-radius: 0.9rem;
+  border-bottom-right-radius: 0.9rem;
+  padding-left: 0.3rem;
+}
+.inner-third-flex1 {
+  display: flex;
+}
+.logo-images {
+  width: 100px;
+}
+.inner-third-flex1 p {
+  font-size: 0.5rem;
+  padding-right: 0.5rem;
+}
+.inner-third-flex1 p span {
+  font-size: 0.4rem;
+  font-weight: normal;
+}
+.inner-third-flex2 p {
+  font-size: 0.4rem;
+  /* margin-top: 1rem; */
+  font-weight: normal;
+}
+.epa-dot * {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+.epa-dot hr {
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+.content p {
+  line-height: 9px;
+}
+.logo-content p {
+  margin: 0;
+  line-height: 12px;
+}
+.indicator {
+  width: 25px;
+  height: 25px;
+
+  background-color: black;
+  border-radius: 4px;
+  position: relative;
+}
+.indicator::before {
+  content: " ";
+  position: absolute;
+  border: 8px solid;
+  border-color: red transparent transparent transparent;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }

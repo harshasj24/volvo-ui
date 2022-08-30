@@ -5,6 +5,9 @@ import "./govtinfo.css";
 import QRCode from "react-qr-code";
 import Barcode from "react-barcode";
 import { useParams } from "react-router-dom";
+import green from "../../assets/rating green.svg";
+import smog from "../../assets/rating smog.svg";
+import bunchLogo from "../../assets/bunch-logo.JPG";
 export const GovtInfo = () => {
   console.log(window.location.href);
   const { vin } = useParams();
@@ -12,7 +15,14 @@ export const GovtInfo = () => {
     <div className="govt-info">
       <div className="govt-info__fuel-economy">
         <div className="header__title d-flex">
-          <Typography variant="p">Fuel Economy And Environment</Typography>
+          <div className="epa-dot ms-1">
+            <p>EPA</p>
+            <hr />
+            <p>DOT</p>
+          </div>
+          <Typography className="ms-4" variant="p">
+            Fuel Economy And Environment
+          </Typography>
           <div className="header__vechicle-type d-flex align-items-center ms-auto bg-light text-dark">
             <LocalGasStationIcon />
             <Typography className="ms-3" fontSize={".7rem"}>
@@ -78,14 +88,14 @@ export const GovtInfo = () => {
         </div>
 
         <div className="annual-cost-section d-flex mt-2 gap-2">
-          <div className="annual-cost__display bg-light text-dark p-2 br-3s line-h-lg">
+          <div className="annual-cost__display bg-light text-dark p-2 br-3s ">
             <p className="fs-md">
               Annual Fuel <span className="fs-md-lg">Cost</span>
             </p>
-            <p className="fs-lg">$1,700</p>
+            <p className="fs-lg mt-4">$1,700</p>
           </div>
           <div className="anual-cost__rating bg-light text-dark  br-3s ">
-            <div className="ratings d-flex gap-2">
+            {/* <div className="ratings d-flex gap-2">
               <div className="green-house-rating ">
                 <p className="fs-sm">
                   <strong>Fuel economy and green house gas rating</strong>
@@ -96,10 +106,38 @@ export const GovtInfo = () => {
                   <strong>smog rating</strong>
                 </p>
               </div>
+            </div> */}
+            <div class="inner-third-content2">
+              <div class="inner-third-flex1">
+                <div className="green">
+                  <p>
+                    Fuel Economy & Greenhouse Gas Rating{" "}
+                    <span>(tailpipe only)</span>
+                  </p>
+                  <div className="scale">
+                    <img width={"100%"} src={green} alt="" />
+                  </div>
+                </div>
+                <div className="smog ms-1">
+                  <p>
+                    Smog Rating <span>(tailpipe only)</span>{" "}
+                  </p>
+                  <div className="scale">
+                    <img width={"100%"} src={smog} alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="inner-third-flex2">
+                <p>
+                  This vehicle emits 345 grams CO2 per mile. The best emits 0
+                  grams per mile (tailpipe only). Producing and distributing
+                  fuel also create emissions; learn more at fueleconomy.gov.
+                </p>
+              </div>
             </div>
-            <span className="fs-md">
+            {/* <span className="fs-md">
               Lorem ipsum dolor sit amet cddfdfdfdfdf
-            </span>
+            </span> */}
           </div>
         </div>
         <div className="logos-qr-section d-flex mt-2">
@@ -114,15 +152,16 @@ export const GovtInfo = () => {
             </p>
             <div className="logos d-flex">
               <div className="logo-content ">
-                <p className="fs-md-lg margin-0">fueleconomy.gov</p>
-                <p className="fs-sm margin-0">
+                <p className="fs-md-lg mt-2">fueleconomy.gov</p>
+                <p className="fs-sm margin-0 mt-1">
                   Lorem ipsum dolor sit amet consectetur adipisicing
                 </p>
               </div>
               <div className="logo-images d-flex gap-1 ms-3 p-2">
+                {/* <div className="gov-logo"></div>
                 <div className="gov-logo"></div>
-                <div className="gov-logo"></div>
-                <div className="gov-logo"></div>
+                <div className="gov-logo"></div> */}
+                <img width={"100%"} src={bunchLogo} alt="" />
               </div>
             </div>
           </div>
@@ -200,8 +239,8 @@ export const GovtInfo = () => {
               <p>ATHENS, GA 30606</p>
             </div>
           </div>
-          <div className="third-inner-container">
-            <div>
+          <div className="third-inner-container d-flex">
+            <div className="mx-auto">
               {/* <img src="barCode.png" /> */}
               <Barcode
                 height="30px"

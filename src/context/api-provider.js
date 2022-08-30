@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import UseLocalStorage from "../hooks/local-storage";
 const ApiContext = createContext();
 const baseUrlAzure = "https://mroney-app1-function.azurewebsites.net/api/";
@@ -15,6 +15,7 @@ const post = (path, data) => {
 
 export const ApiProvider = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [store, setStore] = useState({
     isLoaded: false,
     allVechicles: [],
@@ -62,19 +63,28 @@ export const ApiProvider = ({ children }) => {
   //     monronyLabel: store.monronyLabel,
   //   };
   // }, [store.allVechicles, store.feature, store.monronyLabel]);
-  const login = async (data) => {
+  const login = async (data, openSnackbar, setLoading) => {
+    const from = location.state?.from?.pathname || "/search";
+    console.log(from);
     try {
+      setLoading(true);
       const responce = await post("/userfunction", data);
       console.log(responce);
       if (responce.data === "USER" || responce.data === "ADMIN") {
         setRole(responce.data);
-        navigate("/search");
+        navigate(from, { replace: true });
       } else {
-        alert(responce.data);
+        // alert(responce.data);
+        openSnackbar(responce.data);
       }
+      setLoading(false);
     } catch (error) {
       navigate("/error");
     }
+  };
+  const logout = () => {
+    setRole(null);
+    navigate("/login", { state: null });
   };
   const values = {
     allVechicles: store.allVechicles,
@@ -87,6 +97,7 @@ export const ApiProvider = ({ children }) => {
     pricing: store.pricing,
     login,
     role,
+    logout,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

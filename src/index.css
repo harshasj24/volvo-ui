@@ -13,7 +13,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+* {
+  font-family: "volvo-novum-regular";
+}
 /* #c3d2d6 */ /* tabel-header color*/
 /* #182871 --toolbar color(blue) */
 /* #e8eaed -- side bar color */
