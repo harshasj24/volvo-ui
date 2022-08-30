@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -17,9 +17,11 @@ import logo from "../../assets/volvo-logo.svg";
 import { useLocation } from "react-router-dom";
 import { useApi } from "../../context/api-provider";
 import LogoutIcon from "@mui/icons-material/Logout";
+import UseLocalStorage from "../../hooks/local-storage";
 export default function Navbar() {
   const { pathname } = useLocation();
   const { logout } = useApi();
+  const { role } = useApi();
   return (
     <div className="navbar">
       <AppBar
@@ -37,7 +39,7 @@ export default function Navbar() {
 
             <div className="account">
               <img src={profile} alt="" />
-              <h6 className="mt-1">Michael Monroney</h6>
+              <h6 className="mt-1">{role?.name || ""}</h6>
             </div>
           </div>
 

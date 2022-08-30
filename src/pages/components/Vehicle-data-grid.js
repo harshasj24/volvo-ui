@@ -23,17 +23,17 @@ const VehicleDataGrid = ({ rows }) => {
   const navigate = useNavigate();
   const columns = [
     {
-      field: "year",
+      field: "car_year",
       headerName: "Year",
     },
     {
-      field: "vehicle",
+      field: "vehicle_name",
       headerName: "Vehicle",
       width: 150,
     },
     {
-      field: "VIN",
-      headerName: "VIN",
+      field: "vin",
+      headerName: "vin",
       width: 180,
     },
     {
@@ -42,12 +42,12 @@ const VehicleDataGrid = ({ rows }) => {
       width: 140,
     },
     {
-      field: "monroney",
+      field: "car_status",
       headerName: "Monroney",
     },
   ];
   const handelClick = (e) => {
-    navigate(`/edit/${e.row.VIN}`);
+    navigate(`/edit/${e.row.vin}`);
   };
   const [filterButtonEl, setFilterButtonEl] = React.useState(null);
 
@@ -59,6 +59,7 @@ const VehicleDataGrid = ({ rows }) => {
         hideFooter={true}
         autoHeight
         rows={rows}
+        getRowId={(row) => row.car_id}
         components={{
           Toolbar: CustomToolbar,
         }}

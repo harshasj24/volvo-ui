@@ -8,6 +8,9 @@ const baseUrl = "http://localhost:3100";
 const get = (path) => {
   return axios.get(`${baseUrl}${path}`);
 };
+const getNew = (path) => {
+  return axios.get(`${baseUrlAzure}${path}`);
+};
 
 const post = (path, data) => {
   return axios.post(`${baseUrlAzure}${path}`, data);
@@ -22,8 +25,9 @@ export const ApiProvider = ({ children }) => {
     feature: {},
     monronyLabel: {},
     pricing: {},
+    newAll: [],
   });
-  const [role, setRole] = UseLocalStorage("role", null);
+  const [role, setRole] = UseLocalStorage("user", null);
   const paths = {
     pricing: "/getPricing",
     performance: "/performance",
@@ -32,7 +36,9 @@ export const ApiProvider = ({ children }) => {
 
   const getAllVechicles = async () => {
     if (!store.isLoaded) {
-      const responce = await get("/vehicles");
+      // const responce = await get("/vehicles");
+
+      const responce = await getNew("/vehicle-view");
       setStore({ ...store, allVechicles: responce.data, isLoaded: true });
     }
   };
@@ -70,8 +76,16 @@ export const ApiProvider = ({ children }) => {
       setLoading(true);
       const responce = await post("/userfunction", data);
       console.log(responce);
-      if (responce.data === "USER" || responce.data === "ADMIN") {
-        setRole(responce.data);
+      if (
+        responce.data === "Name: Thomas Smith Role: USER" ||
+        responce.data === "Name: Michael Monroney Role: ADMIN"
+      ) {
+        const resArr = responce.data.split(" ");
+        const userDetails = {
+          name: `${resArr[1]} ${resArr[2]}`,
+          role: `${resArr[resArr.length - 1]}`,
+        };
+        setRole(userDetails);
         navigate(from, { replace: true });
       } else {
         // alert(responce.data);
