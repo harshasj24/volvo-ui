@@ -79,7 +79,6 @@ const Login = (props) => {
                 onChange={handelChange("username", setFieldValue)}
               /> */}
               <input
-                defaultValue={"user1"}
                 onChange={handelChange("username", setFieldValue)}
                 name="username"
                 type="text"
@@ -100,7 +99,6 @@ const Login = (props) => {
                 onChange={handelChange("password", setFieldValue)}
               /> */}
               <input
-                defaultValue={"pw123"}
                 type="password"
                 name="password"
                 className="form-control mt-3"

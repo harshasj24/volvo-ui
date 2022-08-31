@@ -9,12 +9,17 @@ import Edit from "./pages/edit";
 import Login from "./pages/login";
 import Err from "./error-handling/Err";
 import Proctected from "./auth/proctected";
+import { useApi } from "./context/api-provider";
 function App() {
+  const { role } = useApi();
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Navigate to={"/login"} />} />
+        <Route
+          path="/"
+          element={<Navigate to={role ? "/search" : "/login"} />}
+        />
         <Route element={<Proctected />}>
           <Route path="/search" element={<Search />} />
           <Route path="/edit/:vin" element={<Edit />} />
