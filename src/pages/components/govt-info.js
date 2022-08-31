@@ -44,7 +44,7 @@ export const GovtInfo = () => {
                 <p className="fs-sm  combine p-0">combine city/hwy</p>
               </div>
 
-              <div className="units ms-2 mt-2 ">
+              <div className="units ms-2 mt-1">
                 <p>MPG</p>
                 <div className="seperate d-flex">
                   <div className="city d-flex flex-column align-items-center">

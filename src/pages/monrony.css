@@ -9,3 +9,8 @@
 .css-heg063-MuiTabs-flexContainer > button:nth-child(2) {
   flex-grow: 0.8;
 }
+.progress {
+  /* position: absolute; */
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

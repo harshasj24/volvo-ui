@@ -112,6 +112,7 @@ export const ApiProvider = ({ children }) => {
     login,
     role,
     logout,
+    isLoaded: store.isLoaded,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

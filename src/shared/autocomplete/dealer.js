@@ -2,13 +2,17 @@ import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { useApi } from "../../context/api-provider";
 const Dealer = () => {
+  const { role } = useApi();
+
   return (
     <Autocomplete
       id="country-select-demo"
       sx={{ width: 250 }}
       size="small"
       options={countries}
+      disabled={role?.role === "USER"}
       autoHighlight
       getOptionLabel={(option) => option}
       //   renderOption={(props, option) => (

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const CustomToolbar = ({ setFilterButtonEl }) => (
   <GridToolbarContainer>
     <GridToolbarFilterButton ref={setFilterButtonEl} />
-    <GridToolbarQuickFilter sx={{ marginLeft: "auto" }} />
+    <GridToolbarQuickFilter autoComplete="off" sx={{ marginLeft: "auto" }} />
   </GridToolbarContainer>
 );
 
@@ -33,17 +33,17 @@ const VehicleDataGrid = ({ rows }) => {
     },
     {
       field: "vin",
-      headerName: "vin",
-      width: 180,
+      headerName: "VIN",
+      width: 200,
     },
     {
       field: "location",
       headerName: "Location",
-      width: 140,
+      width: 230,
     },
     {
       field: "car_status",
-      headerName: "Monroney",
+      headerName: "Status",
     },
   ];
   const handelClick = (e) => {
