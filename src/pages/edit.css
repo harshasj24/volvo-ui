@@ -53,3 +53,27 @@
     margin: auto;
   }
 }
+.monroney--columns {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: calc(100vw - 500px);
+  max-height: calc(100vh + 400px);
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  /* border: solid; */
+  flex-shrink: 0;
+}
+.monroney--columns > * {
+  flex: 0 0 auto;
+  max-width: 32%;
+  font-size: 0.7rem;
+}
+.edit__body {
+  flex-wrap: wrap;
+}
+.monroney-govt {
+  width: 35vw !important;
+  margin-left: auto;
+}

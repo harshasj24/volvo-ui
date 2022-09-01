@@ -23,6 +23,8 @@ export const ApiProvider = ({ children }) => {
     isLoaded: false,
     allVechicles: [],
     feature: {},
+    monronyFeatures: {},
+    monronyGovtMandet: {},
     monronyLabel: {},
     pricing: {},
     newAll: [],
@@ -53,6 +55,42 @@ export const ApiProvider = ({ children }) => {
   const getVechicleFeature = async () => {
     const reaponce = await get("/features");
     setStore({ ...store, feature: reaponce.data[0] });
+  };
+  const getALLMonroneyFeature = async (vin) => {
+    console.log(vin);
+    try {
+      const responce = await getNew(`/vinsearch?vin=${vin}`);
+      responce.data.splice(1).map((val) => {
+        const getKey = Object.keys(val)[0];
+        if (
+          val?.fuel_economy ||
+          val?.gov_ratings ||
+          val?.importation ||
+          val?.parts_content_information ||
+          val?.vehicle_identification
+        ) {
+          setStore((pre) => {
+            return {
+              ...pre,
+              monronyGovtMandet: {
+                ...pre?.monronyGovtMandet,
+                [getKey]: val[getKey],
+              },
+            };
+          });
+        } else {
+          setStore((prev) => {
+            return {
+              ...prev,
+              monronyFeatures: {
+                ...prev?.monronyFeatures,
+                [getKey]: val[getKey],
+              },
+            };
+          });
+        }
+      });
+    } catch (error) {}
   };
   const getMonroneyFeature = async (path) => {
     const responce = await get(paths[path]);
@@ -112,7 +150,10 @@ export const ApiProvider = ({ children }) => {
     login,
     role,
     logout,
+    getALLMonroneyFeature,
     isLoaded: store.isLoaded,
+    monronyFeatures: store.monronyFeatures,
+    monronyGovtMandet: store.monronyGovtMandet,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

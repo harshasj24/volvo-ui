@@ -1,14 +1,28 @@
-import React, { useEffect, useState } from "react";
-import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
+import React, { useEffect, useRef, useState } from "react";
+// import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
 import { IconButton, Typography } from "@mui/material";
 import "./features.css";
 import { useGlobal } from "../../context/global-states.provider";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import LongMenu from "./long-menu";
 import { useApi } from "../../context/api-provider";
-const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
+const FeatureCard = ({ title, children, handelOpen, arr, feature }) => {
   const { selectedFeature } = useGlobal();
-  const [features, setFeatures] = useState();
+  const [details, setDetails] = useState("");
+  // const [features, setFeatures] = useState();
+  const getDetails = () => {
+    try {
+      if (feature.title === "authorized_retailer") {
+        setDetails(feature?.address);
+      } else {
+        Object.keys(feature?.features).map((key) => {
+          setDetails((prev) => {
+            return prev + feature?.features[key] + "\n";
+          });
+        });
+      }
+    } catch (error) {}
+  };
   const activeClass = "shadow active-boder";
   const { getMonroneyFeature } = useApi();
   const active = (defaultValue, value) => {
@@ -24,11 +38,17 @@ const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
     console.log(title);
     title === "pricing" && getMonroneyFeature(title);
   };
-
-  useEffect(() => {}, [arr]);
-
+  const ref = useRef(true);
+  useEffect(() => {
+    console.log(feature?.features);
+    if (ref.current) {
+      getDetails();
+      ref.current = false;
+    }
+  }, [feature]);
+  // console.log(details);
   return (
-    <div className={`feature-card p-1 ${active("", activeClass)}`}>
+    <div className={`p-1 ${active("", activeClass)}`}>
       <div className="feature-card__header  d-flex align-items-center font-vn-regular">
         <Typography
           textTransform={"uppercase"}
@@ -37,7 +57,7 @@ const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
           fontSize={".8rem"}
           fontFamily="inherit"
         >
-          {title}
+          {feature.title || "warranty"}
         </Typography>
         <div className="header-icon ms-auto">
           {
@@ -55,9 +75,9 @@ const FeatureCard = ({ title, details, children, handelOpen, arr }) => {
           variant=""
           fontFamily={"inherit"}
           fontWeight={"600"}
-          fontSize={"0.6rem"}
+          fontSize={"0.7rem"}
         >
-          {details || children}
+          {details}
         </Typography>
       </div>
     </div>

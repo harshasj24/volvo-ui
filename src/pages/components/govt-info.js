@@ -8,9 +8,46 @@ import { useParams } from "react-router-dom";
 import green from "../../assets/rating green.svg";
 import smog from "../../assets/rating smog.svg";
 import bunchLogo from "../../assets/bunch-logo.JPG";
+import { useApi } from "../../context/api-provider";
 export const GovtInfo = () => {
-  console.log(window.location.href);
   const { vin } = useParams();
+  const { monronyGovtMandet } = useApi();
+  // fuel_economy
+  // gov_ratings
+  // importation
+  // parts_content_information
+  // vehicle_identification
+  const getFuelEconomy = (key) => {
+    try {
+      return monronyGovtMandet?.fuel_economy[key];
+    } catch (error) {
+      return "";
+    }
+  };
+  const getGovtRating = (key) => {
+    return monronyGovtMandet?.gov_ratings[key];
+  };
+  const getVechicleInfo = (key) => {
+    try {
+      return monronyGovtMandet?.vehicle_identification[key];
+    } catch (error) {
+      return "";
+    }
+  };
+  const getImportion = (key) => {
+    try {
+      return monronyGovtMandet?.importation[key];
+    } catch (error) {
+      return "";
+    }
+  };
+  const getPartsContentInfo = (key) => {
+    try {
+      return monronyGovtMandet?.parts_content_information[key];
+    } catch (error) {
+      return "";
+    }
+  };
   return (
     <div className="govt-info">
       <div className="govt-info__fuel-economy">
@@ -26,7 +63,7 @@ export const GovtInfo = () => {
           <div className="header__vechicle-type d-flex align-items-center ms-auto bg-light text-dark">
             <LocalGasStationIcon />
             <Typography className="ms-3" fontSize={".7rem"}>
-              Gasolane vechicle
+              {getFuelEconomy("energy_type")} vechicle
             </Typography>
           </div>
         </div>
@@ -39,7 +76,7 @@ export const GovtInfo = () => {
               <div className="mpg-val d-flex flex-column">
                 <p className="fs-sm m-0">Fuel Economy</p>
                 <h1 className="m-0 p-0" style={{ fontSize: "3.5rem" }}>
-                  26
+                  {getFuelEconomy("mpg_combined")}
                 </h1>
                 <p className="fs-sm  combine p-0">combine city/hwy</p>
               </div>
@@ -48,11 +85,11 @@ export const GovtInfo = () => {
                 <p>MPG</p>
                 <div className="seperate d-flex">
                   <div className="city d-flex flex-column align-items-center">
-                    <p>23</p>
+                    <p>{getFuelEconomy("mpg_city")}</p>
                     <p className="font-sm">City</p>
                   </div>
                   <div className="high-way ms-1 d-flex flex-column align-items-center">
-                    <p>30</p>
+                    <p>{getFuelEconomy("mpg_highway")}</p>
                     <p className="font-sm">Highway</p>
                   </div>
                 </div>
@@ -60,7 +97,7 @@ export const GovtInfo = () => {
             </div>
 
             <div className="gallons ms-3">
-              <strong>3.8</strong>
+              <strong>{getFuelEconomy("gallons_per_100_miles")}</strong>
               <span className="fs-sm"> gallons per 100 miles</span>
             </div>
           </div>
@@ -73,7 +110,7 @@ export const GovtInfo = () => {
           <div className="spend ms-auto">
             <span className="line-h-lg">
               you <span className="fs-md-lg">Spend</span> <br />
-              <span className="fs-lg">$2,000</span>
+              <span className="fs-lg">{getFuelEconomy("spend_in_gas")}</span>
             </span>
 
             <br />
@@ -192,13 +229,27 @@ export const GovtInfo = () => {
           <div className="inner-left-container">
             <ul>
               <li>FOR VEHICLES IN THIS CARLINE: VOLVO SERIES</li>
-              <li>U.S./CANADIAN PARTS CONTENT: 1%</li>
-              <li>MAJOR SOURCES OF FOREIGN PARTS CONTENT: SWEDEN: 40%</li>
               <li>
-                FOR THIS VEHICLE: FINAL ASSEMBLY POINT: GOTHENBURG, SWEDEN
+                U.S./CANADIAN PARTS CONTENT:{" "}
+                {getPartsContentInfo("us_canadian_content")}
               </li>
-              <li>COUNTRY OF ORIGIN: ENGINE PARTS: SWEDEN</li>
-              <li>TRANSMISSION PARTS:JAPAN</li>
+              <li>
+                MAJOR SOURCES OF FOREIGN PARTS CONTENT:{" "}
+                {getPartsContentInfo("major_source_foreign_parts1_name")}:
+                {getPartsContentInfo("major_source_foreign_parts1_amount")}
+              </li>
+              <li>
+                FOR THIS VEHICLE: FINAL ASSEMBLY POINT:{" "}
+                {getPartsContentInfo("final_assembly_point")}
+              </li>
+              <li>
+                COUNTRY OF ORIGIN: ENGINE PARTS:
+                {getPartsContentInfo("country_of_origin")}
+              </li>
+              <li>
+                TRANSMISSION PARTS:
+                {getPartsContentInfo("transmission_parts_origin")}
+              </li>
             </ul>
             <p>
               Note: Parts contents does not include final assembly,
@@ -226,17 +277,18 @@ export const GovtInfo = () => {
             <div className="left-second-content">
               <p>VEHICLE IDENTIFICATION</p>
               <p>Type & Chassis: 246 952643</p>
-              <p>Model Year: 2022</p>
-              <p>Color: Silver Dawn</p>
-              <p>VIN: {vin}</p>
+              <p>Model Year: {getVechicleInfo("model_year")}</p>
+              <p>Color:{getVechicleInfo("color")}</p>
+              <p>VIN: {getVechicleInfo("vin")}</p>
             </div>
             <div className="left-second-content">
-              <p>Port of Importation: Brunswick, GA</p>
-              <p>Delivered by: Truck</p>
+              <p>Port of Importation: {getImportion("port_of_importation")}</p>
+              <p>Delivered by: {getImportion("delivered_by")}</p>
               <p>DELIVERY ADDRESS</p>
-              <p>VOLVO CARS ATHENS 7149</p>
+              {/* <p>VOLVO CARS ATHENS 7149</p>
               <p>2890 ATLANTA HIGHWAY</p>
-              <p>ATHENS, GA 30606</p>
+              <p>ATHENS, GA 30606</p> */}
+              <p>{getImportion("delivery_address").toUpperCase()}</p>
             </div>
           </div>
           <div className="third-inner-container d-flex">

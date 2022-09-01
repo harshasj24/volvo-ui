@@ -66,9 +66,13 @@ export default function BasicSelect({
           defaultValue={defaultValue}
           disabled={disabled}
         >
-          {getOptions().map((option) => {
+          {getOptions().map((option, i) => {
             return (
-              <MenuItem sx={{ textTransform: "capitalize" }} value={option}>
+              <MenuItem
+                key={i}
+                sx={{ textTransform: "capitalize" }}
+                value={option}
+              >
                 {option}
               </MenuItem>
             );
