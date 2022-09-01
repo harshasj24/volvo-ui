@@ -6,13 +6,13 @@ export const GlobalStaesProvider = ({ children }) => {
     selectedFeature: "",
     featureDetails: "",
   });
-  const { feature } = useApi();
+  // const { feature } = useApi();
   const selectFeature = (selected) => {
     const key = selected.replaceAll(" ", "_").toLowerCase();
     setStore({
       ...store,
       selectedFeature: selected,
-      featureDetails: feature[key],
+      // featureDetails: feature[key],
     });
     console.log(selected);
   };
@@ -20,12 +20,12 @@ export const GlobalStaesProvider = ({ children }) => {
   const setSelect = () => {};
 
   const resetSelcted = () => {
-    setStore({ ...store, featureDetails: "", selectedFeature: "" });
+    // setStore({ ...store, featureDetails: "", selectedFeature: "" });
   };
 
   const refresh = () => {
     console.log(store);
-    setStore({ ...store, featureDetails: feature[store.selectedFeature] });
+    // setStore({ ...store, featureDetails: feature[store.selectedFeature] });
   };
 
   const titleCase = (string) => {
@@ -36,6 +36,20 @@ export const GlobalStaesProvider = ({ children }) => {
   const replaceChar = (string, toReplace, newChar) => {
     return string.replaceAll(toReplace, newChar);
   };
+  const getDetails = (feature, setDetails) => {
+    try {
+      if (feature.title === "authorized_retailer") {
+        setDetails(feature?.address);
+      } else {
+        console.log(feature.features);
+        Object.keys(feature?.features).map((key) => {
+          setDetails((prev) => {
+            return prev + feature?.features[key] + "\n";
+          });
+        });
+      }
+    } catch (error) {}
+  };
   const values = useMemo(() => {
     return {
       selectedFeature: store.selectedFeature,
@@ -45,6 +59,7 @@ export const GlobalStaesProvider = ({ children }) => {
       titleCase,
       replaceChar,
       refresh,
+      getDetails,
     };
   }, [store, store.featureDetails, selectFeature]);
   return (

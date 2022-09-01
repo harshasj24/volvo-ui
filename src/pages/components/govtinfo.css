@@ -392,6 +392,12 @@ br {
   background-color: rgb(255, 255, 255);
   border: none;
 }
+.content {
+  flex: 0 1 auto;
+  width: 245px;
+}
+.qr-code {
+}
 .content p {
   line-height: 9px;
 }

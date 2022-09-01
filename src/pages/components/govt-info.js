@@ -144,8 +144,8 @@ export const GovtInfo = () => {
                 </p>
               </div>
             </div> */}
-            <div class="inner-third-content2">
-              <div class="inner-third-flex1">
+            <div className="inner-third-content2">
+              <div className="inner-third-flex1">
                 <div className="green">
                   <p>
                     Fuel Economy & Greenhouse Gas Rating{" "}
@@ -164,7 +164,7 @@ export const GovtInfo = () => {
                   </div>
                 </div>
               </div>
-              <div class="inner-third-flex2">
+              <div className="inner-third-flex2">
                 <p>
                   This vehicle emits 345 grams CO2 per mile. The best emits 0
                   grams per mile (tailpipe only). Producing and distributing

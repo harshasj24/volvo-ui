@@ -55,7 +55,7 @@ const Edit = () => {
     if (ref.current) {
       console.log(vin);
       ref.current = false;
-      getVechicleFeature();
+      // getVechicleFeature();
       getALLMonroneyFeature(vin);
       getAllfeatures();
     }
@@ -153,7 +153,7 @@ const Edit = () => {
         </header>
       </div>
       <div
-        className="edit__body p-2 d-flex w-100"
+        className="edit__body p-3 d-flex w-100"
         ref={(el) => (componentRef = el)}
       >
         <div className="monroney--columns">

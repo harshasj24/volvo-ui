@@ -10,8 +10,8 @@ import { useDemoData } from "@mui/x-data-grid-generator";
 import { useNavigate } from "react-router-dom";
 const CustomToolbar = ({ setFilterButtonEl }) => (
   <GridToolbarContainer>
-    <GridToolbarFilterButton ref={setFilterButtonEl} />
-    <GridToolbarQuickFilter autoComplete="off" sx={{ marginLeft: "auto" }} />
+    {/* <GridToolbarFilterButton ref={setFilterButtonEl} /> */}
+    <GridToolbarQuickFilter autoComplete="off" />
   </GridToolbarContainer>
 );
 

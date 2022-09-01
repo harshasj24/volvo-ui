@@ -2,6 +2,7 @@ import React, { createContext, useContext, useMemo, useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseLocalStorage from "../hooks/local-storage";
+import { useGlobal } from "./global-states.provider";
 const ApiContext = createContext();
 const baseUrlAzure = "https://mroney-app1-function.azurewebsites.net/api/";
 const baseUrl = "http://localhost:3100";
@@ -18,6 +19,7 @@ const post = (path, data) => {
 
 export const ApiProvider = ({ children }) => {
   const navigate = useNavigate();
+  const { replaceChar } = useGlobal();
   const location = useLocation();
   const [store, setStore] = useState({
     isLoaded: false,
@@ -33,7 +35,12 @@ export const ApiProvider = ({ children }) => {
   const paths = {
     pricing: "/getPricing",
     performance: "/performance",
-    safety_and_security: "/safetysecurity",
+    Safety_And_Security: "/safetysecurity",
+    Luxury_And_Convenience: "/luxuryconvenience",
+    Audio_And_Technology: "/audioandtechnology",
+    authorized_retailer: "",
+    maintenance: "/maintenance",
+    warranty: "warranty",
   };
 
   const getAllVechicles = async () => {
@@ -52,21 +59,23 @@ export const ApiProvider = ({ children }) => {
     });
     return filt;
   };
-  const getVechicleFeature = async () => {
-    const reaponce = await get("/features");
-    setStore({ ...store, feature: reaponce.data[0] });
+  const getVechicleFeature = async (path) => {
+    const responce = await getNew(
+      `${paths[replaceChar(path, " ", "_")]}-view?carId=1`
+    );
+    const getKey = Object.keys(responce.data)[0];
+    setStore({ ...store, feature: responce.data[getKey] });
   };
   const getALLMonroneyFeature = async (vin) => {
-    console.log(vin);
     try {
       const responce = await getNew(`/vinsearch?vin=${vin}`);
       responce.data.splice(1).map((val) => {
         const getKey = Object.keys(val)[0];
         if (
-          val?.fuel_economy ||
-          val?.gov_ratings ||
-          val?.importation ||
-          val?.parts_content_information ||
+          val["Fuel Economy"] ||
+          val["Gov Ratings"] ||
+          val["Importation"] ||
+          val["parts_content_information"] ||
           val?.vehicle_identification
         ) {
           setStore((pre) => {
@@ -94,8 +103,6 @@ export const ApiProvider = ({ children }) => {
   };
   const getMonroneyFeature = async (path) => {
     const responce = await get(paths[path]);
-    console.log(responce);
-    setStore({ ...store, pricing: responce["data"] });
   };
   // const values = useMemo(() => {
   //   return {
@@ -109,11 +116,11 @@ export const ApiProvider = ({ children }) => {
   // }, [store.allVechicles, store.feature, store.monronyLabel]);
   const login = async (data, openSnackbar, setLoading) => {
     const from = location.state?.from?.pathname || "/search";
-    console.log(from);
+
     try {
       setLoading(true);
       const responce = await post("/userfunction", data);
-      console.log(responce);
+
       if (
         responce.data === "Name: Thomas Smith Role: USER" ||
         responce.data === "Name: Michael Monroney Role: ADMIN"
@@ -138,6 +145,9 @@ export const ApiProvider = ({ children }) => {
     setRole(null);
     navigate("/login", { state: null });
   };
+  const reset = () => {
+    setStore({ ...store, feature: {} });
+  };
   const values = {
     allVechicles: store.allVechicles,
     getAllVechicles,
@@ -154,6 +164,7 @@ export const ApiProvider = ({ children }) => {
     isLoaded: store.isLoaded,
     monronyFeatures: store.monronyFeatures,
     monronyGovtMandet: store.monronyGovtMandet,
+    reset,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

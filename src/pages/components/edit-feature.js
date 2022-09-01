@@ -28,14 +28,20 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
 import { useFormik } from "formik";
 const EditFeature = ({ handelClose }) => {
-  const { pricing } = useApi();
-
-  const { selectedFeature, featureDetails, resetSelcted, titleCase, refresh } =
-    useGlobal();
+  const { pricing, feature, reset } = useApi();
+  const [details, setDetails] = useState("");
+  const {
+    selectedFeature,
+    featureDetails,
+    resetSelcted,
+    titleCase,
+    refresh,
+    getDetails,
+  } = useGlobal();
   const [select, setSelect] = useState(false);
   const formik = useFormik({
     initialValues: {
-      details: featureDetails,
+      details: details,
     },
     enableReinitialize: true,
     onSubmit: (values) => {
@@ -46,15 +52,24 @@ const EditFeature = ({ handelClose }) => {
     },
   });
   const handleclick = (close) => () => {
-    close && handelClose();
-    resetSelcted();
+    if (close) {
+    }
+    setDetails(" ");
+    handelClose();
+    reset();
+    // resetSelcted();
     setSelect(true);
-    setTimeout(() => {
-      setSelect(false);
-    });
+    // setTimeout(() => {
+    //   setSelect(false);
+    // });
   };
 
-  useEffect(() => {}, [featureDetails]);
+  useEffect(() => {
+    setDetails("  ");
+    getDetails(feature, setDetails);
+    console.log(feature);
+  }, [feature]);
+
   return (
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
       <form
@@ -154,7 +169,7 @@ const EditFeature = ({ handelClose }) => {
                 variant="outlined"
                 onChange={formik.handleChange}
                 className="mt-3 w-100 feature-details"
-                value={formik.values.details}
+                value={details}
                 multiline
                 name="details"
                 minRows={6}
@@ -177,6 +192,7 @@ const EditFeature = ({ handelClose }) => {
           <Button
             variant="outlined"
             size="small"
+            type="reset"
             className="ms-auto"
             onClick={handleclick(true)}
             color="primary"

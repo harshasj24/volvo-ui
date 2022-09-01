@@ -7,22 +7,23 @@ import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import LongMenu from "./long-menu";
 import { useApi } from "../../context/api-provider";
 const FeatureCard = ({ title, children, handelOpen, arr, feature }) => {
-  const { selectedFeature } = useGlobal();
+  const { selectedFeature, getDetails } = useGlobal();
+  const { getVechicleFeature } = useApi();
   const [details, setDetails] = useState("");
   // const [features, setFeatures] = useState();
-  const getDetails = () => {
-    try {
-      if (feature.title === "authorized_retailer") {
-        setDetails(feature?.address);
-      } else {
-        Object.keys(feature?.features).map((key) => {
-          setDetails((prev) => {
-            return prev + feature?.features[key] + "\n";
-          });
-        });
-      }
-    } catch (error) {}
-  };
+  // const getDetails = () => {
+  //   try {
+  //     if (feature.title === "authorized_retailer") {
+  //       setDetails(feature?.address);
+  //     } else {
+  //       Object.keys(feature?.features).map((key) => {
+  //         setDetails((prev) => {
+  //           return prev + feature?.features[key] + "\n";
+  //         });
+  //       });
+  //     }
+  //   } catch (error) {}
+  // };
   const activeClass = "shadow active-boder";
   const { getMonroneyFeature } = useApi();
   const active = (defaultValue, value) => {
@@ -34,19 +35,19 @@ const FeatureCard = ({ title, children, handelOpen, arr, feature }) => {
   const { selectFeature } = useGlobal();
   const handelClick = () => {
     handelOpen();
-    selectFeature(title);
-    console.log(title);
+    selectFeature(feature.title);
+    getVechicleFeature(feature.title);
+
     title === "pricing" && getMonroneyFeature(title);
   };
   const ref = useRef(true);
   useEffect(() => {
-    console.log(feature?.features);
     if (ref.current) {
-      getDetails();
+      getDetails(feature, setDetails);
       ref.current = false;
     }
-  }, [feature]);
-  // console.log(details);
+  }, [feature, details]);
+
   return (
     <div className={`p-1 ${active("", activeClass)}`}>
       <div className="feature-card__header  d-flex align-items-center font-vn-regular">

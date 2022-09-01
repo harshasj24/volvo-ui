@@ -54,26 +54,36 @@
   }
 }
 .monroney--columns {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  max-width: calc(100vw - 500px);
+  width: calc(100vw - calc(500px + 2rem));
   max-height: calc(100vh + 400px);
   align-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
+  gap: 1rem 2rem;
   /* border: solid; */
+  /* flex-shrink: 0;  */
+}
+.monroney--columns {
+  align-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  max-height: calc(100vh + 150px);
+  flex: 1;
 }
 .monroney--columns > * {
   flex: 0 0 auto;
-  max-width: 32%;
+  width: 30%;
   font-size: 0.7rem;
 }
 .edit__body {
   flex-wrap: wrap;
 }
 .monroney-govt {
-  width: 35vw !important;
-  margin-left: auto;
+  flex: 0 0 25%;
 }

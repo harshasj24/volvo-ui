@@ -2,7 +2,7 @@
 
 .feature-card__header {
   border-top: solid;
-  padding: 4px;
+  padding: 4px 0px;
   border-bottom: dotted;
 }
 .feature-card {
@@ -11,6 +11,7 @@
 .feature-card__body {
   line-height: 13px;
   white-space: pre-line;
+  padding: 4px 0px;
 }
 @media only screen and (max-width: 1200px) {
   .feature-card {
