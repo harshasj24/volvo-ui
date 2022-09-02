@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import UseLocalStorage from "../../hooks/local-storage";
 import { useGlobal } from "../../context/global-states.provider";
 import { useApi } from "../../context/api-provider";
+import "./grid.css";
 const CustomToolbar = ({ setFilterButtonEl }) => (
   <GridToolbarContainer>
     {/* <GridToolbarFilterButton ref={setFilterButtonEl} /> */}

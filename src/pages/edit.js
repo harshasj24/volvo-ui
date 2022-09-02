@@ -101,7 +101,7 @@ const Edit = () => {
             >
               S90 T6 AWD INSCRIPTION
             </Typography>
-            <Typography fontFamily="inherit" variant="p" fontSize={".8rem"}>
+            <Typography fontFamily="inherit" variant="p">
               {vin}
             </Typography>
           </div>
@@ -166,7 +166,7 @@ const Edit = () => {
             );
           })}
         </div>
-        <div className="monroney-govt  ">
+        <div className="monroney-govt">
           <GovtInfo />
         </div>
       </div>
