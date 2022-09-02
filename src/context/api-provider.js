@@ -34,7 +34,7 @@ export const ApiProvider = ({ children }) => {
   const [role, setRole] = UseLocalStorage("user", null);
 
   const paths = {
-    pricing: "/getPricing",
+    pricing: "pricing",
     performance: "/performance",
     safety_and_security: "/safetysecurity",
     luxury_and_convenience: "/luxuryconvenience",

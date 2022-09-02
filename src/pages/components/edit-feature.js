@@ -109,7 +109,7 @@ const EditFeature = ({ handelClose }) => {
             <Typography variant="h6">{titleCase(selectedFeature)}</Typography>
           </div>
 
-          {selectedFeature === "pricing" ? (
+          {selectedFeature === "Pricing" ? (
             <div className="pricing-field w-100 ">
               {/* {Object.keys(featureDetails).map((key) => {
               return (
