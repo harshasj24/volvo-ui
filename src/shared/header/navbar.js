@@ -32,14 +32,15 @@ export default function Navbar() {
         {/* <Paper className="paper"> */}
         <header>
           <div className="header-nav d-flex align-items-center">
-            <IconButton color="inherit">
+            <IconButton sx={{ padding: "16px" }} color="inherit">
               <img src={menu} alt="" />
             </IconButton>
             <img src={logo} alt="" />
 
             <div className="account">
               <img src={profile} alt="" />
-              <h6 className="mt-1">{role?.name || ""}</h6>
+              {/* <h6 className="mt-1">{role?.name || ""}</h6> */}
+              <div>{role?.name || ""}</div>
             </div>
           </div>
 

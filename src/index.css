@@ -14,8 +14,12 @@ code {
     monospace;
 }
 * {
-  font-family: "volvo-novum-regular";
+  font-family: "volvo-novum-regular" !important;
+  font-size: 0.875rem;
+  color: black;
+  font-weight: 400;
 }
+
 /* #c3d2d6 */ /* tabel-header color*/
 /* #182871 --toolbar color(blue) */
 /* #e8eaed -- side bar color */

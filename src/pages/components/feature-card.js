@@ -49,17 +49,9 @@ const FeatureCard = ({ title, children, handelOpen, arr, feature }) => {
   }, [feature, details]);
 
   return (
-    <div className={`p-1 ${active("", activeClass)}`}>
-      <div className="feature-card__header  d-flex align-items-center font-vn-regular">
-        <Typography
-          textTransform={"uppercase"}
-          fontWeight={"bold"}
-          variant="p"
-          fontSize={".8rem"}
-          fontFamily="inherit"
-        >
-          {feature.title || "warranty"}
-        </Typography>
+    <div>
+      <div className="feature-card__header  d-flex align-items-center">
+        {feature.title}
         <div className="header-icon ms-auto">
           {
             <LongMenu openModel={handelClick} /> /* {active(
@@ -71,16 +63,7 @@ const FeatureCard = ({ title, children, handelOpen, arr, feature }) => {
           }
         </div>
       </div>
-      <div className="feature-card__body font-vn-light">
-        <Typography
-          variant=""
-          fontFamily={"inherit"}
-          fontWeight={"600"}
-          fontSize={"0.7rem"}
-        >
-          {details}
-        </Typography>
-      </div>
+      <div className="feature-card__body">{details}</div>
     </div>
   );
 };

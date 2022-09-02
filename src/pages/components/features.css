@@ -4,12 +4,15 @@
   border-top: solid;
   padding: 4px 0px;
   border-bottom: dotted;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 .feature-card {
   max-width: 19vw !important;
 }
 .feature-card__body {
-  line-height: 13px;
+  line-height: 120%;
   white-space: pre-line;
   padding: 4px 0px;
 }
