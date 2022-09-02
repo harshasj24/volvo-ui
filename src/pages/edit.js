@@ -53,9 +53,9 @@ const Edit = () => {
 
   useEffect(() => {
     if (ref.current) {
-      console.log(vin);
       ref.current = false;
       // getVechicleFeature();
+      console.log(vin);
       getALLMonroneyFeature(vin);
       getAllfeatures();
     }
@@ -66,7 +66,6 @@ const Edit = () => {
       setPricingKeys([]);
     }
     breakepointObserver();
-    console.log(monronyFeatures);
   }, [feature, monronyFeatures]);
   const getAllfeatures = async () => {
     const data = await demoResponce();

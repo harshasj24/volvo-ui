@@ -39,19 +39,16 @@ const EditFeature = ({ handelClose }) => {
     getDetails,
   } = useGlobal();
   const [select, setSelect] = useState(false);
-  const formik = useFormik({
-    initialValues: {
-      details: details,
-    },
-    enableReinitialize: true,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-    onReset: () => {
-      console.log("rested");
-    },
-  });
-  const handleclick = (close) => () => {
+  // const formik = useFormik({
+  //   initialValues: {
+  //     details: details,
+  //   },
+  //   enableReinitialize: true,
+
+  //   onSubmit: (values) => {},
+  // });
+  const handleclick = (close) => (e) => {
+    e.preventDefault();
     if (close) {
     }
     setDetails(" ");
@@ -63,20 +60,44 @@ const EditFeature = ({ handelClose }) => {
     //   setSelect(false);
     // });
   };
+  const handelRest = (e) => {
+    e.preventDefault();
+    getDetails(feature, setDetails);
+  };
+  const handleChange = (e) => {
+    setDetails(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(values);
+    const updatedFeatures = { ...feature?.features };
+    const updatedDetails = details.split("\n");
+    const keys = Object.keys(updatedFeatures);
+    let moreDetails = "";
+    updatedDetails.map((detail, index) => {
+      if (index < keys.length) {
+        updatedFeatures[keys[index]] = detail;
+      } else {
+        moreDetails += detail + "\n";
+        updatedFeatures[keys[keys.length - 1]] += moreDetails;
+      }
+    });
+    // Object.keys(updatedFeatures).map((feature, index) => {
+    //   updatedFeatures[feature] = updatedDetails[index];
+    // });
+    console.log(updatedFeatures);
+    console.log("submited");
+  };
 
   useEffect(() => {
     setDetails("  ");
     getDetails(feature, setDetails);
-    console.log(feature);
+    // console.log(feature);
   }, [feature]);
 
   return (
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
-      <form
-        onReset={formik.handleReset}
-        action=""
-        onSubmit={formik.handleSubmit}
-      >
+      <form action="">
         <CardHeader
           title={"Content update"}
           subheader={"lorem epsum dolor sit emit"}
@@ -167,11 +188,10 @@ const EditFeature = ({ handelClose }) => {
             <div>
               <TextField
                 variant="outlined"
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 className="mt-3 w-100 feature-details"
                 value={details}
                 multiline
-                name="details"
                 minRows={6}
                 maxRows={10}
                 label="Details"
@@ -186,13 +206,19 @@ const EditFeature = ({ handelClose }) => {
         </CardContent>
         <hr />
         <CardActions className="pb-4 px-3">
-          <Button type="reset" variant="outlined" size="small" color="primary">
+          <Button
+            type="buton"
+            onClick={handelRest}
+            variant="outlined"
+            size="small"
+            color="primary"
+          >
             Reset
           </Button>
           <Button
             variant="outlined"
             size="small"
-            type="reset"
+            type="button"
             className="ms-auto"
             onClick={handleclick(true)}
             color="primary"
@@ -205,6 +231,7 @@ const EditFeature = ({ handelClose }) => {
             className=""
             size="small"
             color="primary"
+            onClick={handleSubmit}
           >
             Update
           </Button>

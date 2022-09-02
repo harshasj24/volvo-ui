@@ -19,7 +19,7 @@ const post = (path, data) => {
 
 export const ApiProvider = ({ children }) => {
   const navigate = useNavigate();
-  const { replaceChar } = useGlobal();
+  const { replaceChar, carId, setCarId } = useGlobal();
   const location = useLocation();
   const [store, setStore] = useState({
     isLoaded: false,
@@ -32,13 +32,14 @@ export const ApiProvider = ({ children }) => {
     newAll: [],
   });
   const [role, setRole] = UseLocalStorage("user", null);
+
   const paths = {
     pricing: "/getPricing",
     performance: "/performance",
-    Safety_And_Security: "/safetysecurity",
-    Luxury_And_Convenience: "/luxuryconvenience",
-    Audio_And_Technology: "/audioandtechnology",
-    authorized_retailer: "",
+    safety_and_security: "/safetysecurity",
+    luxury_and_convenience: "/luxuryconvenience",
+    audio_and_technology: "/audioandtechnology",
+    authorized_retailer: "/authorizedretailer",
     maintenance: "/maintenance",
     warranty: "warranty",
   };
@@ -46,10 +47,16 @@ export const ApiProvider = ({ children }) => {
   const getAllVechicles = async () => {
     if (!store.isLoaded) {
       // const responce = await get("/vehicles");
-
-      const responce = await getNew("/vehicle-view");
-      setStore({ ...store, allVechicles: responce.data, isLoaded: true });
+      try {
+        const responce = await getNew("/vehicle-view");
+        setStore({ ...store, allVechicles: responce.data, isLoaded: true });
+      } catch (error) {
+        console.log(error);
+      }
     }
+  };
+  const setLoaded = (flag) => {
+    setStore({ ...store, isLoaded: flag });
   };
   const demoResponce = async () => {
     const { data } = await get("/demoResponce");
@@ -61,12 +68,13 @@ export const ApiProvider = ({ children }) => {
   };
   const getVechicleFeature = async (path) => {
     const responce = await getNew(
-      `${paths[replaceChar(path, " ", "_")]}-view?carId=1`
+      `${paths[replaceChar(path, " ", "_").toLowerCase()]}-view?carId=${carId}`
     );
     const getKey = Object.keys(responce.data)[0];
     setStore({ ...store, feature: responce.data[getKey] });
   };
   const getALLMonroneyFeature = async (vin) => {
+    setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
     try {
       const responce = await getNew(`/vinsearch?vin=${vin}`);
       responce.data.splice(1).map((val) => {
@@ -143,6 +151,7 @@ export const ApiProvider = ({ children }) => {
   };
   const logout = () => {
     setRole(null);
+    setCarId(null);
     navigate("/login", { state: null });
   };
   const reset = () => {
@@ -165,6 +174,7 @@ export const ApiProvider = ({ children }) => {
     monronyFeatures: store.monronyFeatures,
     monronyGovtMandet: store.monronyGovtMandet,
     reset,
+    setLoaded,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

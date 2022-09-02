@@ -8,6 +8,9 @@ import {
 } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import { useNavigate } from "react-router-dom";
+import UseLocalStorage from "../../hooks/local-storage";
+import { useGlobal } from "../../context/global-states.provider";
+import { useApi } from "../../context/api-provider";
 const CustomToolbar = ({ setFilterButtonEl }) => (
   <GridToolbarContainer>
     {/* <GridToolbarFilterButton ref={setFilterButtonEl} /> */}
@@ -20,6 +23,8 @@ CustomToolbar.propTypes = {
 };
 
 const VehicleDataGrid = ({ rows }) => {
+  const { carId, setCarId } = useGlobal();
+  const { setLoaded } = useApi();
   const navigate = useNavigate();
   const columns = [
     {
@@ -48,6 +53,9 @@ const VehicleDataGrid = ({ rows }) => {
   ];
   const handelClick = (e) => {
     navigate(`/edit/${e.row.vin}`);
+    console.log(e.row.car_id);
+    setCarId(e.row.car_id);
+    setLoaded(false);
   };
   const [filterButtonEl, setFilterButtonEl] = React.useState(null);
 

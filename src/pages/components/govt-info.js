@@ -103,7 +103,7 @@ export const GovtInfo = () => {
           </div>
           <div className="mpg-text mt-3">
             <p className="fs-sm p-1">
-              small SUV 2WD range from 16 to 125 MPG. The best vechicle rates
+              Small SUV 2WD range from 16 to 125 MPG. The best vechicle rates
               142 MPGe
             </p>
           </div>
@@ -295,7 +295,7 @@ export const GovtInfo = () => {
             {/* <div className="mx-auto"> */}
             {/* <img src="barCode.png" /> */}
             <Barcode
-              height="30px"
+              height={32}
               fontSize={15}
               width={1.2}
               format="CODE128"

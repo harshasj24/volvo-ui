@@ -1,7 +1,9 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
+import UseLocalStorage from "../hooks/local-storage";
 import { useApi } from "./api-provider";
 const globalCotext = createContext();
 export const GlobalStaesProvider = ({ children }) => {
+  const [carId, setCarId] = UseLocalStorage("carId", null);
   const [store, setStore] = useState({
     selectedFeature: "",
     featureDetails: "",
@@ -39,10 +41,8 @@ export const GlobalStaesProvider = ({ children }) => {
   const getDetails = (feature, setDetails) => {
     try {
       if (feature.title === "Authorized Retailer") {
-        console.log(feature);
         setDetails(feature?.address);
       } else {
-        console.log(feature.features);
         Object.keys(feature?.features).map((key) => {
           setDetails((prev) => {
             return prev + feature?.features[key] + "\n";
@@ -61,6 +61,8 @@ export const GlobalStaesProvider = ({ children }) => {
       replaceChar,
       refresh,
       getDetails,
+      carId,
+      setCarId,
     };
   }, [store, store.featureDetails, selectFeature]);
   return (

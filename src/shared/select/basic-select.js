@@ -23,7 +23,6 @@ export default function BasicSelect({
     // setFeature("selectedFeature");
   };
   React.useEffect(() => {
-    console.log(select);
     select && setFeature("");
     selectedFeature && setFeature(selectedFeature);
   }, []);

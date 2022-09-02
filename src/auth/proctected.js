@@ -5,9 +5,7 @@ import UseLocalStorage from "../hooks/local-storage";
 const Proctected = () => {
   const location = useLocation();
   const [role, setRole] = UseLocalStorage("user", null);
-  useEffect(() => {
-    console.log(location);
-  }, [window.location.pathname]);
+  useEffect(() => {}, [window.location.pathname]);
   return role ? (
     <Outlet />
   ) : (
