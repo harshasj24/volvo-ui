@@ -4,11 +4,7 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  Divider,
-  IconButton,
   TextField,
-  InputLabel,
-  FormControlLabel,
   Typography,
   Table,
   TableHead,
@@ -19,23 +15,17 @@ import {
 } from "@mui/material";
 
 import React, { useEffect, useState } from "react";
-import BasicSelect from "../../shared/select/basic-select";
-import CloseIcon from "@mui/icons-material/Close";
 import { useGlobal } from "../../context/global-states.provider";
 import "./editfeature.css";
 import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
-import { useFormik } from "formik";
 const EditFeature = ({ handelClose }) => {
-  const { pricing, feature, reset } = useApi();
+  const { feature, reset } = useApi();
   const [details, setDetails] = useState("");
   const {
     selectedFeature,
-    featureDetails,
-    resetSelcted,
     titleCase,
-    refresh,
     getDetails,
   } = useGlobal();
   const [select, setSelect] = useState(false);
@@ -141,15 +131,7 @@ const EditFeature = ({ handelClose }) => {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {pricing["special_items"] &&
-                        pricing["special_items"].map((key) => {
-                          return (
-                            <PricingTabel
-                              // itemDescription={key}
-                              price={key}
-                            />
-                          );
-                        })}
+                      <PricingTabel feature={feature?.features?.specialItems} />
                     </TableBody>
                   </Table>
                 </TableContainer>

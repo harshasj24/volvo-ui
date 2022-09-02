@@ -8,40 +8,31 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./pricingtabel.css";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+
 import { useGlobal } from "../../context/global-states.provider";
-const PricingTabel = ({ itemDescription, price }) => {
+const PricingTabel = ({ feature, price }) => {
   const [edit, setEdit] = useState(false);
   const { replaceChar, titleCase } = useGlobal();
   const handelClick = () => {
     setEdit(!edit);
   };
   // const rows = Object.keys(pricingDetails);
+  useEffect(() => {
+   
+  }, [feature]);
+
+
   return (
     <>
-      {/*  <div className="w-100"> */}
-      {/* <div className="tabel"> */}
-      {/* <Table
-          sx={{
-            minWidth: "60vw",
-
-            border: "none",
-            outline: "none",
-          }}
-        >
-          <TableHead>
-            <TableRow sx={{ backgroundColor: "#c3d2d6" }}>
-              <TableCell className="tabel__cell">Item description</TableCell>
-              <TableCell className="tabel__cell">Price</TableCell>
-              <TableCell className="tabel__cell">Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody> */}
-      {/* {rows.map((row) => {
-          return ( */}
+      {feature && feature.length > 0 &&
+      feature.map((el) => {
+        return (
       <TableRow sx={{ padding: 0, backgroundColor: edit && "#f3f2f1" }}>
         <TableCell sx={{ width: "65%", padding: 0.5 }}>
           {edit ? (
@@ -51,11 +42,12 @@ const PricingTabel = ({ itemDescription, price }) => {
               size="small"
               multiline
               variant="outlined"
-              defaultValue={price["title"]}
+              // defaultValue={price["title"]}
               label=" "
               InputLabelProps={{ shrink: false }}
             />
           ) : (
+            <>{el.title}</>
             // <input
             //   multiple
             //   defaultValue={price["title"]}
@@ -63,7 +55,7 @@ const PricingTabel = ({ itemDescription, price }) => {
             //   type="text"
             // />
             // replaceChar(itemDescription, "_", " ")
-            price["title"]
+            // price["title"]
           )}
         </TableCell>
         <TableCell sx={{ width: "15%", padding: 0.5 }}>
@@ -83,10 +75,11 @@ const PricingTabel = ({ itemDescription, price }) => {
               InputLabelProps={{
                 shrink: false,
               }}
-              defaultValue={price["price"]}
+              // defaultValue={price["price"]}
             />
           ) : (
-            price["price"]
+            <>${el.price}</>
+            // price["price"]
           )}
         </TableCell>
         <TableCell sx={{ width: "20%", padding: 0.5 }}>
@@ -103,10 +96,10 @@ const PricingTabel = ({ itemDescription, price }) => {
           </div>
         </TableCell>
       </TableRow>
-      {/* );
-        })} */}
-      {/* </TableBody>
-        </Table> */}
+       );
+      })
+      }
+    
     </>
   );
 };
