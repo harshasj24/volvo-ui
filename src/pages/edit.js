@@ -166,7 +166,7 @@ const Edit = () => {
             );
           })}
         </div>
-        <div className="monroney-govt  ">
+        <div className="monroney-govt">
           <GovtInfo />
         </div>
       </div>
