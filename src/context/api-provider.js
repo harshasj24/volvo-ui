@@ -72,10 +72,10 @@ export const ApiProvider = ({ children }) => {
       responce.data.splice(1).map((val) => {
         const getKey = Object.keys(val)[0];
         if (
-          val["Fuel Economy"] ||
-          val["Gov Ratings"] ||
-          val["Importation"] ||
-          val["parts_content_information"] ||
+          val?.fuel_economy ||
+          val?.gov_ratings ||
+          val?.importation ||
+          val?.parts_content_information ||
           val?.vehicle_identification
         ) {
           setStore((pre) => {

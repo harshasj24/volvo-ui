@@ -49,7 +49,7 @@ export const GovtInfo = () => {
     }
   };
   return (
-    <div className="govt-info">
+    <>
       <div className="govt-info__fuel-economy">
         <div className="header__title d-flex">
           <div className="epa-dot ms-1">
@@ -292,19 +292,19 @@ export const GovtInfo = () => {
             </div>
           </div>
           <div className="third-inner-container d-flex">
-            <div className="mx-auto">
-              {/* <img src="barCode.png" /> */}
-              <Barcode
-                height="30px"
-                fontSize={15}
-                width={1.1}
-                format="CODE128"
-                value={vin}
-              />
-            </div>
+            {/* <div className="mx-auto"> */}
+            {/* <img src="barCode.png" /> */}
+            <Barcode
+              height="30px"
+              fontSize={15}
+              width={1.2}
+              format="CODE128"
+              value={vin}
+            />
+            {/* </div> */}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

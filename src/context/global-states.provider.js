@@ -38,7 +38,8 @@ export const GlobalStaesProvider = ({ children }) => {
   };
   const getDetails = (feature, setDetails) => {
     try {
-      if (feature.title === "authorized_retailer") {
+      if (feature.title === "Authorized Retailer") {
+        console.log(feature);
         setDetails(feature?.address);
       } else {
         console.log(feature.features);

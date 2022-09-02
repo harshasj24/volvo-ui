@@ -128,7 +128,7 @@ br {
   border: 1px solid black;
   padding: 0;
   width: 37%;
-  background-color: black;
+  /* background-color: black; */
   color: white;
 }
 .left-container h5 {
@@ -136,13 +136,13 @@ br {
   font-weight: bold;
   width: 100%;
   padding: 0 0.4rem;
-  margin: 0.4rem 0;
+  /* margin: 0.4rem 0; */
+  background-color: black;
 }
 .inner-left-container {
   background-color: white;
   color: black;
   margin: 0;
-  height: 100%;
   border: 1px solid white;
 }
 .inner-left-container ul {
@@ -216,14 +216,11 @@ br {
 .third-inner-container {
   border: 1px solid black;
   margin-top: 0.2rem;
-  padding-top: 0.8rem;
-  height: 100% !important;
+  padding: 0.8rem;
 }
-.third-inner-container img {
-  width: 20rem;
+.third-inner-container div {
+  width: 18rem;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 .third-inner-container p {
   font-size: 0.8rem;
@@ -369,6 +366,7 @@ br {
 .logo-images {
   width: 100px;
 }
+
 .inner-third-flex1 p {
   font-size: 0.5rem;
   padding-right: 0.5rem;
@@ -394,7 +392,6 @@ br {
 }
 .content {
   flex: 0 1 auto;
-  width: 245px;
 }
 .qr-code {
 }
