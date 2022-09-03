@@ -53,13 +53,13 @@ export const GovtInfo = () => {
       <div className="govt-info__fuel-economy">
         <div className="header__title d-flex">
           <div className="epa-dot ms-1">
-            <p>EPA</p>
+            <p className="text-light">EPA</p>
             <hr />
-            <p>DOT</p>
+            <p className="text-light">DOT</p>
           </div>
-          <Typography className="ms-4" variant="p">
+          <div className="ms-4 title text-light">
             Fuel Economy And Environment
-          </Typography>
+          </div>
           <div className="header__vechicle-type d-flex align-items-center ms-auto bg-light text-dark">
             <LocalGasStationIcon />
             <Typography className="ms-3" fontSize={".7rem"}>
@@ -179,7 +179,7 @@ export const GovtInfo = () => {
         </div>
         <div className="logos-qr-section d-flex mt-2">
           <div className="content">
-            <p className="fs-sm margin-0">
+            <p className="fs-sm margin-0 text-light">
               Actual results will vary for many reasons, including driving
               conditions and how you drive and maintain your vehicle. The
               average new vehicle gets 27 MPG and costs $ 6,500 to fuel over 5
@@ -189,8 +189,8 @@ export const GovtInfo = () => {
             </p>
             <div className="logos d-flex">
               <div className="logo-content ">
-                <p className="fs-md-lg mt-2">fueleconomy.gov</p>
-                <p className="fs-sm margin-0 mt-1">
+                <p className="fs-md-lg mt-2 text-light">fueleconomy.gov</p>
+                <p className="fs-sm margin-0 text-light mt-1">
                   Lorem ipsum dolor sit amet consectetur adipisicing
                 </p>
               </div>
@@ -225,7 +225,7 @@ export const GovtInfo = () => {
       </div>
       <div className="lower-content">
         <div className="left-container ">
-          <h5>PARTS CONTENT INFORMATION</h5>
+          <h5 className="text-light">PARTS CONTENT INFORMATION</h5>
           <div className="inner-left-container">
             <ul>
               <li>FOR VEHICLES IN THIS CARLINE: VOLVO SERIES</li>
@@ -260,14 +260,14 @@ export const GovtInfo = () => {
 
         <div className="right-container">
           <div className="first-inner-container">
-            <h5>GOVERNMENT 5-STAR SAFETY RATINGS</h5>
+            <h5 className="text-light">GOVERNMENT 5-STAR SAFETY RATINGS</h5>
             <div className="first-right-content">
               <p>
                 This vehicle has not been rated by the government for overall
                 vehicle score, frontal crash or rollover risk.
               </p>
             </div>
-            <p className="last-para">
+            <p className="last-para text-light">
               Star ratings range from 1 to 5 stars ( ) with 5 being the highest.
               Source: National Highway Traffic Safety Administration (NHTSA)
               www.safercar.gov or 1-888-327-4236

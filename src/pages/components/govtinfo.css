@@ -1,3 +1,7 @@
+.text-light {
+  color: #ffff !important;
+}
+
 .govt-info__fuel-economy {
   background-color: black;
   color: white;
@@ -7,6 +11,7 @@
 .header__title {
   position: relative;
 }
+
 .header__vechicle-type {
   position: absolute;
   right: -5px;

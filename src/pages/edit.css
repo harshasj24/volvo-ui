@@ -82,13 +82,13 @@
   /* flex-shrink: 0; */
   flex-wrap: wrap;
   gap: 3rem 1rem;
-  max-height: calc(100vh + 50px);
+  max-height: calc(100vh + 350px);
   flex: 1 1 60%;
 }
 
 .monroney--columns > div {
   flex: 0 0 auto;
-  width: 40%;
+  width: 32%;
 }
 .edit__body {
   flex-wrap: wrap;
