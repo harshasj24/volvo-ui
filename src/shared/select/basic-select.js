@@ -12,6 +12,7 @@ export default function BasicSelect({
   select,
   title,
   options,
+  width,
 }) {
   const [feature, setFeature] = React.useState("");
   const { selectFeature, selectedFeature } = useGlobal();
@@ -49,10 +50,12 @@ export default function BasicSelect({
       return status;
     } else if (options === "allocation") {
       return allocation;
+    } else {
+      return options;
     }
   };
   return (
-    <Box sx={{ width: 180 }}>
+    <Box sx={{ width: width || 180 }}>
       <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-select-label">{title}</InputLabel>
         <Select
@@ -61,6 +64,7 @@ export default function BasicSelect({
           sx={{ textTransform: "capitalize" }}
           value={feature}
           label={title}
+          fullWidth
           onChange={handleChange}
           defaultValue={defaultValue}
           disabled={disabled}

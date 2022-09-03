@@ -4,18 +4,23 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import "./admin.css";
+import indicator from "../assets/indicator.svg";
 import {
+  Button,
   IconButton,
+  Modal,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
+  TextField,
   Toolbar,
 } from "@mui/material";
 import TabPanel from "./components/tab-panel";
 import flag from "../assets/flag.svg";
 import dots from "../assets/dots.svg";
+import BasicSelect from "../shared/select/basic-select";
 const AdminRules = () => {
   const [value, setValue] = React.useState(0);
 
@@ -180,6 +185,91 @@ const AdminRules = () => {
           <TabPanel value={value} index={1}></TabPanel>
         </Box>
       </div>
+      <Modal open={true}>
+        <div className="admin-modal">
+          <div className="admin-modal__header">
+            <p>Feature Definition and Rules</p>
+          </div>
+          <div className="admin-modal__body">
+            <div className="body__title">Title and display</div>
+            <div className="body-text-fields1 d-flex mt-3">
+              <BasicSelect
+                width={100}
+                title={"Order Number"}
+                options={["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+              />
+              <TextField
+                sx={{ width: "311px", mx: "18px" }}
+                size="small"
+                label="Section Name"
+              />
+              <BasicSelect width={190} title={"Flag"} options={["Flag"]} />
+            </div>
+            <div className="title2 ">
+              <p>Set Rule</p>
+            </div>
+            <div className="body-text-fields2 d-flex  gap-3 mt-4">
+              <BasicSelect
+                width={212}
+                title={"If this field"}
+                options={["status"]}
+              />
+
+              <BasicSelect
+                width={185}
+                title={"condition"}
+                options={["equals"]}
+              />
+              <BasicSelect
+                width={197}
+                title={"Value"}
+                options={["Allocated"]}
+              />
+            </div>
+            <div className="title2 ">
+              <p>Then</p>
+            </div>
+            <div className="body-text-fields3 mt-3">
+              <BasicSelect
+                width={215}
+                title={"Field"}
+                options={["Not Editable"]}
+              />
+            </div>
+            <Button className="mt-3"> + Add Condition</Button>
+          </div>
+
+          <div className="admin-modal__footer d-flex align-items-center ">
+            <Button
+              type="buton"
+              variant="outlined"
+              size="small"
+              color="primary"
+            >
+              Reset
+            </Button>
+            <Button
+              variant="outlined"
+              size="small"
+              type="button"
+              className="ms-auto"
+              color="primary"
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              className=""
+              size="small"
+              color="primary"
+              sx={{ marginLeft: "20px" }}
+            >
+              Update
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

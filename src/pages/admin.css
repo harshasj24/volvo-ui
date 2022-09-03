@@ -14,3 +14,51 @@
 .tabel-cell {
   font-size: 14px !important;
 }
+.admin-modal {
+  width: 696px;
+  height: 529px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  position: relative;
+  border: none;
+  outline: none;
+}
+.admin-modal__header {
+  height: 72px;
+  box-shadow: 0px 1px 0px rgba(14, 19, 25, 0.12);
+  padding: 29px 32px;
+}
+.admin-modal__header > p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0056d6;
+}
+.admin-modal__footer {
+  box-shadow: 0px -1px 0px rgba(14, 19, 25, 0.12);
+  height: 80px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding: 0px 32px;
+}
+.admin-modal__body {
+  padding: 31px 37px;
+}
+.body__title {
+  font-weight: bold;
+}
+.admin-modal__body * {
+  font-size: 14px;
+}
+.title2 {
+  margin-top: 21px;
+}
+.title2 > p:first-child {
+  font-weight: bold;
+}
+.title2 > p {
+  margin: 0;
+}
