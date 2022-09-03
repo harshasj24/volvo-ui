@@ -21,7 +21,7 @@ const PricingTabel = ({ feature, price }) => {
   };
   // const rows = Object.keys(pricingDetails);
   useEffect(() => {
-    feature.forEach(element => {
+    feature && feature.length>0 && feature.forEach(element => {
       element.edit = false
     });
   }, [feature]);
