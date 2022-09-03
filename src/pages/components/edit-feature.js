@@ -21,7 +21,7 @@ import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
 const EditFeature = ({ handelClose, refresh }) => {
-  const { feature, reset, createPice, test, editFeature } = useApi();
+  const { feature, reset, createPice, editPrice, editFeature } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
   const [select, setSelect] = useState(false);
@@ -58,7 +58,7 @@ const EditFeature = ({ handelClose, refresh }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(values);
+    console.log(feature);
     const updatedFeatures = { ...feature?.features };
     const updatedDetails = details.split("\n");
     const keys = Object.keys(updatedFeatures);
@@ -96,6 +96,23 @@ const EditFeature = ({ handelClose, refresh }) => {
     //   setDescription("");
     //   refresh()
     // }
+  };
+  let dataToUpdate;
+  const dataAfterChange = (data, el, des) => {
+    data.title = des;
+    data.price = el;
+    dataToUpdate = {
+      ...data,
+    };
+    // console.log(dataToUpdate);
+  };
+  const updatePrice = async (e) => {
+    e.preventDefault();
+
+    console.log(dataToUpdate, "isnde");
+    let response = await editPrice(dataToUpdate);
+
+    console.log("response", response);
   };
 
   useEffect(() => {
@@ -139,7 +156,10 @@ const EditFeature = ({ handelClose, refresh }) => {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      <PricingTabel feature={feature?.features?.specialItems} />
+                      <PricingTabel
+                        feature={feature?.features?.specialItems}
+                        dataAfterChange={dataAfterChange}
+                      />
                     </TableBody>
                   </Table>
                 </TableContainer>
@@ -225,7 +245,7 @@ const EditFeature = ({ handelClose, refresh }) => {
             className=""
             size="small"
             color="primary"
-            onClick={handleSubmit}
+            onClick={selectedFeature === "Pricing" ? updatePrice : handleSubmit}
           >
             Update
           </Button>

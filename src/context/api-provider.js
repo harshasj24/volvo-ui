@@ -185,8 +185,9 @@ export const ApiProvider = ({ children }) => {
     return response;
   };
 
-  const test = (_) => {
-    return true;
+  const editPrice = async (data) => {
+    const response = await put("/specialitem-edit", data);
+    return response;
   };
   const values = {
     allVechicles: store.allVechicles,
@@ -207,7 +208,7 @@ export const ApiProvider = ({ children }) => {
     reset,
     setLoaded,
     createPice,
-    test,
+    editPrice,
     editFeature,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
