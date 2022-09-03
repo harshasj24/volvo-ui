@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseLocalStorage from "../hooks/local-storage";
@@ -42,6 +42,7 @@ export const ApiProvider = ({ children }) => {
     authorized_retailer: "/authorizedretailer",
     maintenance: "/maintenance",
     warranty: "warranty",
+    create_new_price: "specialitem-create"
   };
 
   const getAllVechicles = async () => {
@@ -157,6 +158,16 @@ export const ApiProvider = ({ children }) => {
   const reset = () => {
     setStore({ ...store, feature: {} });
   };
+
+  const createPice = async (data) => {
+   
+    const response = await post("/specialitem-create", data);
+    return response;
+  }
+
+  const test = _ => {
+   return true
+  }
   const values = {
     allVechicles: store.allVechicles,
     getAllVechicles,
@@ -175,6 +186,8 @@ export const ApiProvider = ({ children }) => {
     monronyGovtMandet: store.monronyGovtMandet,
     reset,
     setLoaded,
+    createPice,
+    test
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

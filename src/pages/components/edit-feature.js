@@ -20,15 +20,14 @@ import "./editfeature.css";
 import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
-const EditFeature = ({ handelClose }) => {
-  const { feature, reset } = useApi();
+const EditFeature = ({ handelClose , refresh }) => {
+  const { feature, reset, createPice, test } = useApi();
   const [details, setDetails] = useState("");
-  const {
-    selectedFeature,
-    titleCase,
-    getDetails,
-  } = useGlobal();
+  const { selectedFeature, titleCase, getDetails } = useGlobal();
   const [select, setSelect] = useState(false);
+  const [description, setDescription] = useState("");
+  const [priceValue, setPrice] = useState("");
+
   // const formik = useFormik({
   //   initialValues: {
   //     details: details,
@@ -78,12 +77,31 @@ const EditFeature = ({ handelClose }) => {
     console.log(updatedFeatures);
     console.log("submited");
   };
+  const addNewPrice = async(_) => {
+    let dataToSend = {
+      title: description,
+      price: priceValue,
+      pricing_id: 1,
+    };
+
+   let response = await createPice(dataToSend);
+   
+    
+    console.log('response', response)
+    
+    // if (response.status === 200) {
+    //   setPrice("");
+    //   setDescription("");
+    //   refresh()
+    // }
+    
+  };
 
   useEffect(() => {
     setDetails("  ");
     getDetails(feature, setDetails);
-    // console.log(feature);
-  }, [feature]);
+    console.log(feature);
+  }, [feature, refresh]);
 
   return (
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
@@ -136,6 +154,7 @@ const EditFeature = ({ handelClose }) => {
                     variant="outlined"
                     sx={{ width: "62%" }}
                     size="small"
+                    onChange={(e) => setDescription(e.target.value)}
                     label={"Item Description"}
                   />
                   <TextField
@@ -143,11 +162,14 @@ const EditFeature = ({ handelClose }) => {
                     variant="outlined"
                     size="small"
                     label={"Price"}
+                    onChange={(e) => setPrice(e.target.value)}
                   />
                   <Button
                     sx={{ padding: 0.6 }}
                     variant="outlined"
                     size="medium"
+                    onClick={addNewPrice}
+                    disabled={!priceValue && !description}
                   >
                     <AddOutlinedIcon fontSize="1" className="m-0" />{" "}
                     <span className="ms-2">Add</span>
