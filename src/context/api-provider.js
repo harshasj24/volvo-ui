@@ -92,7 +92,11 @@ export const ApiProvider = ({ children }) => {
         [actualPath(data.title)]: data,
       },
     });
-    const responce = await put(`/performance-edit`, payload);
+
+    const responce = await put(
+      `/${paths[actualPath(data.title)]}-edit`,
+      payload
+    );
     // console.log(responce);
   };
   const getALLMonroneyFeature = async (vin) => {

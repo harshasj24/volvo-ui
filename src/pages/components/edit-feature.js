@@ -20,10 +20,17 @@ import "./editfeature.css";
 import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const EditFeature = ({ handelClose, refresh }) => {
-  const { feature, reset, createPice, editPrice, editFeature, getALLMonroneyFeature } = useApi();
+  const {
+    feature,
+    reset,
+    createPice,
+    editPrice,
+    editFeature,
+    getALLMonroneyFeature,
+  } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
   const [select, setSelect] = useState(false);
@@ -119,11 +126,10 @@ const EditFeature = ({ handelClose, refresh }) => {
 
     console.log("response", response);
 
-    if(response.status === 200){
+    if (response.status === 200) {
       handelClose();
       getALLMonroneyFeature(vin);
     }
-
   };
 
   useEffect(() => {

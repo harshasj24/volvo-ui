@@ -76,8 +76,8 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
               </TableCell>
             </TableRow>
 
-            {feature?.features?.specialItems &&
-              feature?.features?.specialItems.map((el) => {
+            {feature.features.specialItems &&
+              feature.features.specialItems.map((el) => {
                 return (
                   <TableRow>
                     <TableCell>{el.title}</TableCell>

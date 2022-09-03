@@ -14,16 +14,28 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import menu from "../../assets/menu.svg";
 import profile from "../../assets/profile.svg";
 import logo from "../../assets/volvo-logo.svg";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useApi } from "../../context/api-provider";
 import LogoutIcon from "@mui/icons-material/Logout";
 import UseLocalStorage from "../../hooks/local-storage";
 import setting from "../../assets/settings.svg";
 import doubleArrow from "../../assets/double-arrow.svg";
 export default function Navbar() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const { logout } = useApi();
   const { role } = useApi();
+  const navigate = useNavigate();
+  const handelClick = (isSettings) => () => {
+    if (isSettings) {
+      return navigate("/admin", { state: { back: pathname } });
+    } else {
+      if (pathname.includes("/edit") || pathname.includes("/search")) {
+        return navigate("/search");
+      }
+      return navigate(state.back, { state: { back: pathname } });
+    }
+  };
+
   return (
     <div className="navbar">
       <AppBar
@@ -49,18 +61,24 @@ export default function Navbar() {
           {pathname !== "/login" && (
             <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
               {/* <KeyboardDoubleArrowRightIcon /> */}
-              <IconButton
-                sx={{
-                  marginLeft: "4.54px",
-                }}
-              >
-                <img src={doubleArrow} alt="" />
-              </IconButton>
+              {pathname !== "/search" && (
+                <IconButton
+                  onClick={handelClick(false)}
+                  sx={{
+                    marginLeft: "4.54px",
+                  }}
+                >
+                  <img src={doubleArrow} alt="" />
+                </IconButton>
+              )}
               <Typography sx={{ marginLeft: "25px" }}>
                 Vehicle lookup
               </Typography>
               <div className="icon-actions ms-auto">
-                <IconButton className="setting-icon ">
+                <IconButton
+                  onClick={handelClick(true)}
+                  className="setting-icon "
+                >
                   <img src={setting} alt="" />
                 </IconButton>
                 <Tooltip title="Logout">
