@@ -1,7 +1,16 @@
 .admin-tabs {
-  padding: 0px 50px;
+  padding: 0px 62px;
 }
 .css-heg063-MuiTabs-flexContainer > button:nth-child(1),
 .css-heg063-MuiTabs-flexContainer > button:nth-child(2) {
   flex-grow: 0.07;
+  font-size: 16px !important;
+}
+.css-1ndpvdd-MuiTableCell-root,
+.css-1ygcj2i-MuiTableCell-root {
+  font-size: 16px !important;
+  border-bottom: 1px solid lightgray !important ;
+}
+.tabel-cell {
+  font-size: 14px !important;
 }

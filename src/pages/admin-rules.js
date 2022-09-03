@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import "./admin.css";
 import {
+  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -115,25 +116,62 @@ const AdminRules = () => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Order no.</TableCell>
+                  <TableCell align="center">Order no.</TableCell>
                   <TableCell>Section Name</TableCell>
-                  <TableCell>Icon</TableCell>
-                  <TableCell>Can Edit</TableCell>
-                  <TableCell>Rules</TableCell>
-                  <TableCell>Actions</TableCell>
+                  <TableCell align="center">Icon</TableCell>
+                  <TableCell align="center">Can Edit</TableCell>
+                  <TableCell align="center">Rules</TableCell>
+                  <TableCell align="center">Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {featuresAdmin.map((fea) => (
-                  <TableRow>
-                    <TableCell width={100}>{fea.order_no}</TableCell>
-                    <TableCell width={280}>{fea.sectionName}</TableCell>
-                    <TableCell>
+                  <TableRow sx={{ border: "none" }}>
+                    <TableCell
+                      align="center"
+                      className="tabel-cell"
+                      sx={{ border: "none" }}
+                      width={70}
+                    >
+                      {fea.order_no}
+                    </TableCell>
+                    <TableCell sx={{ border: "none" }} width={120}>
+                      {fea.sectionName}
+                    </TableCell>
+                    <TableCell
+                      align="center"
+                      className="tabel-cell"
+                      width={100}
+                      sx={{ border: "none" }}
+                    >
                       <img src={fea.icon} alt="" />
                     </TableCell>
-                    <TableCell>{fea.canEdit}</TableCell>
-                    <TableCell>{fea.rules}</TableCell>
-                    <TableCell>{<img src={dots} alt="" />}</TableCell>
+                    <TableCell
+                      align="center"
+                      className="tabel-cell"
+                      width={100}
+                      sx={{ border: "none" }}
+                    >
+                      {fea.canEdit}
+                    </TableCell>
+                    <TableCell
+                      align="center"
+                      className="tabel-cell"
+                      width={10}
+                      sx={{ border: "none" }}
+                    >
+                      {fea.rules}
+                    </TableCell>
+                    <TableCell
+                      width={10}
+                      align="center"
+                      className="tabel-cell"
+                      sx={{ border: "none" }}
+                    >
+                      <IconButton>
+                        <img src={dots} alt="" />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

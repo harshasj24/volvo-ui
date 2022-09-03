@@ -19,6 +19,7 @@ import { useApi } from "../../context/api-provider";
 import LogoutIcon from "@mui/icons-material/Logout";
 import UseLocalStorage from "../../hooks/local-storage";
 import setting from "../../assets/settings.svg";
+import doubleArrow from "../../assets/double-arrow.svg";
 export default function Navbar() {
   const { pathname } = useLocation();
   const { logout } = useApi();
@@ -48,7 +49,16 @@ export default function Navbar() {
           {pathname !== "/login" && (
             <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
               {/* <KeyboardDoubleArrowRightIcon /> */}
-              <Typography ml={3}>Vehicle lookup</Typography>
+              <IconButton
+                sx={{
+                  marginLeft: "4.54px",
+                }}
+              >
+                <img src={doubleArrow} alt="" />
+              </IconButton>
+              <Typography sx={{ marginLeft: "25px" }}>
+                Vehicle lookup
+              </Typography>
               <div className="icon-actions ms-auto">
                 <IconButton className="setting-icon ">
                   <img src={setting} alt="" />
