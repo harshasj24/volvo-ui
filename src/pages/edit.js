@@ -40,6 +40,7 @@ const Edit = () => {
     logout,
     getALLMonroneyFeature,
     monronyFeatures,
+    header,
   } = useApi();
 
   const ref = useRef(true);
@@ -59,14 +60,14 @@ const Edit = () => {
       getALLMonroneyFeature(vin);
       getAllfeatures();
     }
-
+    console.log(header);
     try {
       setPricingKeys(Object.keys(feature["pricing"]));
     } catch (error) {
       setPricingKeys([]);
     }
     breakepointObserver();
-  }, [feature, monronyFeatures]);
+  }, [feature, monronyFeatures, header]);
   const getAllfeatures = async () => {
     const data = await demoResponce();
     setFeatures(data);
@@ -99,7 +100,7 @@ const Edit = () => {
               className="head"
               fontFamily="inherit"
             >
-              S90 T6 AWD INSCRIPTION
+              {header?.model_no} T6 AWD INSCRIPTION
             </Typography>
             <Typography fontFamily="inherit" variant="p">
               {vin}
@@ -150,6 +151,16 @@ const Edit = () => {
             />
           </div>
         </header>
+      </div>
+      <div className="edit-body__header p-3">
+        <div className="header-left">
+          <p>{header?.year} </p>
+          <h2>{header?.model_no} T6 AWD INSCRIPTION</h2>
+        </div>
+        <div className="header-right ms-auto mt-3">
+          <p>{header?.company_name}</p>
+          <p>{header?.URL}</p>
+        </div>
       </div>
       <div
         className="edit__body p-3 d-flex w-100"

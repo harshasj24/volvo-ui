@@ -45,11 +45,20 @@ const VehicleDataGrid = ({ rows }) => {
     {
       field: "location",
       headerName: "Location",
-      width: 230,
+      width: 220,
     },
     {
       field: "car_status",
       headerName: "Status",
+    },
+    {
+      field: "monroney",
+      headerName: "Monroney",
+    },
+    {
+      field: "timestamp",
+      headerName: "Time Stamp",
+      width: 200,
     },
   ];
   const handelClick = (e) => {

@@ -53,13 +53,13 @@ const EditFeature = ({ handelClose, refresh }) => {
     }
     setDetails("");
     handelClose();
-    reset();
     // resetSelcted();
     setSelect(true);
     // setTimeout(() => {
     //   setSelect(false);
     // });
     getALLMonroneyFeature(vin);
+    reset();
   };
   const handelRest = (e) => {
     e.preventDefault();
@@ -89,10 +89,10 @@ const EditFeature = ({ handelClose, refresh }) => {
     //   updatedFeatures[feature] = updatedDetails[index];
     // });
     const updatedFeature = { ...feature, features: updatedFeatures };
-
-    console.log(updatedFeature);
+    reset();
     editFeature(updatedFeature);
-    console.log("submited");
+    handelClose();
+    setDetails("");
   };
   const addNewPrice = async (_) => {
     let dataToSend = {

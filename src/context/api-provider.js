@@ -34,6 +34,7 @@ export const ApiProvider = ({ children }) => {
     monronyLabel: {},
     pricing: {},
     newAll: [],
+    header: {},
   });
   const [role, setRole] = UseLocalStorage("user", null);
 
@@ -72,7 +73,6 @@ export const ApiProvider = ({ children }) => {
     return filt;
   };
   const getVechicleFeature = async (path) => {
-   
     const responce = await getNew(
       `${paths[replaceChar(path, " ", "_").toLowerCase()]}-view?carId=${carId}`
     );
@@ -104,7 +104,7 @@ export const ApiProvider = ({ children }) => {
     setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
     try {
       const responce = await getNew(`/vinsearch?vin=${vin}`);
-      responce.data.splice(1).map((val) => {
+      responce.data.map((val) => {
         const getKey = Object.keys(val)[0];
         if (
           val?.fuel_economy ||
@@ -122,6 +122,9 @@ export const ApiProvider = ({ children }) => {
               },
             };
           });
+        } else if (val?.Header) {
+          console.log("ffff");
+          setStore({ ...store, header: val[getKey] });
         } else {
           setStore((prev) => {
             return {
@@ -215,6 +218,7 @@ export const ApiProvider = ({ children }) => {
     createPice,
     editPrice,
     editFeature,
+    header: store.header,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

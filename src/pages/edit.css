@@ -99,3 +99,10 @@
 .monroney--columns > div:last-child {
   flex-basis: 100%;
 }
+.edit-body__header {
+  display: flex;
+  width: 70%;
+}
+.edit-body__header p {
+  margin: 0;
+}
