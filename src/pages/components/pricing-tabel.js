@@ -1,30 +1,29 @@
 import {
   IconButton,
-  Table,
-  TableBody,
   TableCell,
-  TableContainer,
-  TableHead,
   TableRow,
   TextField,
 } from "@mui/material";
+import InputAdornment from '@mui/material/InputAdornment';
 import React, { useState, useEffect } from "react";
 import "./pricingtabel.css";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 
-import { useGlobal } from "../../context/global-states.provider";
+
 const PricingTabel = ({ feature, price }) => {
   const [edit, setEdit] = useState(false);
-  const { replaceChar, titleCase } = useGlobal();
-  const handelClick = () => {
-    setEdit(!edit);
+  const handelClick = (datafrom) => {
+     
+     datafrom.edit = !datafrom.edit
+      setEdit(!edit);
+   
   };
   // const rows = Object.keys(pricingDetails);
   useEffect(() => {
-   
+    feature.forEach(element => {
+      element.edit = false
+    });
   }, [feature]);
 
 
@@ -33,60 +32,49 @@ const PricingTabel = ({ feature, price }) => {
       {feature && feature.length > 0 &&
       feature.map((el) => {
         return (
-      <TableRow sx={{ padding: 0, backgroundColor: edit && "#f3f2f1" }}>
-        <TableCell sx={{ width: "65%", padding: 0.5 }}>
-          {edit ? (
+      <TableRow sx={{ padding: 0, backgroundColor: el.edit && "#f3f2f1" }}>
+        <TableCell sx={{ width: "50%", padding: 0.5 }}>
+          {el.edit ? (
             <TextField
               fullWidth
               sx={{ backgroundColor: "white" }}
               size="small"
               multiline
               variant="outlined"
-              // defaultValue={price["title"]}
+              defaultValue={el.title}
               label=" "
               InputLabelProps={{ shrink: false }}
             />
           ) : (
             <>{el.title}</>
-            // <input
-            //   multiple
-            //   defaultValue={price["title"]}
-            //   className="form-control"
-            //   type="text"
-            // />
-            // replaceChar(itemDescription, "_", " ")
-            // price["title"]
+          
           )}
         </TableCell>
-        <TableCell sx={{ width: "15%", padding: 0.5 }}>
+        <TableCell sx={{ width: "30%", padding: 0.5 }}>
           {" "}
-          {edit ? (
-            // <input
-            //   defaultValue={price["price"]}
-            //   className="form-control"
-            //   type="text"
-            // />
+          {el.edit ? (
             <TextField
-              label=" "
               fullWidth
+              type='number'
               sx={{ backgroundColor: "white" }}
               size="small"
+              multiline
               variant="outlined"
-              InputLabelProps={{
-                shrink: false,
+              defaultValue={el.price}
+              label=" "
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
               }}
-              // defaultValue={price["price"]}
             />
           ) : (
             <>${el.price}</>
-            // price["price"]
           )}
         </TableCell>
         <TableCell sx={{ width: "20%", padding: 0.5 }}>
           <div className="actions">
             <IconButton
-              onClick={handelClick}
-              color={edit ? "primary" : "default"}
+              onClick={() => handelClick(el)}
+              color={el.edit ? "primary" : "secondary"}
             >
               <BorderColorOutlinedIcon fontSize="small" />
             </IconButton>

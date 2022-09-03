@@ -60,7 +60,7 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
                 <b>{feature.features.list_price_text_description}</b>
               </TableCell>
               <TableCell>
-                <b>{feature.features.list_price}</b>
+                <b>${feature.features.list_price}</b>
               </TableCell>
             </TableRow>
             <TableRow>

@@ -95,22 +95,11 @@ const EditFeature = ({ handelClose }) => {
         <hr style={{ margin: 0 }} />
         <CardContent>
           <div className="title">
-            {/* <BasicSelect select={select} className="" /> */}
             <Typography variant="h6">{titleCase(selectedFeature)}</Typography>
           </div>
 
           {selectedFeature === "Pricing" ? (
             <div className="pricing-field w-100 ">
-              {/* {Object.keys(featureDetails).map((key) => {
-              return (
-                <TextField
-                  key={key}
-                  className="m-2"
-                  defaultValue={featureDetails[key]}
-                  label={key.replaceAll("_", " ")}
-                />
-              );
-            })} */}
               <div className="pricing-field__tabel">
                 <TableContainer className="scroll" sx={{ height: "100%" }}>
                   <Table
