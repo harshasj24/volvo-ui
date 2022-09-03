@@ -20,14 +20,16 @@ import "./editfeature.css";
 import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
+import {  useParams } from "react-router-dom";
+
 const EditFeature = ({ handelClose, refresh }) => {
-  const { feature, reset, createPice, editPrice, editFeature } = useApi();
+  const { feature, reset, createPice, editPrice, editFeature, getALLMonroneyFeature } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
   const [select, setSelect] = useState(false);
   const [description, setDescription] = useState("");
   const [priceValue, setPrice] = useState("");
-
+  const { vin } = useParams();
   // const formik = useFormik({
   //   initialValues: {
   //     details: details,
@@ -48,14 +50,17 @@ const EditFeature = ({ handelClose, refresh }) => {
     // setTimeout(() => {
     //   setSelect(false);
     // });
+    getALLMonroneyFeature(vin);
   };
   const handelRest = (e) => {
     e.preventDefault();
     getDetails(feature, setDetails);
   };
+
   const handleChange = (e) => {
     setDetails(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(feature);
@@ -113,6 +118,12 @@ const EditFeature = ({ handelClose, refresh }) => {
     let response = await editPrice(dataToUpdate);
 
     console.log("response", response);
+
+    if(response.status === 200){
+      handelClose();
+      getALLMonroneyFeature(vin);
+    }
+
   };
 
   useEffect(() => {

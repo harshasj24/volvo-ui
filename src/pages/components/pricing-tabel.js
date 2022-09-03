@@ -86,7 +86,7 @@ const PricingTabel = ({ feature, dataAfterChange }) => {
                   >
                     <BorderColorOutlinedIcon fontSize="small" />
                   </IconButton>
-                  <IconButton className="ms-3">
+                  <IconButton className="ms-3" disabled>
                     <DeleteOutlineOutlinedIcon fontSize="small" />
                   </IconButton>
                 </div>
