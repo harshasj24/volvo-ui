@@ -30,12 +30,14 @@ const EditFeature = ({ handelClose, refresh }) => {
     editPrice,
     editFeature,
     getALLMonroneyFeature,
+    getVechicleFeature,
   } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
   const [select, setSelect] = useState(false);
   const [description, setDescription] = useState("");
   const [priceValue, setPrice] = useState("");
+  const [addPrice, setAddPrice] = useState(false);
   const { vin } = useParams();
   // const formik = useFormik({
   //   initialValues: {
@@ -70,7 +72,7 @@ const EditFeature = ({ handelClose, refresh }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(feature);
+
     const updatedFeatures = { ...feature?.features };
     const updatedDetails = details.split("\n");
     const keys = Object.keys(updatedFeatures);
@@ -101,13 +103,12 @@ const EditFeature = ({ handelClose, refresh }) => {
 
     let response = await createPice(dataToSend);
 
-    console.log("response", response);
-
-    // if (response.status === 200) {
-    //   setPrice("");
-    //   setDescription("");
-    //   refresh()
-    // }
+    if (response.status === 200) {
+      setPrice("");
+      setDescription("");
+      getVechicleFeature("pricing");
+      setAddPrice(true);
+    }
   };
   let dataToUpdate;
   const dataAfterChange = (data, el, des) => {
@@ -135,8 +136,7 @@ const EditFeature = ({ handelClose, refresh }) => {
   useEffect(() => {
     setDetails("  ");
     getDetails(feature, setDetails);
-    console.log(feature);
-  }, [feature, refresh]);
+  }, [feature, refresh, addPrice]);
 
   return (
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
@@ -194,6 +194,7 @@ const EditFeature = ({ handelClose, refresh }) => {
                     size="small"
                     onChange={(e) => setDescription(e.target.value)}
                     label={"Item Description"}
+                    value={description}
                   />
                   <TextField
                     className="w-25 mx-2"
@@ -201,6 +202,7 @@ const EditFeature = ({ handelClose, refresh }) => {
                     size="small"
                     label={"Price"}
                     onChange={(e) => setPrice(e.target.value)}
+                    value={priceValue}
                   />
                   <Button
                     sx={{ padding: 0.6 }}
