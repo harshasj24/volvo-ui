@@ -1,0 +1,7 @@
+.admin-tabs {
+  padding: 0px 50px;
+}
+.css-heg063-MuiTabs-flexContainer > button:nth-child(1),
+.css-heg063-MuiTabs-flexContainer > button:nth-child(2) {
+  flex-grow: 0.07;
+}

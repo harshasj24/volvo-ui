@@ -10,6 +10,7 @@ import Login from "./pages/login";
 import Err from "./error-handling/Err";
 import Proctected from "./auth/proctected";
 import { useApi } from "./context/api-provider";
+import AdminRules from "./pages/admin-rules";
 function App() {
   const { role } = useApi();
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route element={<Proctected />}>
           <Route path="/search" element={<Search />} />
           <Route path="/edit/:vin" element={<Edit />} />
+
+          <Route path="/admin" element={<AdminRules />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

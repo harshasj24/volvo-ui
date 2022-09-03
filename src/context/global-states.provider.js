@@ -39,6 +39,7 @@ export const GlobalStaesProvider = ({ children }) => {
     return string.replaceAll(toReplace, newChar);
   };
   const getDetails = (feature, setDetails) => {
+    setDetails("");
     try {
       if (feature.title === "Authorized Retailer") {
         setDetails(feature?.address);

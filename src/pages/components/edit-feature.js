@@ -20,8 +20,8 @@ import "./editfeature.css";
 import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
-const EditFeature = ({ handelClose , refresh }) => {
-  const { feature, reset, createPice, test } = useApi();
+const EditFeature = ({ handelClose, refresh }) => {
+  const { feature, reset, createPice, test, editFeature } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
   const [select, setSelect] = useState(false);
@@ -40,7 +40,7 @@ const EditFeature = ({ handelClose , refresh }) => {
     e.preventDefault();
     if (close) {
     }
-    setDetails(" ");
+    setDetails("");
     handelClose();
     reset();
     // resetSelcted();
@@ -67,34 +67,35 @@ const EditFeature = ({ handelClose , refresh }) => {
       if (index < keys.length) {
         updatedFeatures[keys[index]] = detail;
       } else {
-        moreDetails += detail + "\n";
-        updatedFeatures[keys[keys.length - 1]] += moreDetails;
+        // moreDetails += detail + "\n";
+        updatedFeatures[keys[keys.length - 1]] += "\n" + detail;
       }
     });
     // Object.keys(updatedFeatures).map((feature, index) => {
     //   updatedFeatures[feature] = updatedDetails[index];
     // });
-    console.log(updatedFeatures);
+    const updatedFeature = { ...feature, features: updatedFeatures };
+
+    console.log(updatedFeature);
+    editFeature(updatedFeature);
     console.log("submited");
   };
-  const addNewPrice = async(_) => {
+  const addNewPrice = async (_) => {
     let dataToSend = {
       title: description,
       price: priceValue,
       pricing_id: 1,
     };
 
-   let response = await createPice(dataToSend);
-   
-    
-    console.log('response', response)
-    
+    let response = await createPice(dataToSend);
+
+    console.log("response", response);
+
     // if (response.status === 200) {
     //   setPrice("");
     //   setDescription("");
     //   refresh()
     // }
-    
   };
 
   useEffect(() => {
@@ -183,7 +184,7 @@ const EditFeature = ({ handelClose , refresh }) => {
                 variant="outlined"
                 onChange={handleChange}
                 className="mt-3 w-100 feature-details"
-                value={details}
+                value={details.trim()}
                 multiline
                 minRows={6}
                 maxRows={10}

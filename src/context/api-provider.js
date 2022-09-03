@@ -17,6 +17,10 @@ const post = (path, data) => {
   return axios.post(`${baseUrlAzure}${path}`, data);
 };
 
+const put = (path, data) => {
+  return axios.put(`${baseUrlAzure}${path}`, data);
+};
+
 export const ApiProvider = ({ children }) => {
   const navigate = useNavigate();
   const { replaceChar, carId, setCarId } = useGlobal();
@@ -42,7 +46,7 @@ export const ApiProvider = ({ children }) => {
     authorized_retailer: "/authorizedretailer",
     maintenance: "/maintenance",
     warranty: "warranty",
-    create_new_price: "specialitem-create"
+    create_new_price: "specialitem-create",
   };
 
   const getAllVechicles = async () => {
@@ -73,6 +77,23 @@ export const ApiProvider = ({ children }) => {
     );
     const getKey = Object.keys(responce.data)[0];
     setStore({ ...store, feature: responce.data[getKey] });
+  };
+  const actualPath = (string) => {
+    return replaceChar(string, " ", "_").toLowerCase();
+  };
+  const editFeature = async (data) => {
+    console.log(actualPath(data.title));
+    const payload = { [actualPath(data.title)]: data };
+    console.log(data);
+    setStore({
+      ...store,
+      monronyFeatures: {
+        ...store.monronyFeatures,
+        [actualPath(data.title)]: data,
+      },
+    });
+    const responce = await put(`/performance-edit`, payload);
+    // console.log(responce);
   };
   const getALLMonroneyFeature = async (vin) => {
     setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
@@ -160,14 +181,13 @@ export const ApiProvider = ({ children }) => {
   };
 
   const createPice = async (data) => {
-   
     const response = await post("/specialitem-create", data);
     return response;
-  }
+  };
 
-  const test = _ => {
-   return true
-  }
+  const test = (_) => {
+    return true;
+  };
   const values = {
     allVechicles: store.allVechicles,
     getAllVechicles,
@@ -187,7 +207,8 @@ export const ApiProvider = ({ children }) => {
     reset,
     setLoaded,
     createPice,
-    test
+    test,
+    editFeature,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

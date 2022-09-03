@@ -23,10 +23,11 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
   const ref = useRef(true);
   useEffect(() => {
     if (ref.current) {
-      getDetails(feature, setDetails);
       ref.current = false;
+      console.log("executed");
     }
-  }, [feature, details]);
+    getDetails(feature, setDetails);
+  }, [feature]);
 
   return (
     <div>
@@ -86,19 +87,17 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
                   </TableRow>
                 );
               })}
-               <hr></hr>
-               
-               <TableRow>
+            <hr></hr>
+
+            <TableRow>
               <TableCell>
                 <b>Total</b>
               </TableCell>
               <TableCell>
-              <b>${Math.round(feature.total * 100)/100}</b>
+                <b>${Math.round(feature.total * 100) / 100}</b>
               </TableCell>
             </TableRow>
           </Table>
-         
-        
         </React.Fragment>
       )}
     </div>

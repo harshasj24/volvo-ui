@@ -18,6 +18,7 @@ import { useLocation } from "react-router-dom";
 import { useApi } from "../../context/api-provider";
 import LogoutIcon from "@mui/icons-material/Logout";
 import UseLocalStorage from "../../hooks/local-storage";
+import setting from "../../assets/settings.svg";
 export default function Navbar() {
   const { pathname } = useLocation();
   const { logout } = useApi();
@@ -40,7 +41,7 @@ export default function Navbar() {
             <div className="account">
               <img src={profile} alt="" />
               {/* <h6 className="mt-1">{role?.name || ""}</h6> */}
-              <div>{role?.name || ""}</div>
+              <div className="text-light">{role?.name || ""}</div>
             </div>
           </div>
 
@@ -48,11 +49,16 @@ export default function Navbar() {
             <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
               {/* <KeyboardDoubleArrowRightIcon /> */}
               <Typography ml={3}>Vehicle lookup</Typography>
-              <Tooltip title="Logout">
-                <IconButton size="small" onClick={logout} className="ms-auto">
-                  <LogoutIcon fontSize="small" color="primary" />
+              <div className="icon-actions ms-auto">
+                <IconButton className="setting-icon ">
+                  <img src={setting} alt="" />
                 </IconButton>
-              </Tooltip>
+                <Tooltip title="Logout">
+                  <IconButton size="small" onClick={logout}>
+                    <LogoutIcon fontSize="small" color="primary" />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </div>
           )}
         </header>
