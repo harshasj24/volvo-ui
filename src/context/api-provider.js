@@ -72,6 +72,7 @@ export const ApiProvider = ({ children }) => {
     return filt;
   };
   const getVechicleFeature = async (path) => {
+   
     const responce = await getNew(
       `${paths[replaceChar(path, " ", "_").toLowerCase()]}-view?carId=${carId}`
     );
