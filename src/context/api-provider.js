@@ -217,6 +217,17 @@ export const ApiProvider = ({ children }) => {
     );
     return responce;
   };
+
+  const updateConfiguration = async (data) => {
+    const configurationsCpy = [...store.configurations];
+    const index = configurationsCpy.findIndex((val) => {
+      return val.display_setting_id === data.display_setting_id;
+    });
+    configurationsCpy[index] = data;
+
+    setStore({ ...store, configurations: [...configurationsCpy] });
+    const responce = await put("/displayconfigurations-edit", data);
+  };
   const values = {
     allVechicles: store.allVechicles,
     getAllVechicles,
@@ -242,6 +253,7 @@ export const ApiProvider = ({ children }) => {
     getConfigurations,
     configurations: store.configurations,
     getConfiguration,
+    updateConfiguration,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

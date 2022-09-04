@@ -8,7 +8,7 @@ import LongMenu from "./long-menu";
 import { useApi } from "../../context/api-provider";
 const FeatureCard = ({ title, handelOpen, feature }) => {
   const { getDetails } = useGlobal();
-  const { getVechicleFeature } = useApi();
+  const { getVechicleFeature, role } = useApi();
   const [details, setDetails] = useState("");
 
   const { getMonroneyFeature } = useApi();
@@ -33,16 +33,18 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
     <div>
       <div className="feature-card__header  d-flex align-items-center">
         {feature.title}
-        <div className="header-icon ms-auto">
-          {
-            <LongMenu openModel={handelClick} /> /* {active(
+        {role.role === "ADMIN" && (
+          <div className="header-icon ms-auto">
+            {
+              <LongMenu openModel={handelClick} /> /* {active(
               // <IconButton>
               <AssistantPhotoIcon onClick={handelClick} />,
               // </IconButton>,
               <BorderColorOutlinedIcon color="primary" />
             )} */
-          }
-        </div>
+            }
+          </div>
+        )}
       </div>
       {feature.title !== "Pricing" ? (
         <div className="feature-card__body">{details}</div>

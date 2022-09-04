@@ -14,15 +14,16 @@ export default function BasicSelect({
   options,
   width,
   name,
+  setFieldValue,
 }) {
   const [feature, setFeature] = React.useState("");
   const { selectFeature, selectedFeature } = useGlobal();
   const handleChange = (event) => {
     const selected = event.target.value;
-    console.log(event.target.value);
     selectFeature(selected);
     setFeature(event.target.value);
     // setFeature("selectedFeature");
+    setFieldValue && setFieldValue(name, event.target.value);
   };
   React.useEffect(() => {
     select && setFeature("");
@@ -44,6 +45,13 @@ export default function BasicSelect({
   const status = ["Appled", "Label Not Applied"];
 
   const allocation = ["7149-Volvo Cars Athens"];
+  const setDefault = () => {
+    if (!defaultValue) return;
+    setFeature(defaultValue);
+  };
+  React.useEffect(() => {
+    setDefault();
+  }, [defaultValue]);
   const getOptions = () => {
     if (options === "features") {
       return feature;
@@ -68,7 +76,6 @@ export default function BasicSelect({
           fullWidth
           name={name}
           onChange={handleChange}
-          defaultValue={defaultValue}
           disabled={disabled}
         >
           {getOptions().map((option, i) => {

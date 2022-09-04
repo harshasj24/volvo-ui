@@ -8,6 +8,7 @@ import indicator from "../assets/indicator.svg";
 import {
   Button,
   IconButton,
+  LinearProgress,
   Modal,
   Table,
   TableBody,
@@ -34,8 +35,14 @@ import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import seatBelt from "../assets/seat-belt-svgrepo-com.svg";
 import { useFormik } from "formik";
 const AdminRules = () => {
-  const { getConfigurations, configurations, getConfiguration } = useApi();
-  const [configuration, setConfiguration] = useState();
+  const [loaded, setloaded] = useState(false);
+  const {
+    getConfigurations,
+    updateConfiguration,
+    configurations,
+    getConfiguration,
+  } = useApi();
+  const [configuration, setConfiguration] = useState({});
   const [value, setValue] = useState(0);
 
   const [open, setOpen] = useState(false);
@@ -43,12 +50,15 @@ const AdminRules = () => {
     setOpen(true);
   };
   const handleClose = () => {
+    // setConfiguration({});
     setOpen(false);
   };
   const handelActionClick = (sectionName) => async () => {
-    handleOpen();
+    setloaded(true);
     const responce = await getConfiguration(sectionName);
     setConfiguration(responce.data);
+    setloaded(false);
+    handleOpen();
     console.log(responce);
   };
   const handleChange = (event, newValue) => {
@@ -57,26 +67,32 @@ const AdminRules = () => {
   const formik = useFormik({
     initialValues: { ...configuration },
     enableReinitialize: true,
+    onSubmit: (values) => {
+      console.log(values);
+      updateConfiguration(values);
+      handleClose();
+    },
   });
 
   const iconsSet = {
-    flag: flag,
+    flag: <img src={flag} alt="" />,
     audio: <VolumeUpIcon />,
     dollar: <MonetizationOnIcon />,
     info: <InfoIcon />,
     car: <DirectionsCarIcon />,
     twitter: <TwitterIcon />,
     medal: <WorkspacePremiumIcon />,
-    seatbelt: seatBelt,
+    seatbelt: <img width={"20px"} src={seatBelt} alt="" />,
   };
 
   const ref = useRef(true);
   useEffect(() => {
     if (ref.current) {
       getConfigurations();
+      ref.current = false;
     }
-    console.log(configuration);
-  }, [configuration]);
+    console.log(configurations);
+  }, [configurations]);
   return (
     <div>
       <Toolbar className="mt-4" />
@@ -107,8 +123,8 @@ const AdminRules = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {configurations.map((fea) => (
-                  <TableRow sx={{ border: "none" }}>
+                {configurations.map((fea, i) => (
+                  <TableRow key={i} sx={{ border: "none" }}>
                     <TableCell
                       align="center"
                       className="tabel-cell"
@@ -130,9 +146,7 @@ const AdminRules = () => {
                       width={100}
                       sx={{ border: "none" }}
                     >
-                      {fea.icon.toLowerCase() === "flag" && (
-                        <img src={flag} alt="" />
-                      )}
+                      {iconsSet[fea?.icon.toLowerCase()]}
                     </TableCell>
                     <TableCell
                       align="center"
@@ -173,7 +187,7 @@ const AdminRules = () => {
           <div className="admin-modal__header">
             <p>Feature Definition and Rules</p>
           </div>
-          <form action="">
+          <form action="" onSubmit={formik.handleSubmit}>
             <div className="admin-modal__body">
               <div className="body__title">Title and display</div>
               <div className="body-text-fields1 d-flex mt-3">
@@ -181,17 +195,24 @@ const AdminRules = () => {
                   width={100}
                   title={"Order Number"}
                   name="display_order"
-                  defaultValue={"1"}
+                  setFieldValue={formik.setFieldValue}
+                  defaultValue={formik.values?.display_order}
                   options={["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
                 />
                 <TextField
                   sx={{ width: "311px", mx: "18px" }}
                   size="small"
                   label="Section Name"
+                  name="section_name"
+                  value={formik.values?.section_name}
+                  disabled
                 />
                 <BasicSelect
                   width={190}
                   title={"Icon"}
+                  name="icon"
+                  setFieldValue={formik.setFieldValue}
+                  defaultValue={formik.values?.icon?.toLowerCase()}
                   options={[...Object.keys(iconsSet)]}
                 />
               </div>
@@ -208,14 +229,20 @@ const AdminRules = () => {
                 <BasicSelect
                   width={185}
                   title={"condition"}
+                  name="rule_definition"
+                  setFieldValue={formik.setFieldValue}
+                  defaultValue={formik.values?.rule_definition}
                   options={[
-                    "Status Equals Allocated",
-                    "Status Equals Not Allocated",
+                    "Status equals Allocated",
+                    "Status equals Not Allocated",
                   ]}
                 />
                 <BasicSelect
                   width={197}
                   title={"Value"}
+                  name={"is_edit"}
+                  setFieldValue={formik.setFieldValue}
+                  defaultValue={formik.values?.is_edit}
                   options={["Editable", "Not editable"]}
                 />
               </div>
