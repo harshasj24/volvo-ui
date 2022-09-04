@@ -75,12 +75,14 @@ export default function Navbar() {
                 Vehicle lookup
               </Typography>
               <div className="icon-actions ms-auto">
-                <IconButton
-                  onClick={handelClick(true)}
-                  className="setting-icon "
-                >
-                  <img src={setting} alt="" />
-                </IconButton>
+                {role.role === "ADMIN" && pathname.includes("/edit") && (
+                  <IconButton
+                    onClick={handelClick(true)}
+                    className="setting-icon "
+                  >
+                    <img src={setting} alt="" />
+                  </IconButton>
+                )}
                 <Tooltip title="Logout">
                   <IconButton size="small" onClick={logout}>
                     <LogoutIcon fontSize="small" color="primary" />

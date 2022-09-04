@@ -35,6 +35,7 @@ export const ApiProvider = ({ children }) => {
     pricing: {},
     newAll: [],
     header: {},
+    configurations: [],
   });
   const [role, setRole] = UseLocalStorage("user", null);
 
@@ -72,6 +73,7 @@ export const ApiProvider = ({ children }) => {
     });
     return filt;
   };
+  //geting one single feature
   const getVechicleFeature = async (path) => {
     const responce = await getNew(
       `${paths[replaceChar(path, " ", "_").toLowerCase()]}-view?carId=${carId}`
@@ -82,6 +84,7 @@ export const ApiProvider = ({ children }) => {
   const actualPath = (string) => {
     return replaceChar(string, " ", "_").toLowerCase();
   };
+  // editing single feature
   const editFeature = async (data) => {
     console.log(actualPath(data.title));
     const payload = { [actualPath(data.title)]: data };
@@ -100,6 +103,7 @@ export const ApiProvider = ({ children }) => {
     );
     // console.log(responce);
   };
+  // getting all the all details of VIN
   const getALLMonroneyFeature = async (vin) => {
     setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
     try {
@@ -152,6 +156,7 @@ export const ApiProvider = ({ children }) => {
   //     monronyLabel: store.monronyLabel,
   //   };
   // }, [store.allVechicles, store.feature, store.monronyLabel]);
+  // login
   const login = async (data, openSnackbar, setLoading) => {
     const from = location.state?.from?.pathname || "/search";
 
@@ -179,6 +184,7 @@ export const ApiProvider = ({ children }) => {
       navigate("/error");
     }
   };
+  // logout
   const logout = () => {
     setRole(null);
     setCarId(null);
@@ -187,15 +193,29 @@ export const ApiProvider = ({ children }) => {
   const reset = () => {
     setStore({ ...store, feature: {} });
   };
-
+  // create a price
   const createPice = async (data) => {
     const response = await post("/specialitem-create", data);
     return response;
   };
-
+  // editing the price
   const editPrice = async (data) => {
     const response = await put("/specialitem-edit", data);
     return response;
+  };
+
+  // getting Admin configurations
+  const getConfigurations = async () => {
+    const responce = await getNew("/displayconfigurations-view");
+    setStore({ ...store, configurations: responce.data });
+  };
+
+  // get single configurations
+  const getConfiguration = async (sectionName) => {
+    const responce = await getNew(
+      `/displayconfigurations-view?section_name=${sectionName}`
+    );
+    return responce;
   };
   const values = {
     allVechicles: store.allVechicles,
@@ -219,6 +239,9 @@ export const ApiProvider = ({ children }) => {
     editPrice,
     editFeature,
     header: store.header,
+    getConfigurations,
+    configurations: store.configurations,
+    getConfiguration,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

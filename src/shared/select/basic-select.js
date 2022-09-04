@@ -13,6 +13,7 @@ export default function BasicSelect({
   title,
   options,
   width,
+  name,
 }) {
   const [feature, setFeature] = React.useState("");
   const { selectFeature, selectedFeature } = useGlobal();
@@ -65,6 +66,7 @@ export default function BasicSelect({
           value={feature}
           label={title}
           fullWidth
+          name={name}
           onChange={handleChange}
           defaultValue={defaultValue}
           disabled={disabled}
