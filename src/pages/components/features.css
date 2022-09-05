@@ -53,3 +53,13 @@
 .pricing-card__body--price {
   font-weight: 900;
 }
+.disclaimer {
+  border: 1px solid #979797;
+  padding: 0.25rem;
+  margin-top: 50px;
+}
+.disclaimer p {
+  font-size: 0.5rem;
+  line-height: 125%;
+  margin: 0;
+}

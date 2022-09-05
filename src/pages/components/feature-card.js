@@ -9,7 +9,7 @@ import { useApi } from "../../context/api-provider";
 import { Block } from "@mui/icons-material";
 const FeatureCard = ({ title, handelOpen, feature }) => {
   const { getDetails } = useGlobal();
-  const { getVechicleFeature, role } = useApi();
+  const { getVechicleFeature, role, header } = useApi();
   const [details, setDetails] = useState("");
 
   const { getMonroneyFeature } = useApi();
@@ -51,38 +51,44 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
         <div className="feature-card__body">{details}</div>
       ) : (
         <div className="feature-card__body">
-        <ul>
-          <li class="pricing-card__body">
-            <div>
-            <span class="pricing-card__body--description">{feature.features.list_price_text_description}</span>
-            <br></br>
-            {/* <span style= {{ 'padding-left': '0.5rem', 'display': 'block' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          <ul>
+            <li class="pricing-card__body">
+              <div>
+                <span class="pricing-card__body--description">
+                  {feature.features.list_price_text_description}
+                </span>
+                <br></br>
+                {/* <span style= {{ 'padding-left': '0.5rem', 'display': 'block' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
             enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
             in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             nulla pariatur. Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia deserunt mollit anim id est laborum.</span> */}
-          </div>
-            <div class="pricing-card__body--price">${feature.features.list_price}</div>
-          </li>
-          {feature.features.specialItems &&
-          feature.features.specialItems.map((el) => {
-            return (
-            <li class="pricing-card__body" style={{'margin': '1rem 0' }}>
-            <div class="pricing-card__body--description">{el.title}</div>
-            <div class="pricing-card__body--price">${el.price}</div>
-          </li>
-            );
-          })}
-          <hr></hr>
-          <li class="pricing-card__body">
-            <div class="pricing-card__body--description">
-              Total
-            </div>
-            <div class="pricing-card__body--price">${Math.round(feature.total * 100) / 100}</div>
-          </li>
-        </ul>
+              </div>
+              <div class="pricing-card__body--price">
+                ${feature.features.list_price}
+              </div>
+            </li>
+            {feature.features.specialItems &&
+              feature.features.specialItems.map((el) => {
+                return (
+                  <li class="pricing-card__body" style={{ margin: "1rem 0" }}>
+                    <div class="pricing-card__body--description">
+                      {el.title}
+                    </div>
+                    <div class="pricing-card__body--price">${el.price}</div>
+                  </li>
+                );
+              })}
+            <hr></hr>
+            <li class="pricing-card__body">
+              <div class="pricing-card__body--description">Total</div>
+              <div class="pricing-card__body--price">
+                ${Math.round(feature.total * 100) / 100}
+              </div>
+            </li>
+          </ul>
         </div>
         // <React.Fragment>
         //   <Table
@@ -136,6 +142,12 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
         //     </TableRow>
         //   </Table>
         // </React.Fragment>
+      )}
+
+      {feature.title === "Join the Conversation" && (
+        <div className="disclaimer w-100">
+          <p>{header?.disclaimer}</p>
+        </div>
       )}
     </div>
   );
