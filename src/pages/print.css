@@ -1,4 +1,4 @@
-.edit__body {
+/* .edit__body {
   margin: 2%;
 }
 .main-content {
@@ -63,4 +63,22 @@
   font-size: 0.6rem !important;
   text-align: center;
   font-weight: bolder;
+} */
+
+.edit__body--wrapper{
+  margin: 2%;
+ }  
+.monroney--columns{
+  align-content: flex-start !important;
+  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
+  gap: 2rem 1rem !important;
+  max-height: calc(100vh - 50px ) !important;
+ 
 }
+.monroney-govt {
+  flex: 0 0 35% !important;
+}
+
