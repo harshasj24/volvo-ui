@@ -67,7 +67,7 @@ export const ApiProvider = ({ children }) => {
   };
   const demoResponce = async () => {
     const { data } = await get("/demoResponce");
-    // console.log(data);
+  
     const filt = data.filter((v) => {
       return v.type === "feature";
     });
@@ -86,9 +86,9 @@ export const ApiProvider = ({ children }) => {
   };
   // editing single feature
   const editFeature = async (data) => {
-    console.log(actualPath(data.title));
+  
     const payload = { [actualPath(data.title)]: data };
-    console.log(data);
+  
     setStore({
       ...store,
       monronyFeatures: {
@@ -101,7 +101,7 @@ export const ApiProvider = ({ children }) => {
       `/${paths[actualPath(data.title)]}-edit`,
       payload
     );
-    // console.log(responce);
+ 
   };
   // getting all the all details of VIN
   const getALLMonroneyFeature = async (vin) => {
@@ -127,7 +127,7 @@ export const ApiProvider = ({ children }) => {
             };
           });
         } else if (val?.Header) {
-          console.log("ffff");
+        
           setStore({ ...store, header: val[getKey] });
         } else {
           setStore((prev) => {
@@ -210,6 +210,13 @@ export const ApiProvider = ({ children }) => {
     setStore({ ...store, configurations: responce.data });
   };
 
+  const getConfigDetails = async () => {
+    const response = await getNew("/displayconfigurations-view");
+    if (response.status === 200) {
+      return response.data;
+    }
+  };
+
   // get single configurations
   const getConfiguration = async (sectionName) => {
     const responce = await getNew(
@@ -259,6 +266,7 @@ export const ApiProvider = ({ children }) => {
     configurations: store.configurations,
     getConfiguration,
     updateConfiguration,
+    getConfigDetails,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

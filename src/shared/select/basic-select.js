@@ -42,7 +42,7 @@ export default function BasicSelect({
     "pricing",
   ];
 
-  const status = ["Appled", "Label Not Applied"];
+  const status = ["Allocated", "Not Allocated"];
 
   const allocation = ["7149-Volvo Cars Athens"];
   const setDefault = () => {
