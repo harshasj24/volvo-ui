@@ -62,18 +62,26 @@ export default function Navbar() {
             <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
               {/* <KeyboardDoubleArrowRightIcon /> */}
               {pathname !== "/search" && (
-                <IconButton
-                  onClick={handelClick(false)}
-                  sx={{
-                    marginLeft: "4.54px",
-                  }}
-                >
-                  <img src={doubleArrow} alt="" />
-                </IconButton>
+                <div className="bread-crumbs d-flex">
+                  <IconButton
+                    onClick={handelClick(false)}
+                    sx={{
+                      marginLeft: "4.54px",
+                    }}
+                  >
+                    <img src={doubleArrow} alt="" />
+                  </IconButton>
+
+                  <Typography sx={{ marginLeft: "25px" }}>
+                    {/* Vehicle lookup */}
+                    {state?.back?.includes("/search")
+                      ? "Vehicle lookup"
+                      : state?.back?.includes("/edit")
+                      ? "Monroney Label"
+                      : "Vehicle lookup"}
+                  </Typography>
+                </div>
               )}
-              <Typography sx={{ marginLeft: "25px" }}>
-                Vehicle lookup
-              </Typography>
               <div className="icon-actions ms-auto">
                 {role.role === "ADMIN" && (
                   <IconButton

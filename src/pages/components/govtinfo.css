@@ -90,6 +90,10 @@ br {
 .annual-cost__display p {
   margin: 0 !important;
 }
+.annual-cost__display .cost {
+  font-size: 32px;
+  margin-top: 20px !important;
+}
 .annual-cost-section {
   font-weight: bold;
 }
@@ -375,6 +379,8 @@ br {
 .inner-third-flex1 p {
   font-size: 0.5rem;
   padding-right: 0.5rem;
+  margin-top: 0;
+  margin-bottom: -1px;
 }
 .inner-third-flex1 p span {
   font-size: 0.4rem;

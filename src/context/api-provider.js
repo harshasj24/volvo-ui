@@ -224,8 +224,13 @@ export const ApiProvider = ({ children }) => {
       return val.display_setting_id === data.display_setting_id;
     });
     configurationsCpy[index] = data;
-
-    setStore({ ...store, configurations: [...configurationsCpy] });
+    const sortedConfigurationsCpy = configurationsCpy.sort(
+      (a, b) => a?.display_order - b?.display_order
+    );
+    setStore({
+      ...store,
+      configurations: [...sortedConfigurationsCpy],
+    });
     const responce = await put("/displayconfigurations-edit", data);
   };
   const values = {

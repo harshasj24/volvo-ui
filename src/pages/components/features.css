@@ -1,4 +1,4 @@
-@import "print-features.css" print;
+/* @import "print-features.css" print; */
 
 .feature-card__header {
   border-top: solid;
@@ -26,11 +26,11 @@
   }
 }
 
-@media print {
+/* @media print {
   .feature-card {
     max-width: 70vw !important;
   }
-}
+} */
 
 .active-boder {
   border: 1.4px solid #1976d2;

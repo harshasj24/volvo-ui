@@ -129,7 +129,7 @@ export const GovtInfo = () => {
             <p className="fs-md">
               Annual Fuel <span className="fs-md-lg">Cost</span>
             </p>
-            <p className="fs-lg mt-4">$1,700</p>
+            <p className="fs-lg cost">$1,700</p>
           </div>
           <div className="anual-cost__rating bg-light text-dark  br-3s ">
             {/* <div className="ratings d-flex gap-2">
@@ -160,7 +160,7 @@ export const GovtInfo = () => {
                     Smog Rating <span>(tailpipe only)</span>{" "}
                   </p>
                   <div className="scale">
-                    <img width={"100%"} src={smog} alt="" />
+                    <img width={"100%"} className="mt-1" src={smog} alt="" />
                   </div>
                 </div>
               </div>
