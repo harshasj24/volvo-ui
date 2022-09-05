@@ -1,21 +1,20 @@
 @font-face {
   font-family: "volvo-novum-regular";
-  src: local("vovlo"),
-    url("./VolvoFonts/Volvo\ Novum-Regular.woff") format("woff");
+  src: local("volvo"),
+    url("./VolvoFonts/Volvo-Novum-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "volvo-novum-light";
-  src: local("vovlo"),
-    url("./VolvoFonts/Volvo\ Novum-Light.woff") format("woff");
+  src: local("volvo"), url("./VolvoFonts/Volvo-Novum-Light.woff") format("woff");
 }
 @font-face {
   font-family: "volvo-novum-medium";
-  src: local("vovlo"),
-    url("./VolvoFonts/Volvo\ Novum-Medium.woff") format("woff");
+  src: local("volvo"),
+    url("./VolvoFonts/Volvo-Novum-Medium.woff") format("woff");
 }
 @font-face {
   font-family: "volvo-broad-pro";
-  src: local("vovlo"),
+  src: local("volvo"),
     url("./VolvoFonts/VolvoBroadProDigital.woff") format("woff");
 }
 
