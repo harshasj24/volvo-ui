@@ -158,10 +158,9 @@ const EditFeature = ({ handelClose, refresh }) => {
                   <Table
                     stickyHeader
                     sx={{
-                      // minWidth: "60vw",
+                      minWidth: "40vw",
                       border: "none",
                       outline: "none",
-                      width:'100%'
                     }}
                   >
                     <TableHead>
