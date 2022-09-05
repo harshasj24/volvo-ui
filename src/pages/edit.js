@@ -1,43 +1,23 @@
-import {
-  AppBar,
-  Card,
-  Checkbox,
-  FormControlLabel,
-  Grid,
-  IconButton,
-  Modal,
-  Paper,
-  Toolbar,
-  Typography,
-  Button,
-  Tooltip,
-} from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import { Modal, Toolbar, Typography, Button } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/api-provider";
 import EditFeature from "./components/edit-feature";
 import FeatureCard from "./components/feature-card";
 import "./edit.css";
-import EditIcon from "@mui/icons-material/Edit";
-import PricingTabel from "./components/pricing-tabel";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
-import CachedIcon from "@mui/icons-material/Cached";
 import BasicSelect from "../shared/select/basic-select";
 import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "./components/govt-info";
-import { useSearchParams, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Dealer from "../shared/autocomplete/dealer";
 
 import ReactToPrint from "react-to-print";
 const Edit = () => {
   const {
     feature,
-    getVechicleFeature,
+    getConfigDetails,
     demoResponce,
-    monronyLabel,
-    getpricings,
-    logout,
+
     getALLMonroneyFeature,
     monronyFeatures,
     header,
@@ -46,6 +26,7 @@ const Edit = () => {
   const ref = useRef(true);
   const keys = Object.keys(feature);
   const [pricingKeys, setPricingKeys] = useState([]);
+  const [configurations, setConfigurations] = useState([]);
   const [open, setOpen] = useState(false);
   const [features, setFeatures] = useState([]);
   const { breakepointObserver, checkBreakPoint } = useBreakePoint();
@@ -56,11 +37,12 @@ const Edit = () => {
     if (ref.current) {
       ref.current = false;
       // getVechicleFeature();
-      console.log(vin);
+
       getALLMonroneyFeature(vin);
       getAllfeatures();
+      getConfig();
     }
-    console.log(header);
+
     try {
       setPricingKeys(Object.keys(feature["pricing"]));
     } catch (error) {
@@ -68,6 +50,12 @@ const Edit = () => {
     }
     breakepointObserver();
   }, [feature, monronyFeatures, header]);
+
+  const getConfig = async (_) => {
+    let value = await getConfigDetails();
+    setConfigurations(value);
+  };
+
   const getAllfeatures = async () => {
     const data = await demoResponce();
     setFeatures(data);
@@ -86,6 +74,7 @@ const Edit = () => {
   };
   let feArr = ["performance", "pricing"];
   let componentRef = useRef();
+
   return (
     <div className="main-body--wrapper">
       <div className="edit__header w-100">
@@ -154,28 +143,32 @@ const Edit = () => {
       </div>
 
       <div className="edit__body--wrapper" ref={(el) => (componentRef = el)}>
-      <div>
-      <div className="edit-body__header">
-        <div className="header-left">
-          <p>{header?.year} </p>
-          <h1 class="font-broad-pro">{header?.model_no} T6 AWD INSCRIPTION</h1>
-        </div>
-        <div className="header-right ms-auto mt-3">
-          <p>{header?.company_name}</p>
-          <p>{header?.URL}</p>
-        </div>
-      </div>
-        <div className="monroney--columns">
-          {Object.keys(monronyFeatures).map((key, i) => {
-            return (
-              <FeatureCard
-                handelOpen={handelOpen}
-                key={i}
-                feature={monronyFeatures[key]}
-              />
-            );
-          })}
-        </div>
+        <div>
+          <div className="edit-body__header">
+            <div className="header-left">
+              <p>{header?.year} </p>
+              <h1 class="font-broad-pro">
+                {header?.model_no} T6 AWD INSCRIPTION
+              </h1>
+            </div>
+            <div className="header-right ms-auto mt-3">
+              <p>{header?.company_name}</p>
+              <p>{header?.URL}</p>
+            </div>
+          </div>
+          <div className="monroney--columns">
+            {configurations?.length > 0 &&
+              Object.keys(monronyFeatures).map((key, i) => {
+                return (
+                  <FeatureCard
+                    handelOpen={handelOpen}
+                    key={i}
+                    feature={monronyFeatures[key]}
+                    configurations={configurations}
+                  />
+                );
+              })}
+          </div>
         </div>
         <div className="monroney-govt">
           <GovtInfo />

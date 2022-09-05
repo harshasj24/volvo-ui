@@ -117,15 +117,11 @@ const EditFeature = ({ handelClose, refresh }) => {
     dataToUpdate = {
       ...data,
     };
-    // console.log(dataToUpdate);
   };
   const updatePrice = async (e) => {
     e.preventDefault();
 
-    console.log(dataToUpdate, "isnde");
     let response = await editPrice(dataToUpdate);
-
-    console.log("response", response);
 
     if (response.status === 200) {
       handelClose();
@@ -142,14 +138,16 @@ const EditFeature = ({ handelClose, refresh }) => {
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
       <form action="">
         <CardHeader
-          title={"Content update"}
-          subheader={"lorem epsum dolor sit emit"}
+          title={titleCase(selectedFeature) + " Edit"}
+          subheader={
+            "Please edit " +
+            titleCase(selectedFeature) +
+            " information and update the monroney label"
+          }
         />
         <hr style={{ margin: 0 }} />
         <CardContent>
-          <div className="title">
-            <Typography variant="h6">{titleCase(selectedFeature)}</Typography>
-          </div>
+          <div className="title"></div>
 
           {selectedFeature === "Pricing" ? (
             <div className="pricing-field w-100 ">
@@ -190,7 +188,7 @@ const EditFeature = ({ handelClose, refresh }) => {
                 <div className="actions mt-3">
                   <TextField
                     variant="outlined"
-                    sx={{ width: "62%" }}
+                    sx={{ width: "50%" }}
                     size="small"
                     onChange={(e) => setDescription(e.target.value)}
                     label={"Item Description"}
