@@ -1,10 +1,12 @@
 /* @import url("../assets/font.css"); */
 @import "print.css" print;
+
 .features__body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
+
 .modal-body {
   width: 100vw;
   height: 100vh;
@@ -12,6 +14,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .gov-info {
   width: 100%;
   /* margin-left: 5%; */
@@ -20,6 +23,7 @@
   display: flex;
   justify-content: center;
 }
+
 .gov-info > h2 {
   margin-top: 50%;
   letter-spacing: 10px;
@@ -32,10 +36,12 @@
     display: none;
   }
 }
+
 .select {
   margin-left: 7%;
   gap: 10px;
 }
+
 .check > svg {
   /* background-color: red !important; */
 }
@@ -47,46 +53,41 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+.edit {
+  padding: 15px 48px;
+  max-width: 1600px;
+}
+
+/* @media only screen and (max-width: 400px) {
   .edit {
     width: 143vw !important;
     margin: auto;
   }
-}
+} */
+
 .monroney--columns {
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: calc(100vw - calc(500px + 2rem));
-  max-height: calc(100vh + 400px);
   align-content: flex-start;
-  align-items: flex-start;
-  gap: 1rem 2rem;
-  /* border: solid; */
-  /* flex-shrink: 0;  */
-}
-.monroney--columns {
-  /* align-content: flex-start;
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  max-height: calc(100vh + 150px);
-  flex: 1; */
-  align-content: flex-start;
-  align-items: flex-start;
+  justify-content: flex-start;
   display: flex;
   flex-direction: column;
   /* flex-shrink: 0; */
   flex-wrap: wrap;
-  gap: 3rem 1rem;
-  max-height: calc(100vh + 350px);
+  gap: 0.5rem 1rem;
+  max-height: calc(100vh + 200px);
   flex: 1 1 60%;
 }
+@media only screen and (min-width: 768px) and (max-width: 1600px) {
+  .monroney--columns {
+    gap: 0.5rem 0.5rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1300px) {
+  .monroney--columns {
+    max-height: calc(100vh + 400px);
+  }
+}
 
-.monroney--columns > div {
+.monroney--columns > div.feature-card__wrapper {
   flex: 0 0 auto;
   width: 32%;
 }
@@ -94,11 +95,20 @@
   flex-wrap: wrap;
 }
 .monroney-govt {
-  flex: 0 0 25%;
+  flex: 0 0 40%;
 }
 .monroney--columns > div:last-child {
   flex-basis: 100%;
 }
+
+.edit__body--wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  line-height: 125%;
+}
+
 .edit-body__header {
   display: flex;
   width: 70%;

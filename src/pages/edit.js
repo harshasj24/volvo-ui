@@ -155,17 +155,14 @@ const Edit = () => {
       <div className="edit-body__header p-3">
         <div className="header-left">
           <p>{header?.year} </p>
-          <h2>{header?.model_no} T6 AWD INSCRIPTION</h2>
+          <h1 class="font-broad-pro">{header?.model_no} T6 AWD INSCRIPTION</h1>
         </div>
         <div className="header-right ms-auto mt-3">
           <p>{header?.company_name}</p>
           <p>{header?.URL}</p>
         </div>
       </div>
-      <div
-        className="edit__body p-3 d-flex w-100"
-        ref={(el) => (componentRef = el)}
-      >
+      <div className="edit__body--wrapper" ref={(el) => (componentRef = el)}>
         <div className="monroney--columns">
           {Object.keys(monronyFeatures).map((key, i) => {
             return (

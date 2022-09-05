@@ -1,0 +1,40 @@
+@import "print-features.css" print;
+
+.feature-card__header {
+  border-top: solid;
+  padding: 4px 0px;
+  border-bottom: dotted;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.feature-card {
+  max-width: 19vw !important;
+}
+.feature-card__body {
+  line-height: 120%;
+  white-space: pre-line;
+  padding: 4px 0px;
+}
+@media only screen and (max-width: 1200px) {
+  .feature-card {
+    /* background-color: red; */
+    max-width: 70vw !important;
+  }
+}
+
+@media print {
+  .feature-card {
+    max-width: 70vw !important;
+  }
+}
+
+.active-boder {
+  border: 1.4px solid #1976d2;
+}
+
+@media only screen and (max-width: 600px) {
+  .feature-card {
+    max-width: 98% !important;
+  }
+}

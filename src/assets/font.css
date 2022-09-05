@@ -13,6 +13,11 @@
   src: local("vovlo"),
     url("./VolvoFonts/Volvo\ Novum-Medium.woff") format("woff");
 }
+@font-face {
+  font-family: "volvo-broad-pro";
+  src: local("vovlo"),
+    url("./VolvoFonts/VolvoBroadProDigital.woff") format("woff");
+}
 
 .font-vn-regular {
   font-family: "volvo-novum-regular" !important;
@@ -22,4 +27,7 @@
 }
 .font-vn-light {
   font-family: "volvo-novum-light" !important;
+}
+.font-broad-pro {
+  font-family: "volvo-broad-pro" !important;
 }
