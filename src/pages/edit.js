@@ -152,7 +152,10 @@ const Edit = () => {
           </div>
         </header>
       </div>
-      <div className="edit-body__header p-3">
+
+      <div className="edit__body--wrapper" ref={(el) => (componentRef = el)}>
+      <div>
+      <div className="edit-body__header">
         <div className="header-left">
           <p>{header?.year} </p>
           <h1 class="font-broad-pro">{header?.model_no} T6 AWD INSCRIPTION</h1>
@@ -162,7 +165,6 @@ const Edit = () => {
           <p>{header?.URL}</p>
         </div>
       </div>
-      <div className="edit__body--wrapper" ref={(el) => (componentRef = el)}>
         <div className="monroney--columns">
           {Object.keys(monronyFeatures).map((key, i) => {
             return (
@@ -173,6 +175,7 @@ const Edit = () => {
               />
             );
           })}
+        </div>
         </div>
         <div className="monroney-govt">
           <GovtInfo />

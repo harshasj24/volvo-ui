@@ -105,7 +105,9 @@
 
 .edit-body__header {
   display: flex;
-  width: 70%;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
 }
 .edit-body__header p {
   margin: 0;
