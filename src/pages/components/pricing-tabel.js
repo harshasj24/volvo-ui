@@ -38,7 +38,7 @@ const PricingTabel = ({ feature, dataAfterChange }) => {
             <TableRow
               sx={{ padding: 0, backgroundColor: el.edit && "#f3f2f1" }}
             >
-              <TableCell sx={{ width: "50%", padding: 0.5 }}>
+              <TableCell sx={{ width: "33%", padding: 0.5 }}>
                 {el.edit ? (
                   <TextField
                     fullWidth
@@ -55,7 +55,7 @@ const PricingTabel = ({ feature, dataAfterChange }) => {
                   <>{el.title}</>
                 )}
               </TableCell>
-              <TableCell sx={{ width: "30%", padding: 0.5 }}>
+              <TableCell sx={{ width: "33%", padding: 0.5 }}>
                 {" "}
                 {el.edit ? (
                   <TextField

@@ -56,13 +56,13 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
             <div>
             <span class="pricing-card__body--description">{feature.features.list_price_text_description}</span>
             <br></br>
-            <span style= {{ 'padding-left': '0.5rem', 'display': 'block' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            {/* <span style= {{ 'padding-left': '0.5rem', 'display': 'block' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
             enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
             in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            sunt in culpa qui officia deserunt mollit anim id est laborum.</span> */}
           </div>
             <div class="pricing-card__body--price">${feature.features.list_price}</div>
           </li>
