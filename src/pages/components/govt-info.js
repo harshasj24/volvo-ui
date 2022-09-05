@@ -48,6 +48,7 @@ export const GovtInfo = () => {
       return "";
     }
   };
+
   return (
     <>
       <div className="govt-info__fuel-economy">
@@ -216,7 +217,7 @@ export const GovtInfo = () => {
               <QRCode
                 size={256}
                 style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                value={window.location.href}
+                value={`${window.location.origin}/view/${vin}`}
                 viewBox={`0 0 256 256`}
               />
             </div>

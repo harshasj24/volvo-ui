@@ -11,7 +11,7 @@ import "./longmenu.css";
 import { useGlobal } from "../../context/global-states.provider";
 const ITEM_HEIGHT = 48;
 
-export default function LongMenu({ openModel, logout }) {
+export default function LongMenu({ openModel, logout, title }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const { selectFeature } = useGlobal();

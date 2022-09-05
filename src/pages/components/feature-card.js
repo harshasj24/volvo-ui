@@ -37,7 +37,10 @@ const FeatureCard = ({ title, handelOpen, feature }) => {
         {role.role === "ADMIN" && (
           <div className="header-icon ms-auto">
             {
-              <LongMenu openModel={handelClick} /> /* {active(
+              <LongMenu
+                openModel={handelClick}
+                title={feature.title}
+              /> /* {active(
               // <IconButton>
               <AssistantPhotoIcon onClick={handelClick} />,
               // </IconButton>,
