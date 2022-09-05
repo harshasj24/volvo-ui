@@ -35,6 +35,7 @@ export default function LongMenu({ openModel, logout }) {
         aria-controls={open ? "long-menu" : undefined}
         aria-expanded={open ? "true" : undefined}
         aria-haspopup="true"
+        sx={{ padding: 0 }}
         onClick={handleClick}
       >
         <MoreHorizIcon fontSize="small" />

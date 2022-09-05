@@ -87,7 +87,7 @@ const Edit = () => {
   let feArr = ["performance", "pricing"];
   let componentRef = useRef();
   return (
-    <div className="edit">
+    <div className="main-body--wrapper">
       <div className="edit__header w-100">
         <Toolbar />
         <header className="d-flex mb-3 shadow-sm px-3 pb-3 d-flex align-items-center font-vn-regular mt-3">

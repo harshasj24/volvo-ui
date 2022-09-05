@@ -75,7 +75,7 @@ export default function Navbar() {
                 Vehicle lookup
               </Typography>
               <div className="icon-actions ms-auto">
-                {role.role === "ADMIN" && pathname.includes("/edit") && (
+                {role.role === "ADMIN" && (
                   <IconButton
                     onClick={handelClick(true)}
                     className="setting-icon "

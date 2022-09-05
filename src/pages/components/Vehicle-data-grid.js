@@ -15,7 +15,7 @@ import "./grid.css";
 const CustomToolbar = ({ setFilterButtonEl }) => (
   <GridToolbarContainer>
     {/* <GridToolbarFilterButton ref={setFilterButtonEl} /> */}
-    <GridToolbarQuickFilter autoComplete="off" />
+    <GridToolbarQuickFilter sx={{ width: "30vw" }} autoComplete="off" />
   </GridToolbarContainer>
 );
 
@@ -81,6 +81,7 @@ const VehicleDataGrid = ({ rows }) => {
         components={{
           Toolbar: CustomToolbar,
         }}
+        sx={{ border: "none" }}
         componentsProps={{
           panel: {
             anchorEl: filterButtonEl,

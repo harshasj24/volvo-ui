@@ -2,7 +2,7 @@
 
 .feature-card__header {
   border-top: solid;
-  /* padding: 4px 0px; */
+  padding: 0.25rem 0;
   border-bottom: dotted;
   font-weight: bold;
   font-size: 1rem;
@@ -49,6 +49,7 @@
   justify-content: space-between;
   line-height: 125%;
 }
-.pricing-card__body--description, .pricing-card__body--price {
+.pricing-card__body--description,
+.pricing-card__body--price {
   font-weight: 900;
 }

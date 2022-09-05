@@ -31,12 +31,6 @@
   font-style: italic;
 }
 
-@media print {
-  .edit-header {
-    display: none;
-  }
-}
-
 .select {
   margin-left: 7%;
   gap: 10px;
