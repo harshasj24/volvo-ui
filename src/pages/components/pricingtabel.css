@@ -11,3 +11,6 @@
 .tabel__cell:last-child {
   border-radius: 0px 6px 6px 0px;
 }
+.css-nrdprl-MuiTypography-root {
+  font-size: 12px !important;
+}
