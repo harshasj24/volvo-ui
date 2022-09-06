@@ -12,10 +12,10 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
   const { selectFeature, titleCase } = useGlobal();
 
   const handelClick = () => {
-    handelOpen();
     selectFeature(feature.title);
     console.log(feature.title);
     getVechicleFeature(feature.title);
+    handelOpen();
 
     title === "Pricing" && getMonroneyFeature(title);
   };

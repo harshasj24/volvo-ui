@@ -1,4 +1,4 @@
-import { Modal, Toolbar, Typography, Button } from "@mui/material";
+import { Modal, Toolbar, Typography, Button, IconButton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/api-provider";
 import EditFeature from "./components/edit-feature";
@@ -10,8 +10,10 @@ import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "./components/govt-info";
 import { useParams } from "react-router-dom";
 import Dealer from "../shared/autocomplete/dealer";
-
+import ShareIcon from "@mui/icons-material/Share";
 import ReactToPrint from "react-to-print";
+import shareIcon from "../assets/share-icon.svg";
+import printIcon from "../assets/print-icon.svg";
 const Edit = () => {
   const {
     feature,
@@ -79,7 +81,13 @@ const Edit = () => {
     <div className="main-body--wrapper">
       <div className="edit__header w-100">
         <Toolbar />
-        <header className="d-flex mb-3 shadow-sm px-3 pb-3 d-flex align-items-center font-vn-regular mt-3">
+        <header
+          style={{
+            paddingLeft: 0,
+            borderBottom: "1px solid #D8D8D8",
+          }}
+          className="d-flex mb-3  px-3 pb-3 d-flex align-items-center font-vn-regular mt-3"
+        >
           <div className="title">
             <Typography
               margin={0}
@@ -123,21 +131,26 @@ const Edit = () => {
                 <span className="ms-2">Print</span>
               )}
             </Button> */}
+
             <ReactToPrint
               trigger={() => (
-                <Button
-                  sx={{ textTransform: "capitalize" }}
-                  size="small"
-                  variant="outlined"
-                >
-                  <LocalPrintshopIcon fontSize="small" />
+                <Button sx={{ textTransform: "capitalize" }} variant="outlined">
+                  <img src={printIcon} alt="" />
                   {checkBreakPoint("laptop", "desktop") && (
-                    <span className="ms-2">Print</span>
+                    <span style={{ color: "#0056D6" }} className="ms-2">
+                      Print
+                    </span>
                   )}
                 </Button>
               )}
               content={() => componentRef}
             />
+            <Button sx={{ marginLeft: "12px" }} variant="outlined">
+              <img src={shareIcon} alt="" />{" "}
+              <span style={{ color: "#0056D6" }} className="ms-2">
+                Share
+              </span>
+            </Button>
           </div>
         </header>
       </div>

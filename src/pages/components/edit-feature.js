@@ -45,7 +45,6 @@ const EditFeature = ({ handelClose, refresh }) => {
     if (close) {
     }
     setDetails("");
-    handelClose();
     // resetSelcted();
     setSelect(true);
     // setTimeout(() => {
@@ -53,6 +52,7 @@ const EditFeature = ({ handelClose, refresh }) => {
     // });
     getALLMonroneyFeature(vin);
     reset();
+    handelClose();
   };
   const handelRest = (e) => {
     e.preventDefault();

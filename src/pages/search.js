@@ -26,6 +26,15 @@ const Search = () => {
       <Toolbar />
       <LinearProgress hidden={isLoaded} className="progress" />
       <div className="main-body--wrapper">
+        <p
+          style={{
+            fontSize: "18px",
+            marginTop: "40px",
+            fontWeight: 700,
+          }}
+        >
+          All Vehicles
+        </p>
         <VehicleDataGrid rows={allVechicles} />
       </div>
     </div>

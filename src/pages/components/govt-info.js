@@ -54,16 +54,45 @@ export const GovtInfo = () => {
       <div className="govt-info__fuel-economy">
         <div className="header__title d-flex">
           <div className="epa-dot ms-1">
-            <p className="text-light">EPA</p>
-            <hr />
-            <p className="text-light">DOT</p>
+            <p
+              style={{
+                fontSize: "1rem",
+                borderBottom: "1px solid ffffff",
+                paddingBottom: "0.125rem",
+              }}
+              className="text-light"
+            >
+              EPA
+            </p>
+
+            <p style={{ fontSize: "1rem" }} className="text-light">
+              DOT
+            </p>
           </div>
-          <div className="ms-4 title text-light">
+          <div
+            style={{
+              fontWeight: 700,
+              paddingTop: "0.5rem",
+              fontSize: "1.625rem",
+            }}
+            className="ms-4  text-light"
+          >
             Fuel Economy And Environment
           </div>
-          <div className="header__vechicle-type d-flex align-items-center ms-auto bg-light text-dark">
+          <div
+            style={{ margin: "0.25rem 0" }}
+            className="header__vechicle-type d-flex align-items-center ms-auto bg-light text-dark"
+          >
             <LocalGasStationIcon />
-            <Typography className="ms-3" fontSize={".7rem"}>
+            <Typography
+              sx={{
+                fontSize: "0.875rem",
+                padding: "0.25rem 1rem",
+                margin: 0,
+              }}
+              className="ms-3"
+              fontSize={".7rem"}
+            >
               {getFuelEconomy("energy_type")} vechicle
             </Typography>
           </div>

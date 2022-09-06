@@ -61,8 +61,9 @@ export default function Navbar() {
           {pathname !== "/login" && (
             <div className="header-lookup d-flex align-items-center p-1 bg-light text-dark">
               {/* <KeyboardDoubleArrowRightIcon /> */}
-              {pathname !== "/search" && (
-                <div className="bread-crumbs d-flex">
+
+              <div className="bread-crumbs d-flex">
+                {pathname !== "/search" && (
                   <IconButton
                     onClick={handelClick(false)}
                     sx={{
@@ -71,17 +72,18 @@ export default function Navbar() {
                   >
                     <img src={doubleArrow} alt="" />
                   </IconButton>
+                )}
 
-                  <Typography sx={{ marginLeft: "25px" }}>
-                    {/* Vehicle lookup */}
-                    {state?.back?.includes("/search")
-                      ? "Vehicle lookup"
-                      : state?.back?.includes("/edit")
-                      ? "Monroney Label"
-                      : "Vehicle lookup"}
-                  </Typography>
-                </div>
-              )}
+                <Typography sx={{ marginLeft: "25px" }}>
+                  {/* Vehicle lookup */}
+                  {state?.back?.includes("/search")
+                    ? "Vehicle lookup"
+                    : state?.back?.includes("/edit")
+                    ? "Monroney Label"
+                    : "Vehicle lookup"}
+                </Typography>
+              </div>
+
               <div className="icon-actions ms-auto">
                 {role?.role === "ADMIN" && (
                   <IconButton
