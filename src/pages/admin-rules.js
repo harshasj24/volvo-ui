@@ -212,28 +212,36 @@ const AdminRules = () => {
                   setFieldValue={formik.setFieldValue}
                   defaultValue={formik.values?.rule_definition}
                   options={[
-                    "Status equals Allocated",
-                    "Status equals Not Allocated",
+                    "Equals",
+                    "Not equals",
                   ]}
                 />
                 <BasicSelect
                   width={197}
                   title={"Value"}
-                  name={"is_edit"}
+                  name={"is_value"}
                   setFieldValue={formik.setFieldValue}
-                  defaultValue={formik.values?.is_edit}
-                  options={["Editable", "Not editable"]}
+                  defaultValue={formik.values?.is_value}
+                  options={["Applied", "Not applied"]}
                 />
               </div>
               <div className="title2 ">
                 <p>Then</p>
               </div>
               <div className="body-text-fields3 mt-3">
-                <BasicSelect
+              <BasicSelect
+                  width={197}
+                  title={"Action"}
+                  name={"is_edit"}
+                  setFieldValue={formik.setFieldValue}
+                  defaultValue={formik.values?.is_action}
+                  options={["Editable", "Not editable"]}
+                />
+                {/* <BasicSelect
                   width={215}
                   title={"Field"}
                   options={["Not Editable"]}
-                />
+                /> */}
               </div>
               <Button className="mt-3"> + Add Condition</Button>
             </div>
