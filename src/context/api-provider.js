@@ -40,7 +40,7 @@ export const ApiProvider = ({ children }) => {
   const [role, setRole] = UseLocalStorage("user", null);
 
   const paths = {
-    pricing: "pricing",
+    pricing: "/pricing",
     performance: "/performance",
     safety_and_security: "/safetysecurity",
     luxury_and_convenience: "/luxuryconvenience",
@@ -48,7 +48,7 @@ export const ApiProvider = ({ children }) => {
     authorized_retailer: "/authorizedretailer",
     maintenance: "/maintenance",
     warranty: "/warranty",
-    create_new_price: "specialitem-create",
+    create_new_price: "/specialitem-create",
   };
 
   const getAllVechicles = async () => {
@@ -105,7 +105,7 @@ export const ApiProvider = ({ children }) => {
   const getALLMonroneyFeature = async (vin) => {
     setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
     try {
-      const responce = await getNew(`vinsearch?vin=${vin}`);
+      const responce = await getNew(`/vinsearch?vin=${vin}`);
       responce.data.map((val) => {
         const getKey = Object.keys(val)[0];
         if (
@@ -202,7 +202,7 @@ export const ApiProvider = ({ children }) => {
   };
   //Importation
   const editImportation = async (data) => {
-    const response = await put("importation-edit", data);
+    const response = await put("/importation-edit", data);
     if (response.status === 200) {
       return true;
     }
@@ -210,7 +210,7 @@ export const ApiProvider = ({ children }) => {
   //
   //Auth retailer
   const editAuthorizedretailer = async (data) => {
-    const response = await put("authorizedretailer-edit", data);
+    const response = await put("/authorizedretailer-edit", data);
     if (response.status === 200) {
       return true;
     }
