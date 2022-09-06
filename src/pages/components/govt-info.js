@@ -76,50 +76,83 @@ export const GovtInfo = () => {
               </div>
               <div className="mpg-val d-flex flex-column">
                 <p className="fs-sm m-0 title">Fuel Economy</p>
-                <h1 className="m-0 p-0" style={{ fontSize: "5rem" }}>
+                <h1
+                  className="m-0 p-0"
+                  style={{ fontSize: "5rem", fontWeight: 700 }}
+                >
                   {getFuelEconomy("mpg_combined")}
                 </h1>
-                <p className="fs-sm  combine p-0">combine city/hwy</p>
+                <p className="font-75  combine p-0">combine city/hwy</p>
               </div>
 
-              <div className="units ms-2 mt-1">
-                <p>MPG</p>
-                <div className="seperate d-flex">
-                  <div className="city d-flex flex-column align-items-center">
-                    <p>{getFuelEconomy("mpg_city")}</p>
-                    <p className="font-sm">City</p>
+              <div className="units ms-2 mt-4">
+                <p style={{ fontWeight: 700 }}>MPG</p>
+                <div className="seperate d-flex mt-4">
+                  <div className="city d-flex flex-column ">
+                    <p style={{ fontWeight: 700 }}>
+                      {getFuelEconomy("mpg_city")}
+                    </p>
+                    <p className="font-75">City</p>
                   </div>
-                  <div className="high-way ms-1 d-flex flex-column align-items-center">
-                    <p>{getFuelEconomy("mpg_highway")}</p>
-                    <p className="font-sm">Highway</p>
+                  <div className="high-way ms-1 d-flex flex-column ">
+                    <p style={{ fontWeight: 700 }}>
+                      {getFuelEconomy("mpg_highway")}
+                    </p>
+                    <p className="font-75">Highway</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="gallons ms-3">
-              <span  className="gallons-val">{getFuelEconomy("gallons_per_100_miles")}</span>
-              <span className="fs-sm"> gallons per 100 miles</span>
+              <span className="gallons-val">
+                {getFuelEconomy("gallons_per_100_miles")}
+              </span>
+              <span className="font-75"> gallons per 100 miles</span>
             </div>
           </div>
           <div className="mpg-text mt-3">
-            <p className="fs-sm p-1">
+            <p className=" middle-des">
               Small SUV 2WD range from 16 to 125 MPG. The best vechicle rates
               142 MPGe
             </p>
           </div>
           <div className="spend ms-auto">
-            <span className="line-h-lg">
-              you <span className="fs-md-lg">Spend</span> <br />
-              <span className="fs-lg">{getFuelEconomy("spend_in_gas")}</span>
+            <span className="line-h-lg spend--cost">
+              you{" "}
+              <span
+                className="fs-md-lg"
+                style={{
+                  fontSize: "1.875rem",
+                  fontWeight: 700,
+                }}
+              >
+                Spend
+              </span>{" "}
+              <br />
+              <span className="spend--money">
+                {getFuelEconomy("spend_in_gas")}
+              </span>
             </span>
-
-            <br />
-            <span className="fs-md line-h-sm">
+            <span
+              style={{
+                fontWeight: 700,
+                fontSize: "1.188rem",
+                lineHeight: "1.125rem",
+                display: "block",
+                paddingBottom: "0.125rem",
+              }}
+              className="fs-md"
+            >
               more in fuel cost over 5 years
             </span>
-            <br />
-            <span className="line-h-sm fs-sm">
+            <span
+              style={{
+                fontSize: "0.875rem",
+                lineHeight: "1rem",
+              }}
+              className="fs-sm"
+            >
               Compared to the average new vehicle
             </span>
           </div>
@@ -127,8 +160,22 @@ export const GovtInfo = () => {
 
         <div className="annual-cost-section d-flex mt-2 gap-2">
           <div className="annual-cost__display bg-light text-dark p-2 br-3s ">
-            <p className="fs-md">
-              Annual Fuel <span className="fs-md-lg">Cost</span>
+            <p
+              className=""
+              style={{
+                fontSize: "0.9375rem",
+              }}
+            >
+              Annual Fuel{" "}
+              <span
+                style={{
+                  fontSize: "1.625rem",
+                  fontWeight: 700,
+                }}
+                className="fs-md-lg"
+              >
+                Cost
+              </span>
             </p>
             <p className="fs-lg cost">$1,700</p>
           </div>
@@ -179,8 +226,18 @@ export const GovtInfo = () => {
           </div>
         </div>
         <div className="logos-qr-section d-flex mt-2">
-          <div className="content">
-            <p className="fs-sm margin-0 text-light">
+          <div
+            style={{
+              padding: "0 0.25rem 0.25rem 0.25rem",
+            }}
+            className="content"
+          >
+            <p
+              style={{
+                fontSize: "0.75rem",
+              }}
+              className="fs-sm margin-0 text-light"
+            >
               Actual results will vary for many reasons, including driving
               conditions and how you drive and maintain your vehicle. The
               average new vehicle gets 27 MPG and costs $ 6,500 to fuel over 5
@@ -189,9 +246,24 @@ export const GovtInfo = () => {
               emissions are a significant cause of climate change and smog
             </p>
             <div className="logos d-flex">
-              <div className="logo-content ">
-                <p className="fs-md-lg mt-2 text-light ">fueleconomy.gov</p>
-                <p className="fs-sm margin-0 text-light mt-1">
+              <div style={{ width: "70%" }} className="logo-content ">
+                <p
+                  style={{
+                    fontSize: "1.625rem",
+                    lineHeight: "95%",
+                    fontWeight: "700",
+                  }}
+                  className=" mt-2 text-light "
+                >
+                  fueleconomy.gov
+                </p>
+                <p
+                  style={{
+                    fontSize: "0.625rem",
+                    fontWeight: 700,
+                  }}
+                  className="fs-sm margin-0 text-light mt-1"
+                >
                   Lorem ipsum dolor sit amet consectetur adipisicing
                 </p>
               </div>
@@ -203,15 +275,15 @@ export const GovtInfo = () => {
               </div>
             </div>
           </div>
-          <div className="qr-code d-flex align-items-center justify-content-center bg-light">
-            <p className="text-dark qr w-100 border  text-center">QR Code</p>
+          <div className="qr-code   bg-light">
+            <p className="text-dark qr text-center">smart phone QR code</p>
             <div
               style={{
                 height: "auto",
-                margin: "0px",
-                maxWidth: 54,
+                margin: 0,
+                maxWidth: 84,
+                padding: 0,
                 width: "100%",
-                flexShrink: 0,
               }}
             >
               <QRCode
@@ -269,9 +341,10 @@ export const GovtInfo = () => {
               </p>
             </div>
             <p className="last-para text-light">
-              Star ratings range from 1 to 5 stars ( ) with 5 being the highest.
-              Source: National Highway Traffic Safety Administration (NHTSA)
-              www.safercar.gov or 1-888-327-4236
+              Star ratings range from 1 to 5 stars (&#9733; &#9733; &#9733;
+              &#9733; &#9733; ) with 5 being the highest. Source: National
+              Highway Traffic Safety Administration (NHTSA) www.safercar.gov or
+              1-888-327-4236
             </p>
           </div>
           <div className="second-inner-container">
@@ -296,9 +369,9 @@ export const GovtInfo = () => {
             {/* <div className="mx-auto"> */}
             {/* <img src="barCode.png" /> */}
             <Barcode
-              height={32}
+              height={61}
               fontSize={15}
-              width={1.2}
+              // width={1.71}
               format="CODE128"
               value={vin}
             />

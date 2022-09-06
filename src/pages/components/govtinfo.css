@@ -21,6 +21,7 @@ sup {
 }
 .units p {
   margin: 0;
+  font-size: 1.5rem;
 }
 .font-sm {
   font-size: 0.5rem;
@@ -60,7 +61,19 @@ sup {
 }
 .spend {
   line-height: 12px;
-  width: 110px;
+  width: 28%;
+}
+.spend--cost {
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+  display: block;
+}
+.spend--money {
+  font-weight: 700;
+  font-size: 2.875rem;
+  padding-top: 0.5rem;
+  display: block;
 }
 .fs-md-lg {
   font-size: 1.2rem;
@@ -85,14 +98,19 @@ br {
   margin-top: -12px !important;
 }
 .annual-cost__display {
+  width: 24% !important;
+}
+.annual-cost__display {
   flex-shrink: 0 !important;
 }
 .annual-cost__display p {
-  margin: 0 !important;
+  /* margin: 0 !important; */
+  font-weight: 700;
 }
+
 .annual-cost__display .cost {
-  font-size: 32px;
-  margin-top: 20px !important;
+  font-size: 2.75rem;
+  margin-top: 1.25rem !important;
 }
 .annual-cost-section {
   font-weight: bold;
@@ -101,11 +119,14 @@ br {
   border-radius: 0px 5px 5px 5px;
 }
 .qr-code {
-  height: auto;
-  /* width: 85px; */
-  padding: 5px;
+  padding-right: 0.75rem;
   flex-shrink: 0;
+  width: 26%;
+
   border-radius: 0px 5px 5px 5px;
+  display: flex;
+
+  align-items: center;
 }
 .margin-0 {
   margin: 0 !important;
@@ -118,11 +139,11 @@ br {
 }
 .qr {
   transform: rotate(-90deg);
-  font-size: 0.5rem;
-  font-weight: bold;
+  font-weight: 700;
+  width: 138px !important;
   margin: 0;
-  flex-grow: 1;
-  width: 100% !important;
+  font-size: 0.875rem !important;
+  padding: 0 !important;
 }
 .lower-content {
   margin-top: 0.3rem;
@@ -142,26 +163,30 @@ br {
 }
 .left-container h5 {
   font-size: 0.8rem;
-  font-weight: bold;
+  font-weight: 700;
   width: 100%;
-  padding: 0 0.4rem;
+  padding: 0.4rem;
   /* margin: 0.4rem 0; */
   background-color: black;
 }
 .inner-left-container {
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
   margin: 0;
-  border: 1px solid white;
+  padding: 0.4rem;
+  border: 1px solid #fff;
 }
 .inner-left-container ul {
   padding: 0;
   margin-top: 0.4rem;
 }
+.inner-left-container > ul > li {
+  font-size: 0.875rem !important;
+  font-family: "arial narrow";
+}
 .inner-left-container ul li {
   list-style: none;
   font-weight: 700;
-  font-size: 0.8rem;
   text-align: center;
   padding: 0.64rem;
 }
@@ -184,7 +209,7 @@ br {
 }
 .first-inner-container h5 {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.1rem;
   margin: 0.3rem 0;
   text-align: center;
@@ -195,6 +220,7 @@ br {
 }
 .first-right-content p {
   font-size: 0.8rem;
+  margin-bottom: 0;
   font-weight: 700;
   padding: 5.8rem 0.5rem;
 }
@@ -361,13 +387,13 @@ br {
   padding-top: 0.6rem;
 }
 .inner-third-content2 {
-  background-color: white;
-  color: black;
-  margin: 0.2rem;
+  /* background-color: white; */
+  color: #000;
+  /* margin: 0.2rem; */
   border-top-right-radius: 0.9rem;
   border-bottom-left-radius: 0.9rem;
   border-bottom-right-radius: 0.9rem;
-  padding-left: 0.3rem;
+  padding: 0.5rem;
 }
 .inner-third-flex1 {
   display: flex;
@@ -377,20 +403,18 @@ br {
 }
 
 .inner-third-flex1 p {
-  font-size: 0.5rem;
+  font-size: 0.875rem;
   padding-right: 0.5rem;
   margin-top: 0;
-  margin-bottom: -1px;
+  margin-bottom: 0;
 }
-.inner-third-flex1 p span {
-  font-size: 0.4rem;
-  font-weight: normal;
-}
+.inner-third-flex1 p span,
 .inner-third-flex2 p {
-  font-size: 0.4rem;
-  /* margin-top: 1rem; */
-  font-weight: normal;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 0.875rem !important;
 }
+
 .epa-dot * {
   margin: 0;
   font-size: 0.65rem;
@@ -404,10 +428,9 @@ br {
 .content {
   flex: 0 1 auto;
 }
-.qr-code {
-}
+
 .content p {
-  line-height: 9px;
+  line-height: 120%;
 }
 .logo-content p {
   margin: 0;
@@ -441,4 +464,17 @@ br {
   font-weight: 700;
   margin: 1.25rem 0 0.1rem;
   display: inline-block;
+}
+.font-75 {
+  font-size: 0.75rem !important;
+  font-weight: normal !important;
+}
+.middle-des {
+  font-size: 0.75rem;
+  line-height: 1.125rem !important;
+  padding: 1rem;
+}
+.third-inner-container > svg {
+  width: 100% !important;
+  transform: translate(0);
 }
