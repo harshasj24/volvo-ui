@@ -67,17 +67,18 @@
   /* flex-shrink: 0; */
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 115px);
   flex: 1 1 60%;
 }
-@media only screen and (min-width: 768px) and (max-width: 1600px) {
+/* @media only screen and (min-width: 768px) and (max-width: 1599px) {
   .monroney--columns {
     gap: 0.5rem 0.5rem;
   }
-}
+} */
 @media only screen and (min-width: 768px) and (max-width: 1300px) {
   .monroney--columns {
     max-height: calc(100vh + 400px);
+    gap: 0.5rem 0.5rem;
   }
 }
 

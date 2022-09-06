@@ -2,8 +2,8 @@
     size: 17in 11in;
     margin-left: 1cm;
     margin-right: 1cm;
-    margin-top: 2cm;
-    margin-bottom: 2cm;
+    margin-top: 1.75cm;
+    margin-bottom: 1.75cm;
   }
 
   /* @page:left {
@@ -23,7 +23,7 @@
   } */
 
   .monroney--columns {
-    height: 8in;
+    height: 9in;
   }
 
   .edit-header {
