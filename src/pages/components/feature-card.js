@@ -9,12 +9,13 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
   const { getVechicleFeature, role, header } = useApi();
   const [details, setDetails] = useState("");
 
-  const { getMonroneyFeature } = useApi(); 
+  const { getMonroneyFeature } = useApi();
   const { selectFeature, titleCase } = useGlobal();
-  
+
   const handelClick = () => {
     handelOpen();
     selectFeature(feature.title);
+    console.log(feature.title);
     getVechicleFeature(feature.title);
 
     title === "Pricing" && getMonroneyFeature(title);
@@ -26,7 +27,6 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
     }
     getDetails(feature, setDetails);
   }, [feature]);
-
 
   return (
     <div class="feature-card__wrapper">

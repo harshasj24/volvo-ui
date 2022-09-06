@@ -49,6 +49,7 @@ export const ApiProvider = ({ children }) => {
     maintenance: "/maintenance",
     warranty: "/warranty",
     create_new_price: "/specialitem-create",
+    join_the_conversation: "/conversation",
   };
 
   const getAllVechicles = async () => {
@@ -280,7 +281,7 @@ export const ApiProvider = ({ children }) => {
     updateConfiguration,
     getConfigDetails,
     editImportation,
-    editAuthorizedretailer
+    editAuthorizedretailer,
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };
