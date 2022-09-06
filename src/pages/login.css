@@ -1,6 +1,6 @@
 .login {
   width: 100vw;
-  height: calc(100vh - 17px);
+  height: calc(100vh - 14px);
   background-image: url("../assets/login-bg.png");
   background-size: cover;
   display: flex;
