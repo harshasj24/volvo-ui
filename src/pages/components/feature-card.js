@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-// import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
 import "./features.css";
 import { useGlobal } from "../../context/global-states.provider";
 import LongMenu from "./long-menu";
