@@ -120,14 +120,11 @@ const EditFeature = ({ handelClose, refresh }) => {
     e.preventDefault();
     if (dataToUpdate) {
       let response = await editPrice(dataToUpdate);
-
-      if (response.status === 200) {
-        handelClose();
-        getALLMonroneyFeature(vin);
-      }
-    } else {
-      handelClose();
+      
     }
+      handelClose();
+      getALLMonroneyFeature(vin);
+    
   };
 
   useEffect(() => {
