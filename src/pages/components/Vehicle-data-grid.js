@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {
   DataGrid,
   GridToolbarContainer,
+  GridToolbarFilterButton,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -11,7 +12,6 @@ import { useApi } from "../../context/api-provider";
 import "./grid.css";
 const CustomToolbar = ({ setFilterButtonEl }) => (
   <GridToolbarContainer>
-    {/* <GridToolbarFilterButton ref={setFilterButtonEl} /> */}
     <GridToolbarQuickFilter sx={{ width: "30vw" }} autoComplete="off" />
   </GridToolbarContainer>
 );
@@ -81,9 +81,6 @@ const VehicleDataGrid = ({ rows }) => {
         }}
         sx={{ border: "none" }}
         componentsProps={{
-          panel: {
-            anchorEl: filterButtonEl,
-          },
           toolbar: {
             setFilterButtonEl,
             showQuickFilter: true,

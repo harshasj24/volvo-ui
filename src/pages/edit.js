@@ -24,6 +24,7 @@ const Edit = () => {
     getALLMonroneyFeature,
     monronyFeatures,
     header,
+    role,
   } = useApi();
 
   const ref = useRef(true);
@@ -52,7 +53,7 @@ const Edit = () => {
       setPricingKeys([]);
     }
     breakepointObserver();
-    console.log(vinLoad)
+    console.log(vinLoad);
   }, [feature, monronyFeatures, header, vinLoad]);
 
   const getConfig = async (_) => {
@@ -106,11 +107,13 @@ const Edit = () => {
             </Typography>
           </div>
 
-          <div className="select d-flex">
-            {/* <BasicSelect title={"Allocation"} options={"allocation"} /> */}
-            <Dealer />
-            <BasicSelect title={"Status"} options={"status"} />
-          </div>
+          {role?.role === "ADMIN" && (
+            <div className="select d-flex">
+              {/* <BasicSelect title={"Allocation"} options={"allocation"} /> */}
+              <Dealer />
+              <BasicSelect title={"Status"} options={"status"} />
+            </div>
+          )}
           <div className="actions ms-auto">
             {/* <Button
               sx={{ textTransform: "capitalize" }}
@@ -194,7 +197,7 @@ const Edit = () => {
           <EditFeature handelClose={handelClose} />
         </div>
       </Modal>
-      {vinLoad && <Loader open={vinLoad}/>}
+      {vinLoad && <Loader open={vinLoad} />}
     </div>
   );
 };
