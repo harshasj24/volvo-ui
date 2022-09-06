@@ -1,3 +1,6 @@
 .menu-item:hover {
   color: #1976d2 !important;
 }
+.disabled-feature{
+  cursor: not-allowed;
+}

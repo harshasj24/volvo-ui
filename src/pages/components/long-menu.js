@@ -80,7 +80,7 @@ export default function LongMenu({ openModel, featureTitle, secName, Edit }) {
         </div>
       )}
       {featureTitle === secName && !Edit && (
-        <>
+        <span className="disabled-feature">
           <IconButton
             size="small"
             aria-label="more"
@@ -94,7 +94,7 @@ export default function LongMenu({ openModel, featureTitle, secName, Edit }) {
           >
             <MoreHorizIcon fontSize="small" />
           </IconButton>
-        </>
+        </span>
       )}
     </>
   );

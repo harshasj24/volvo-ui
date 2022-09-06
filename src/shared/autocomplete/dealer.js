@@ -63,33 +63,33 @@ const countries = [
   {
     importation_id: 1,
     title: "7139-Volvo cars NY",
-    port_of_importation: "PCL, MA",
+    port_of_importation: "Binghamton, NY",
     delivered_by: "Truck",
     delivery_address: " 7139 VOLVO CARS MANHATTAN 565 11TH AVE, NEW YORK, NY 10036",
     car_id: 1
   },
   {
-    importation_id: 2,
+    importation_id: 1,
     title: "7149-Volvo DC",
-    port_of_importation: "Baltimore, MB",
+    port_of_importation: "Arlington, Virginia",
     delivered_by: "Bus",
-    delivery_address: "RICK, DC 75209",
+    delivery_address: "7149-Volvo DC, RICK, DC 75209",
     car_id: 1
   },
   {
-    importation_id: 3,
+    importation_id: 1,
     title: "7159-Volvo Huston",
-    port_of_importation: "cv, MC",
+    port_of_importation: "Stafford, TX",
     delivered_by: "Car",
-    delivery_address: "Park City Volvo 3515 Inwood Road sd, Huston 75209",
+    delivery_address: "7159-Volvo Huston Park City Volvo 3515 Inwood Road sd, Huston 75209",
     car_id: 1
   },
   {
-    importation_id: 4,
-    title: "7169-Volvo RichMond",
-    port_of_importation: "vv, MD",
+    importation_id: 1,
+    title: "7169-Volvo Virginia",
+    port_of_importation: "Richmond, Virginia",
     delivered_by: "Truck",
-    delivery_address: "Park City Volvo 3515 Inwood Road Dallas, RichMond 75209",
+    delivery_address: "7169-Volvo RichMond Park City Volvo 3515 Inwood Road Dallas, Virginia 75209",
     car_id: 1
   }
   // {
