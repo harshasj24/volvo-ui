@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import UseLocalStorage from "../hooks/local-storage";
 import { useGlobal } from "./global-states.provider";
 const ApiContext = createContext();
-const baseUrlAzure = "https://mroney-app1-function.azurewebsites.net/api/";
+const baseUrlAzure = "https://mroney-app1-function.azurewebsites.net/api";
 const baseUrl = "http://localhost:3100";
 const get = (path) => {
   return axios.get(`${baseUrl}${path}`);
@@ -47,7 +47,7 @@ export const ApiProvider = ({ children }) => {
     audio_and_technology: "/audioandtechnology",
     authorized_retailer: "/authorizedretailer",
     maintenance: "/maintenance",
-    warranty: "warranty",
+    warranty: "/warranty",
     create_new_price: "specialitem-create",
   };
 
@@ -67,7 +67,7 @@ export const ApiProvider = ({ children }) => {
   };
   const demoResponce = async () => {
     const { data } = await get("/demoResponce");
-  
+
     const filt = data.filter((v) => {
       return v.type === "feature";
     });
@@ -86,9 +86,8 @@ export const ApiProvider = ({ children }) => {
   };
   // editing single feature
   const editFeature = async (data) => {
-  
     const payload = { [actualPath(data.title)]: data };
-  
+
     setStore({
       ...store,
       monronyFeatures: {
@@ -96,12 +95,11 @@ export const ApiProvider = ({ children }) => {
         [actualPath(data.title)]: data,
       },
     });
-
+    console.log(payload);
     const responce = await put(
-      `/${paths[actualPath(data.title)]}-edit`,
+      `${paths[actualPath(data.title)]}-edit`,
       payload
     );
- 
   };
   // getting all the all details of VIN
   const getALLMonroneyFeature = async (vin) => {
@@ -127,7 +125,6 @@ export const ApiProvider = ({ children }) => {
             };
           });
         } else if (val?.Header) {
-        
           setStore({ ...store, header: val[getKey] });
         } else {
           setStore((prev) => {

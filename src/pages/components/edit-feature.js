@@ -74,7 +74,7 @@ const EditFeature = ({ handelClose, refresh }) => {
     e.preventDefault();
 
     const updatedFeatures = { ...feature?.features };
-    const updatedDetails = details.split("\n");
+    const updatedDetails = details.trim().split("\n");
     const keys = Object.keys(updatedFeatures);
     let moreDetails = "";
     updatedDetails.map((detail, index) => {
@@ -88,7 +88,12 @@ const EditFeature = ({ handelClose, refresh }) => {
     // Object.keys(updatedFeatures).map((feature, index) => {
     //   updatedFeatures[feature] = updatedDetails[index];
     // });
-    const updatedFeature = { ...feature, features: updatedFeatures };
+    let updatedFeature = {};
+    if (feature.title === "Authorized Retailer") {
+      updatedFeature = { ...feature, address: details };
+    } else {
+      updatedFeature = { ...feature, features: updatedFeatures };
+    }
     reset();
     editFeature(updatedFeature);
     handelClose();
@@ -221,7 +226,7 @@ const EditFeature = ({ handelClose, refresh }) => {
                 variant="outlined"
                 onChange={handleChange}
                 className="mt-3 w-100 feature-details"
-                value={details.trim()}
+                value={details}
                 multiline
                 minRows={6}
                 maxRows={10}
