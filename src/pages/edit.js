@@ -52,7 +52,7 @@ const Edit = () => {
       setPricingKeys([]);
     }
     breakepointObserver();
-    console.log(vinLoad)
+   
   }, [feature, monronyFeatures, header, vinLoad]);
 
   const getConfig = async (_) => {

@@ -1,51 +1,32 @@
 import {
-  AppBar,
-  Card,
-  Checkbox,
-  FormControlLabel,
-  Grid,
-  IconButton,
   Modal,
-  Paper,
   Toolbar,
   Typography,
   Button,
-  Tooltip,
 } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import React, { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/api-provider";
 import EditFeature from "../pages/components/edit-feature";
-import FeatureCard from "../pages/components/feature-card";
 import "./view.css";
-import EditIcon from "@mui/icons-material/Edit";
-import PricingTabel from "../pages/components/pricing-tabel";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
-import CachedIcon from "@mui/icons-material/Cached";
-import BasicSelect from "../shared/select/basic-select";
 import { useBreakePoint } from "../context/breake-points";
 import { GovtInfo } from "../pages/components/govt-info";
-import { useSearchParams, useParams } from "react-router-dom";
-import Dealer from "../shared/autocomplete/dealer";
+import { useParams } from "react-router-dom";
 
 import ReactToPrint from "react-to-print";
 import FeatureCardView from "./feature-card-view";
+import Loader from "../shared/loader";
 const View = () => {
   const {
     feature,
-    getVechicleFeature,
     demoResponce,
-    monronyLabel,
-    getpricings,
-    logout,
     getALLMonroneyFeature,
     monronyFeatures,
     header,
+    vinLoad
   } = useApi();
 
   const ref = useRef(true);
-  const keys = Object.keys(feature);
   const [pricingKeys, setPricingKeys] = useState([]);
   const [open, setOpen] = useState(false);
   const [features, setFeatures] = useState([]);
@@ -80,12 +61,6 @@ const View = () => {
   const handelOpen = () => {
     setOpen(true);
   };
-  const filterFeatures = (title) => {
-    return features.filter((value) => {
-      return value.name == title;
-    })[0];
-  };
-  let feArr = ["performance", "pricing"];
   let componentRef = useRef();
   return (
     <div className="main-body--wrapper">
@@ -163,6 +138,7 @@ const View = () => {
           <EditFeature handelClose={handelClose} />
         </div>
       </Modal>
+      {vinLoad && <Loader open={vinLoad}/>}
     </div>
   );
 };
