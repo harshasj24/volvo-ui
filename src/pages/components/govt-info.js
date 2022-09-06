@@ -75,8 +75,8 @@ export const GovtInfo = () => {
                 <LocalGasStationIcon fontSize="inherit" />
               </div>
               <div className="mpg-val d-flex flex-column">
-                <p className="fs-sm m-0">Fuel Economy</p>
-                <h1 className="m-0 p-0" style={{ fontSize: "3.5rem" }}>
+                <p className="fs-sm m-0 title">Fuel Economy</p>
+                <h1 className="m-0 p-0" style={{ fontSize: "5rem" }}>
                   {getFuelEconomy("mpg_combined")}
                 </h1>
                 <p className="fs-sm  combine p-0">combine city/hwy</p>
@@ -98,7 +98,7 @@ export const GovtInfo = () => {
             </div>
 
             <div className="gallons ms-3">
-              <strong>{getFuelEconomy("gallons_per_100_miles")}</strong>
+              <span  className="gallons-val">{getFuelEconomy("gallons_per_100_miles")}</span>
               <span className="fs-sm"> gallons per 100 miles</span>
             </div>
           </div>
@@ -190,7 +190,7 @@ export const GovtInfo = () => {
             </p>
             <div className="logos d-flex">
               <div className="logo-content ">
-                <p className="fs-md-lg mt-2 text-light">fueleconomy.gov</p>
+                <p className="fs-md-lg mt-2 text-light ">fueleconomy.gov</p>
                 <p className="fs-sm margin-0 text-light mt-1">
                   Lorem ipsum dolor sit amet consectetur adipisicing
                 </p>

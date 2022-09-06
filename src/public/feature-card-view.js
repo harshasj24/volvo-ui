@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 // import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
-import "./features.css";
-import { useGlobal } from "../../context/global-states.provider";
-import LongMenu from "./long-menu";
-import { useApi } from "../../context/api-provider";
+import "./feature-view.css";
+import { useGlobal } from "../context/global-states.provider";
+
+import { useApi } from "../context/api-provider";
 const FeatureCardView = ({ title, handelOpen, feature, configurations }) => {
   const { getDetails } = useGlobal();
   const { getVechicleFeature, role, header } = useApi();

@@ -30,6 +30,7 @@ import { useSearchParams, useParams } from "react-router-dom";
 import Dealer from "../shared/autocomplete/dealer";
 
 import ReactToPrint from "react-to-print";
+import FeatureCardView from "./feature-card-view";
 const View = () => {
   const {
     feature,
@@ -107,33 +108,7 @@ const View = () => {
             </Typography>
           </div>
 
-          <div className="select d-flex">
-            {/* <BasicSelect title={"Allocation"} options={"allocation"} /> */}
-            <Dealer />
-            <BasicSelect title={"Status"} options={"status"} />
-          </div>
           <div className="actions ms-auto">
-            {/* <Button
-                sx={{ textTransform: "capitalize" }}
-                className="mx-3"
-                size="small"
-                variant="outlined"
-              >
-                <CachedIcon fontSize="small" />
-                {checkBreakPoint("laptop", "desktop") && (
-                  <span className="ms-2">Refresh Data</span>
-                )}
-              </Button> */}
-            {/* <Button
-                sx={{ textTransform: "capitalize" }}
-                size="small"
-                variant="outlined"
-              >
-                <LocalPrintshopIcon fontSize="small" />
-                {checkBreakPoint("laptop", "desktop") && (
-                  <span className="ms-2">Print</span>
-                )}
-              </Button> */}
             <ReactToPrint
               trigger={() => (
                 <Button
@@ -170,7 +145,7 @@ const View = () => {
           <div className="monroney--columns">
             {Object.keys(monronyFeatures).map((key, i) => {
               return (
-                <FeatureCard
+                <FeatureCardView
                   handelOpen={handelOpen}
                   key={i}
                   feature={monronyFeatures[key]}
