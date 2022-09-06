@@ -22,9 +22,7 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
   const ref = useRef(true);
   useEffect(() => {
     if (ref.current) {
-    
       ref.current = false;
-     
     }
     getDetails(feature, setDetails);
   }, [feature]);
@@ -36,18 +34,19 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
         {feature.title}
         {role.role === "ADMIN" && (
           <div className="header-icon ms-auto">
-            {
-              configurations?.length > 0 && configurations.map((sec) => {
+            {configurations?.length > 0 &&
+              configurations.map((sec) => {
                 return (
                   <>
-               
-                   <LongMenu openModel={handelClick} featureTitle = {titleCase(feature?.title)} secName= {titleCase(sec?.section_name)} Edit = {sec?.is_edit === "Editable"  ? true : false}/>
-               
-                 </>
-                )
-              })
-          
-            }
+                    <LongMenu
+                      openModel={handelClick}
+                      featureTitle={titleCase(feature?.title)}
+                      secName={titleCase(sec?.section_name)}
+                      Edit={sec?.is_edit === "Editable" ? true : false}
+                    />
+                  </>
+                );
+              })}
           </div>
         )}
       </div>
@@ -87,10 +86,10 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
               })}
             <hr></hr>
             <li class="pricing-card__body">
-              <div class="pricing-card__body--description">Total Suggested Retail Price:</div>
-              <div class="pricing-card__body--price">
-                ${feature.total}
+              <div class="pricing-card__body--description">
+                Total Suggested Retail Price:
               </div>
+              <div class="pricing-card__body--price">${feature.total}</div>
             </li>
           </ul>
         </div>

@@ -83,7 +83,7 @@ export default function Navbar() {
                 </div>
               )}
               <div className="icon-actions ms-auto">
-                {role.role === "ADMIN" && (
+                {role?.role === "ADMIN" && (
                   <IconButton
                     onClick={handelClick(true)}
                     className="setting-icon "

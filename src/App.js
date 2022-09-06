@@ -12,6 +12,7 @@ import Proctected from "./auth/proctected";
 import { useApi } from "./context/api-provider";
 import AdminRules from "./pages/admin-rules";
 import Gaurd from "./auth/gaurd";
+import View from "./public/view";
 function App() {
   const { role } = useApi();
   return (
@@ -34,10 +35,12 @@ function App() {
             }
           />
         </Route>
+        {/* public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/error" element={<Err />} />
         <Route path="/unauthorised" element={<Err />} />
         <Route path="*" element={<Navigate to={"error"} />} />
+        <Route path="/view/:vin" element={<View />} />
       </Routes>
     </div>
   );
