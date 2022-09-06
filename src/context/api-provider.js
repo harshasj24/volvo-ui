@@ -36,6 +36,7 @@ export const ApiProvider = ({ children }) => {
     newAll: [],
     header: {},
     configurations: [],
+    vinLoad: false
   });
   const [role, setRole] = UseLocalStorage("user", null);
 
@@ -104,9 +105,12 @@ export const ApiProvider = ({ children }) => {
   };
   // getting all the all details of VIN
   const getALLMonroneyFeature = async (vin) => {
-    setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
+    setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {}, vinLoad: true });
     try {
       const responce = await getNew(`/vinsearch?vin=${vin}`);
+      if(responce.data) {
+        setStore({ ...store, vinLoad: true });
+      }
       responce.data.map((val) => {
         const getKey = Object.keys(val)[0];
         if (
@@ -282,6 +286,7 @@ export const ApiProvider = ({ children }) => {
     getConfigDetails,
     editImportation,
     editAuthorizedretailer,
+    vinLoad:store.vinLoad
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

@@ -21,6 +21,7 @@ import PricingTabel from "./pricing-tabel";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useApi } from "../../context/api-provider";
 import { useParams } from "react-router-dom";
+import Loader from "../../shared/loader";
 
 const EditFeature = ({ handelClose, refresh }) => {
   const {
@@ -31,6 +32,7 @@ const EditFeature = ({ handelClose, refresh }) => {
     editFeature,
     getALLMonroneyFeature,
     getVechicleFeature,
+    vinLoad
   } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
@@ -120,7 +122,7 @@ const EditFeature = ({ handelClose, refresh }) => {
     e.preventDefault();
     if (dataToUpdate) {
       let response = await editPrice(dataToUpdate);
-      
+
     }
       handelClose();
       getALLMonroneyFeature(vin);
@@ -133,6 +135,7 @@ const EditFeature = ({ handelClose, refresh }) => {
   }, [feature, refresh, addPrice]);
 
   return (
+    <>
     <Card className="edit-card" sx={{ minWidth: "40%" }}>
       <form action="">
         <CardHeader
@@ -267,6 +270,8 @@ const EditFeature = ({ handelClose, refresh }) => {
         </CardActions>
       </form>
     </Card>
+   {vinLoad && <Loader open={vinLoad}/>}
+    </>
   );
 };
 

@@ -63,15 +63,15 @@ export default function BasicSelect({
   
     const importation = async(dataImport) =>{
       const response = await editImportation(dataImport);
+      setFeature("");
       console.log(response,  'response');
     }
 
     const auth = async(dataForAuth) =>{
       const response = await editAuthorizedretailer(dataForAuth);
-    
-      if(response){
+      setFeature("");
+     
         getALLMonroneyFeature(vin);
-      }
      
     }
 

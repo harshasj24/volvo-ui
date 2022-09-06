@@ -14,12 +14,13 @@ import ShareIcon from "@mui/icons-material/Share";
 import ReactToPrint from "react-to-print";
 import shareIcon from "../assets/share-icon.svg";
 import printIcon from "../assets/print-icon.svg";
+import Loader from "../shared/loader";
 const Edit = () => {
   const {
     feature,
     getConfigDetails,
     demoResponce,
-
+    vinLoad,
     getALLMonroneyFeature,
     monronyFeatures,
     header,
@@ -51,7 +52,8 @@ const Edit = () => {
       setPricingKeys([]);
     }
     breakepointObserver();
-  }, [feature, monronyFeatures, header]);
+    console.log(vinLoad)
+  }, [feature, monronyFeatures, header, vinLoad]);
 
   const getConfig = async (_) => {
     let value = await getConfigDetails();
@@ -192,6 +194,7 @@ const Edit = () => {
           <EditFeature handelClose={handelClose} />
         </div>
       </Modal>
+      {vinLoad && <Loader open={vinLoad}/>}
     </div>
   );
 };
