@@ -125,26 +125,16 @@ const AdminRules = () => {
               <TableBody>
                 {configurations.map((fea, i) => (
                   <TableRow key={i} sx={{ border: "none" }}>
-                    <TableCell
-                      align="center"
-                      className="tabel-cell"
-                      sx={{ border: "none" }}
-                      width={70}
-                    >
+                    <TableCell align="center" className="tabel-cell" width={70}>
                       {fea.display_order}
                     </TableCell>
-                    <TableCell
-                      className="tabel-cell"
-                      sx={{ border: "none" }}
-                      width={110}
-                    >
+                    <TableCell className="tabel-cell" width={110}>
                       {fea.section_name}
                     </TableCell>
                     <TableCell
                       align="center"
                       className="tabel-cell"
                       width={100}
-                      sx={{ border: "none" }}
                     >
                       {iconsSet[fea?.icon.toLowerCase()]}
                     </TableCell>
@@ -152,24 +142,13 @@ const AdminRules = () => {
                       align="center"
                       className="tabel-cell"
                       width={100}
-                      sx={{ border: "none" }}
                     >
                       {fea.is_edit}
                     </TableCell>
-                    <TableCell
-                      align="center"
-                      className="tabel-cell"
-                      width={10}
-                      sx={{ border: "none" }}
-                    >
+                    <TableCell align="center" className="tabel-cell" width={10}>
                       {fea.rule_definition}
                     </TableCell>
-                    <TableCell
-                      width={10}
-                      align="center"
-                      className="tabel-cell"
-                      sx={{ border: "none" }}
-                    >
+                    <TableCell width={10} align="center" className="tabel-cell">
                       <IconButton onClick={handelActionClick(fea.section_name)}>
                         <img src={dots} alt="" />
                       </IconButton>
