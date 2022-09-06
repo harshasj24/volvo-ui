@@ -107,7 +107,7 @@ export const ApiProvider = ({ children }) => {
   const getALLMonroneyFeature = async (vin) => {
     setStore({ ...store, monronyFeatures: {}, monronyGovtMandet: {} });
     try {
-      const responce = await getNew(`/vinsearch?vin=${vin}`);
+      const responce = await getNew(`vinsearch?vin=${vin}`);
       responce.data.map((val) => {
         const getKey = Object.keys(val)[0];
         if (
@@ -203,7 +203,22 @@ export const ApiProvider = ({ children }) => {
     const response = await put("/specialitem-edit", data);
     return response;
   };
-
+  //Importation
+  const editImportation = async (data) => {
+    const response = await put("importation-edit", data);
+    if (response.status === 200) {
+      return true;
+    }
+  };
+  //
+  //Auth retailer
+  const editAuthorizedretailer = async (data) => {
+    const response = await put("authorizedretailer-edit", data);
+    if (response.status === 200) {
+      return true;
+    }
+  };
+  // /authorizedretailer-edit
   // getting Admin configurations
   const getConfigurations = async () => {
     const responce = await getNew("/displayconfigurations-view");
@@ -267,6 +282,8 @@ export const ApiProvider = ({ children }) => {
     getConfiguration,
     updateConfiguration,
     getConfigDetails,
+    editImportation,
+    editAuthorizedretailer
   };
   return <ApiContext.Provider value={values}>{children}</ApiContext.Provider>;
 };

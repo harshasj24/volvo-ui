@@ -38,8 +38,7 @@ const Login = (props) => {
     setSnackbarState({ ...setSnackbarState, open: false, message: "" });
   };
   const handelSubmit = (values) => {
-    // console.log("called");
-    // console.log(values);
+
     // navigate("/search");
     login(values, handelOpen, setLoading);
   };

@@ -16,7 +16,7 @@ export const GlobalStaesProvider = ({ children }) => {
       selectedFeature: selected,
       // featureDetails: feature[key],
     });
-    console.log(selected);
+ 
   };
 
   const setSelect = () => {};
@@ -26,7 +26,7 @@ export const GlobalStaesProvider = ({ children }) => {
   };
 
   const refresh = () => {
-    console.log(store);
+ 
     // setStore({ ...store, featureDetails: feature[store.selectedFeature] });
   };
 
@@ -40,8 +40,10 @@ export const GlobalStaesProvider = ({ children }) => {
   };
   const getDetails = (feature, setDetails) => {
     setDetails("");
+   
     try {
       if (feature.title === "Authorized Retailer") {
+     
         setDetails(feature?.address);
       } else {
         Object.keys(feature?.features).map((key) => {
@@ -52,6 +54,7 @@ export const GlobalStaesProvider = ({ children }) => {
       }
     } catch (error) {}
   };
+  const [onAutoSelect, setOnAuto] = UseLocalStorage("selectedDropdown", null);
   const values = useMemo(() => {
     return {
       selectedFeature: store.selectedFeature,
@@ -64,6 +67,8 @@ export const GlobalStaesProvider = ({ children }) => {
       getDetails,
       carId,
       setCarId,
+      onAutoSelect,
+      setOnAuto
     };
   }, [store, store.featureDetails, selectFeature]);
   return (
