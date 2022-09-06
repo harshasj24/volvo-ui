@@ -3,12 +3,9 @@ import PropTypes from "prop-types";
 import {
   DataGrid,
   GridToolbarContainer,
-  GridToolbarFilterButton,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
 import { useLocation, useNavigate } from "react-router-dom";
-import UseLocalStorage from "../../hooks/local-storage";
 import { useGlobal } from "../../context/global-states.provider";
 import { useApi } from "../../context/api-provider";
 import "./grid.css";

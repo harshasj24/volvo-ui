@@ -39,14 +39,7 @@ const EditFeature = ({ handelClose, refresh }) => {
   const [priceValue, setPrice] = useState("");
   const [addPrice, setAddPrice] = useState(false);
   const { vin } = useParams();
-  // const formik = useFormik({
-  //   initialValues: {
-  //     details: details,
-  //   },
-  //   enableReinitialize: true,
 
-  //   onSubmit: (values) => {},
-  // });
   const handleclick = (close) => (e) => {
     e.preventDefault();
     if (close) {
@@ -125,12 +118,15 @@ const EditFeature = ({ handelClose, refresh }) => {
   };
   const updatePrice = async (e) => {
     e.preventDefault();
+    if (dataToUpdate) {
+      let response = await editPrice(dataToUpdate);
 
-    let response = await editPrice(dataToUpdate);
-
-    if (response.status === 200) {
+      if (response.status === 200) {
+        handelClose();
+        getALLMonroneyFeature(vin);
+      }
+    } else {
       handelClose();
-      getALLMonroneyFeature(vin);
     }
   };
 
