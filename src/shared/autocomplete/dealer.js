@@ -70,11 +70,11 @@ const countries = [
   },
   {
     importation_id: 1,
-    title: "7159-Volvo Huston",
+    title: "7159-Volvo Houston",
     port_of_importation: "Stafford, TX",
     delivered_by: "Car",
     delivery_address:
-      "7159-Volvo Houston Park City Volvo 3515 Inwood Road sd, Huston 75209",
+      "7159-Volvo Houston Park City Volvo 3515 Inwood Road sd, Houston 75209",
     car_id: 1,
   },
   {
