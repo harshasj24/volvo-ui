@@ -16,7 +16,6 @@ export const GlobalStaesProvider = ({ children }) => {
       selectedFeature: selected,
       // featureDetails: feature[key],
     });
- 
   };
 
   const setSelect = () => {};
@@ -26,7 +25,6 @@ export const GlobalStaesProvider = ({ children }) => {
   };
 
   const refresh = () => {
- 
     // setStore({ ...store, featureDetails: feature[store.selectedFeature] });
   };
 
@@ -40,10 +38,8 @@ export const GlobalStaesProvider = ({ children }) => {
   };
   const getDetails = (feature, setDetails) => {
     setDetails("");
-   
     try {
       if (feature.title === "Authorized Retailer") {
-     
         setDetails(feature?.address);
       } else {
         Object.keys(feature?.features).map((key) => {
@@ -68,7 +64,7 @@ export const GlobalStaesProvider = ({ children }) => {
       carId,
       setCarId,
       onAutoSelect,
-      setOnAuto
+      setOnAuto,
     };
   }, [store, store.featureDetails, selectFeature]);
   return (

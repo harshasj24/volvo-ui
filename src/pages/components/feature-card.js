@@ -5,7 +5,7 @@ import LongMenu from "./long-menu";
 import { useApi } from "../../context/api-provider";
 const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
   const { getDetails } = useGlobal();
-  const { getVechicleFeature, role, header } = useApi();
+  const { getVechicleFeature, role, header, reset } = useApi();
   const [details, setDetails] = useState("");
 
   const { getMonroneyFeature } = useApi();
@@ -13,11 +13,10 @@ const FeatureCard = ({ title, handelOpen, feature, configurations }) => {
 
   const handelClick = () => {
     selectFeature(feature.title);
-    console.log(feature.title);
     getVechicleFeature(feature.title);
     handelOpen();
-
     title === "Pricing" && getMonroneyFeature(title);
+    reset();
   };
   const ref = useRef(true);
   useEffect(() => {

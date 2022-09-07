@@ -32,7 +32,7 @@ const EditFeature = ({ handelClose, refresh }) => {
     editFeature,
     getALLMonroneyFeature,
     getVechicleFeature,
-    vinLoad
+    vinLoad,
   } = useApi();
   const [details, setDetails] = useState("");
   const { selectedFeature, titleCase, getDetails } = useGlobal();
@@ -46,15 +46,12 @@ const EditFeature = ({ handelClose, refresh }) => {
     e.preventDefault();
     if (close) {
     }
-    setDetails("");
-    // resetSelcted();
     setSelect(true);
-    // setTimeout(() => {
-    //   setSelect(false);
-    // });
-    getALLMonroneyFeature(vin);
-    reset();
     handelClose();
+    getALLMonroneyFeature(vin);
+
+    getDetails(" ", setDetails);
+    reset();
   };
   const handelRest = (e) => {
     e.preventDefault();
@@ -92,7 +89,6 @@ const EditFeature = ({ handelClose, refresh }) => {
     reset();
     editFeature(updatedFeature);
     handelClose();
-    setDetails("");
   };
   const addNewPrice = async (_) => {
     let dataToSend = {
@@ -122,155 +118,155 @@ const EditFeature = ({ handelClose, refresh }) => {
     e.preventDefault();
     if (dataToUpdate) {
       let response = await editPrice(dataToUpdate);
-
     }
-      handelClose();
-      getALLMonroneyFeature(vin);
-    
+    handelClose();
+    getALLMonroneyFeature(vin);
   };
 
   useEffect(() => {
-    setDetails("  ");
     getDetails(feature, setDetails);
+    console.log(feature, "called");
   }, [feature, refresh, addPrice]);
 
   return (
     <>
-    <Card className="edit-card" sx={{ minWidth: "40%" }}>
-      <form action="">
-        <CardHeader
-          title={titleCase(selectedFeature) + " Edit"}
-          subheader={
-            "Please edit " +
-            titleCase(selectedFeature) +
-            " information and update the monroney label"
-          }
-        />
-        <hr style={{ margin: 0 }} />
-        <CardContent>
-          <div className="title"></div>
+      <Card className="edit-card" sx={{ minWidth: "40%" }}>
+        <form action="">
+          <CardHeader
+            title={titleCase(selectedFeature) + " Edit"}
+            subheader={
+              "Please edit " +
+              titleCase(selectedFeature) +
+              " information and update the monroney label"
+            }
+          />
+          <hr style={{ margin: 0 }} />
+          <CardContent>
+            <div className="title"></div>
 
-          {selectedFeature === "Pricing" ? (
-            <div className="pricing-field w-100 ">
-              <div className="pricing-field__tabel">
-                <TableContainer className="scroll" sx={{ height: "100%" }}>
-                  <Table
-                    stickyHeader
-                    sx={{
-                      minWidth: "40vw",
-                      border: "none",
-                      outline: "none",
-                    }}
-                  >
-                    <TableHead>
-                      <TableRow>
-                        <TableCell className="tabel__cell">
-                          Item description
-                        </TableCell>
-                        <TableCell className="tabel__cell">Price</TableCell>
-                        <TableCell className="tabel__cell">Actions</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      <PricingTabel
-                        feature={feature?.features?.specialItems}
-                        dataAfterChange={dataAfterChange}
-                      />
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </div>
+            {selectedFeature === "Pricing" ? (
+              <div className="pricing-field w-100 ">
+                <div className="pricing-field__tabel">
+                  <TableContainer className="scroll" sx={{ height: "100%" }}>
+                    <Table
+                      stickyHeader
+                      sx={{
+                        minWidth: "40vw",
+                        border: "none",
+                        outline: "none",
+                      }}
+                    >
+                      <TableHead>
+                        <TableRow>
+                          <TableCell className="tabel__cell">
+                            Item description
+                          </TableCell>
+                          <TableCell className="tabel__cell">Price</TableCell>
+                          <TableCell className="tabel__cell">Actions</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        <PricingTabel
+                          feature={feature?.features?.specialItems}
+                          dataAfterChange={dataAfterChange}
+                        />
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </div>
 
-              <div className="add  w-100  mt-3">
-                <Typography variant="p" fontWeight={"bold"}>
-                  Add Item
-                </Typography>
+                <div className="add  w-100  mt-3">
+                  <Typography variant="p" fontWeight={"bold"}>
+                    Add Item
+                  </Typography>
 
-                <div className="actions mt-3">
-                  <TextField
-                    variant="outlined"
-                    sx={{ width: "50%" }}
-                    size="small"
-                    onChange={(e) => setDescription(e.target.value)}
-                    label={"Item Description"}
-                    value={description}
-                  />
-                  <TextField
-                    className="w-25 mx-2"
-                    variant="outlined"
-                    size="small"
-                    label={"Price"}
-                    onChange={(e) => setPrice(e.target.value)}
-                    value={priceValue}
-                  />
-                  <Button
-                    sx={{ padding: 0.6 }}
-                    variant="outlined"
-                    size="medium"
-                    onClick={addNewPrice}
-                    disabled={!priceValue && !description}
-                  >
-                    <AddOutlinedIcon fontSize="1" className="m-0" />{" "}
-                    <span className="ms-2">Add</span>
-                  </Button>
+                  <div className="actions mt-3">
+                    <TextField
+                      variant="outlined"
+                      sx={{ width: "50%" }}
+                      size="small"
+                      onChange={(e) => setDescription(e.target.value)}
+                      label={"Item Description"}
+                      value={description}
+                    />
+                    <TextField
+                      className="w-25 mx-2"
+                      variant="outlined"
+                      size="small"
+                      label={"Price"}
+                      onChange={(e) => setPrice(e.target.value)}
+                      value={priceValue}
+                    />
+                    <Button
+                      sx={{ padding: 0.6 }}
+                      variant="outlined"
+                      size="medium"
+                      onClick={addNewPrice}
+                      disabled={!priceValue && !description}
+                    >
+                      <AddOutlinedIcon fontSize="1" className="m-0" />{" "}
+                      <span className="ms-2">Add</span>
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <div>
-              <TextField
-                variant="outlined"
-                onChange={handleChange}
-                className="mt-3 w-100 feature-details"
-                value={details}
-                multiline
-                minRows={6}
-                maxRows={10}
-                label="Details"
-                InputLabelProps={{ shrink: true }}
-                sx={{
-                  border: "none",
-                  outline: "none",
-                }}
-              />
-            </div>
-          )}
-        </CardContent>
-        <hr />
-        <CardActions className="pb-4 px-3">
-          <Button
-            type="buton"
-            onClick={handelRest}
-            variant="outlined"
-            size="small"
-            color="primary"
-          >
-            Reset
-          </Button>
-          <Button
-            variant="outlined"
-            size="small"
-            type="button"
-            className="ms-auto"
-            onClick={handleclick(true)}
-            color="primary"
-          >
-            Cancel
-          </Button>
-          <Button
-            type="submit"
-            variant="contained"
-            className=""
-            size="small"
-            color="primary"
-            onClick={selectedFeature === "Pricing" ? updatePrice : handleSubmit}
-          >
-            Update
-          </Button>
-        </CardActions>
-      </form>
-    </Card>
-   {vinLoad && <Loader open={vinLoad}/>}
+            ) : (
+              <div>
+                <TextField
+                  variant="outlined"
+                  onChange={handleChange}
+                  className="mt-3 w-100 feature-details"
+                  value={details}
+                  multiline
+                  minRows={6}
+                  maxRows={10}
+                  label="Details"
+                  InputLabelProps={{ shrink: true }}
+                  sx={{
+                    border: "none",
+                    outline: "none",
+                  }}
+                />
+              </div>
+            )}
+          </CardContent>
+          <hr />
+          <CardActions className="pb-4 px-3">
+            <Button
+              type="buton"
+              onClick={handelRest}
+              variant="outlined"
+              size="small"
+              color="primary"
+            >
+              Reset
+            </Button>
+            <Button
+              variant="outlined"
+              size="small"
+              type="button"
+              className="ms-auto"
+              onClick={handleclick(true)}
+              color="primary"
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              className=""
+              size="small"
+              color="primary"
+              onClick={
+                selectedFeature === "Pricing" ? updatePrice : handleSubmit
+              }
+            >
+              Update
+            </Button>
+          </CardActions>
+        </form>
+      </Card>
+      {vinLoad && <Loader open={vinLoad} />}
     </>
   );
 };

@@ -71,6 +71,7 @@ const AdminRules = () => {
       console.log(values);
       updateConfiguration(values);
       handleClose();
+      formik.resetForm();
     },
   });
 
@@ -211,10 +212,7 @@ const AdminRules = () => {
                   name="rule_definition"
                   setFieldValue={formik.setFieldValue}
                   defaultValue={formik.values?.rule_definition}
-                  options={[
-                    "Equals",
-                    "Not equals",
-                  ]}
+                  options={["Equals", "Not equals"]}
                 />
                 <BasicSelect
                   width={197}
@@ -229,12 +227,12 @@ const AdminRules = () => {
                 <p>Then</p>
               </div>
               <div className="body-text-fields3 mt-3">
-              <BasicSelect
+                <BasicSelect
                   width={197}
                   title={"Action"}
                   name={"is_edit"}
                   setFieldValue={formik.setFieldValue}
-                  defaultValue={formik.values?.is_action}
+                  defaultValue={formik.values?.is_edit}
                   options={["Editable", "Not editable"]}
                 />
                 {/* <BasicSelect
